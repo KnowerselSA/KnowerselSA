@@ -1,9 +1,8 @@
-
 // loading content after clicking the arrow on home page
-    const arrow = document.querySelector('.img-arrow');
+const arrow = document.querySelector(".img-arrow");
 
-    arrow.addEventListener('click', () => {
-        const html = `<section class="home-para">
+function loadHTMLonce() {
+  const html = `<section class="home-para">
         <div class="home-para-container">
             <div class="para-1">
                 <p>
@@ -58,36 +57,38 @@
                 &copy;2025 LOGO. All Rights Reserved.
             </div>
         </div>
-    </footer> 
-       `
-
-        const load_after = document.getElementById('loaded-content');
-        load_after.innerHTML += html;
-        window.scrollBy({
-            top: 800, // Gets the full height of the page
-            behavior: 'smooth'
-        });
+    </footer> `;
+    console.log("loading html")
+    const load_after = document.getElementById("loaded-content");
+    load_after.innerHTML += html;
+    window.scrollBy({
+        top: 800, // Gets the full height of the page
+        behavior: "smooth",
     });
+    arrow.removeEventListener("click", loadHTMLonce);
+}
+arrow.addEventListener("click", loadHTMLonce);
+//***************** */ end of arrow *******************
 
+// animation for navabr after scrolling
+window.addEventListener("scroll", function () {
+  const navbar = document.getElementById("nav");
+  const scrollPosition = window.scrollY;
 
-    // animation for navabr after scrolling
-    window.addEventListener('scroll', function () {
-        const navbar = document.getElementById('nav');
-        const scrollPosition = window.scrollY;
+  // Define the scroll threshold (e.g., 50 pixels)
+  if (scrollPosition > 50) {
+    // Add the 'scrolled' class if the user has scrolled past the threshold
+    navbar.classList.add("scrolled");
+  } else {
+    // Remove the 'scrolled' class if the user scrolls back to the top
+    navbar.classList.remove("scrolled");
+  }
+})
+// *****************end ******************************
 
-        // Define the scroll threshold (e.g., 50 pixels)
-        if (scrollPosition > 50) {
-            // Add the 'scrolled' class if the user has scrolled past the threshold
-            navbar.classList.add('scrolled');
-        } else {
-            // Remove the 'scrolled' class if the user scrolls back to the top
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    // animation for intro text
-    setTimeout(() => {
-        const text = document.querySelector(".text-content")
-        text.style.color = "##6666FF";
-    }, 3000);
-
+// animation for intro text
+setTimeout(() => {
+  const text = document.querySelector(".text-content");
+  text.style.color = "##6666FF";
+}, 3000);
+// *******************end*****************************
