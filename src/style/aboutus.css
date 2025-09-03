@@ -262,7 +262,17 @@ body {
   color: white;
   text-align: center;
   padding: 2rem;
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
+  border-top: 5px solid red; /* Line above footer */
+  animation: lineColorChange 5s infinite alternate;
+}
+
+@keyframes lineColorChange {
+  0%   { border-top-color: red; }
+  25%  { border-top-color: orange; }
+  50%  { border-top-color: yellow; }
+  75%  { border-top-color: limegreen; }
+  100% { border-top-color: blue; }
 }
 
 .footer-content {
