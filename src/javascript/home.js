@@ -1,3 +1,10 @@
+// INTRO TEXT ANIMATION
+setTimeout(() => {
+    const text = document.getElementById("bg-text");
+    text.classList.add("color-changed")
+
+},3000) ;
+
 // loading content after clicking the arrow on home page
 const arrow = document.querySelector(".img-arrow");
 
@@ -19,8 +26,7 @@ function loadHTMLonce() {
                 <h1>Check out
                     <a href="#">
                         <p>What We're Working On</p>
-                        <img src="assets/right-blue-arrow.png" alt="redirect-arrow">
-                        <img src="assets/right-orange-arrow.png" alt="">
+                        <img src="assets/rightarrow.png" alt="redirect-arrow">
                     </a>
                 </h1>
             </div>
@@ -85,10 +91,3 @@ window.addEventListener("scroll", function () {
   }
 })
 // *****************end ******************************
-
-// animation for intro text
-setTimeout(() => {
-  const text = document.querySelector(".text-content");
-  text.style.color = "##6666FF";
-}, 3000);
-// *******************end*****************************
