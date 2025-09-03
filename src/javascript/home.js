@@ -26,7 +26,7 @@ function loadHTMLonce() {
                 <h1>Check out
                     <a href="#">
                         <p>What We're Working On</p>
-                        <img src="assets/rightarrow.png" alt="redirect-arrow">
+                        <img src="./src/assets/rightarrow.png" alt="redirect-arrow">
                     </a>
                 </h1>
             </div>
@@ -47,15 +47,15 @@ function loadHTMLonce() {
             </div>
             <div class="socials">
                 <ul>
-                    <li class="socials-items"><a href="#"><img src="assets/social-icons/linkedin.png"
+                    <li class="socials-items"><a href="#"><img src="./src/assets/social-icons/linkedin.png"
                                 alt="Linkedin"></a></li>
-                    <li class="socials-items"><a href="#"><img src="assets/social-icons/youtube.png" alt="youtube"></a>
+                    <li class="socials-items"><a href="#"><img src="./src/assets/social-icons/youtube.png" alt="youtube"></a>
                     </li>
-                    <li class="socials-items"><a href="#"><img src="assets/social-icons/twitter.png" alt="Twitter"></a>
+                    <li class="socials-items"><a href="#"><img src="./src/assets/social-icons/twitter.png" alt="Twitter"></a>
                     </li>
-                    <li class="socials-items"><a href="#"><img src="assets/social-icons/insta.png" alt="Instagram"></a>
+                    <li class="socials-items"><a href="#"><img src="./src/assets/social-icons/insta.png" alt="Instagram"></a>
                     </li>
-                    <li class="socials-items"><a href="#"><img src="assets/social-icons/facebook.png"
+                    <li class="socials-items"><a href="#"><img src="./src/assets/social-icons/facebook.png"
                                 alt="Facebook"></a></li>
                 </ul>
             </div>
