@@ -81,11 +81,13 @@ body {
 }
 
 .title-purple {
-    color: #7c4dff;
+    color: #826CF5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .title-green {
-    color: #4caf50;
+    color: #6FEA90;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .content-wrapper {
@@ -99,23 +101,24 @@ body {
 .left-content {
     flex: 1;
     padding-right: 20px;
+    margin-top: 50px;
 }
 
 .description {
     font-size: 18px;
     line-height: 1.6;
-    color: #333;
+    color: black;
     margin-bottom: 30px;
 }
 
 .contact-info {
     font-size: 18px;
     line-height: 1.6;
-    color: #333;
+    color: black;
 }
 
 .email-link {
-    color: #333;
+    color: black;
     text-decoration: underline;
 }
 
@@ -139,20 +142,21 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background: #bbd0e6;
-    padding: 2rem;
+    background: white;
+    padding: 1rem;
     border-radius: 10px;
 }
 
 .form-input,
 .form-textarea {
     padding: 15px 60px;
-    border: none;
+    border: 1px solid black;
     border-radius: 25px;
     background-color: rgba(255, 255, 255, 0.8);
     font-size: 16px;
     outline: none;
     transition: background-color 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .form-input:focus,
@@ -170,20 +174,21 @@ body {
     background-color: #333;
     color: white;
     border: none;
-    padding: 15px 30px;
+    padding: 10px 30px;
     border-radius: 25px;
     font-size: 16px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 50px;
     align-self: flex-start;
     transition: background-color 0.3s ease;
+    margin: 0 auto;
 }
 
 .send-button:hover {
-    background-color: #555;
+    background-color: #6d6a6a;
 }
 
 .arrow {

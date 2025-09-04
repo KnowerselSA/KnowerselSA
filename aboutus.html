@@ -6,22 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGO - Robotics Company</title>
     <!-- Added external CSS file link -->
-    <link rel="stylesheet" href="src\style\aboutus.css">
+    <link rel="stylesheet" href="src/style/aboutus.css">
+    <link rel="stylesheet" href="src/style/contact.css">
+    <!-- <link rel="stylesheet" href="src/style/home.css"> -->
+
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo">LOGO</div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-link" onclick="showPage('home')">Home</a></li>
-                <li><a href="#" class="nav-link" onclick="showPage('products')">Products</a></li>
-                <li><a href="#" class="nav-link" onclick="showPage('about')">About Us</a></li>
-                <li><a href="contact.html" class="nav-link" onclick="showPage('contact')">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <nav class="nav" id="nav">
+            <div class="nav-container">
+                <!-- lOGO  -->
+                <div class="nav-left-section">
+                    <img src="" alt="logo">
+                </div>
+
+                <!-- NAVBAR ITEMS  -->
+                <div class="nav-right-section">
+                    <ul class="nav_right-list">
+                        <li class="list_item" id="list-item"><a href="#">Products</a></li>
+                        <li class="list_item" id="list-item"><a href="aboutus.html">About</a></li>
+                        <li class="list_item" id="list-item"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
 
     <!-- Home/Who We Are Section -->
     <section id="home" class="page-section active">
@@ -42,7 +54,8 @@
             </div>
             <div class="about-text">
                 <p>
-                    To contribute in providing robotic companions in Industries, Society, Homes and in future even Space.
+                    To contribute in providing robotic companions in Industries, Society, Homes and in future even
+                    Space.
                     We envision a world evolving into a new era of seamless human-robot collaboration, unlocking greater
                     possibilities and empowering people to achieve more than ever before.
                     <br>
@@ -53,8 +66,9 @@
                     Our core values lie in Bold R&D, and crafting meaningful products that serve.
                     <br>
                     <br>
-                    If you are interested in working with us and part of our Journey — Let’s connect.
-                    </p>
+                    If you are interested in working with us and part of our Journey —<span
+                        style="color: #FFD757; cursor: pointer;" >Let’s connect</span>.
+                </p>
 
             </div>
 
@@ -63,26 +77,129 @@
 
     </section>
 
-   
-   
-   
+   <!-- ARROW SECTION -->
+<section class="intro-section">
+    <div class="content-load-arrow" id="arrow">
+        <div class="img-arrow">
+            <img src="./src/assets/down-arrow.png" alt="down arrow">
+        </div>
+    </div>
+</section>
+
+
+<!-- Main content (hidden initially) -->
+<main class="main-content">
+    <div class="container">
+        <h1 class="title">
+            <span class="title-purple">Get in Touch</span>
+            <span class="title-green">With Us</span>
+        </h1>
+
+        <div class="content-wrapper">
+            <div class="left-content">
+                <p class="description">
+                    If you'd like to join the team,<br>
+                    partner with us, or have any<br>
+                    other general inquiries,
+                </p>
+                <p class="contact-info">
+                    Please Connect Us Through :<br>
+                    <a href="mailto:sachinkandpal5@gmail.com" class="email-link">sachinkandpal5@gmail.com</a>
+                </p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="right-content">
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Name*" class="form-input" required>
+                    <input type="email" placeholder="Email*" class="form-input" required>
+                    <input type="tel" placeholder="Phone No. (Optional)" class="form-input">
+                    <textarea placeholder="Message" class="form-textarea" rows="6"></textarea>
+                    <button type="submit" class="send-button">
+                        Send
+                        <span class="arrow">→</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+
+
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="logo">LOGO</div>
-            <div class="footer-links">
-                <a href="index.html" onclick="showPage('home')">Home</a>
-                <a href="#" onclick="showPage('products')">Products</a>
-                <a href="#" onclick="showPage('about')">About Us</a>
-                <a href="contact.html" onclick="showPage('contact')">Get in Touch</a>
-            </div>
-            <div>© 2025 LOGO. All Rights Reserved.</div>
+    <footer>
+    <div class="footer-container">
+        <div class="logo">Logo
+            <img src="" alt="logo-img">
         </div>
-    </footer>
+
+        <div class="menu">
+            <ul>
+                <li class="menu-item"><a href="index.html">Home</a> </li>
+                <li class="menu-item"><a href="#">Product</a> </li>
+                <li class="menu-item"><a href="#">About us</a></li>
+                <li class="menu-item"><a href="#">Get in Touch</a></li>
+            </ul>
+        </div>
+        <div class="socials">
+            <ul>
+                <li class="socials-items"><a href="#"><img src="src/assets/social-icons/linkedin.png" alt="Linkedin"></a></li>
+                <li class="socials-items"><a href="#"><img src="src/assets/social-icons/youtube.png" alt="youtube"></a></li>
+                <li class="socials-items"><a href="#"><img src="src/assets/social-icons/twitter.png" alt="Twitter"></a></li>
+                <li class="socials-items"><a href="#"><img src="src/assets/social-icons/insta.png" alt="Instagram"></a></li>
+                <li class="socials-items"><a href="#"><img src="src/assets/social-icons/facebook.png" alt="Facebook"></a></li>
+            </ul>
+        </div>
+        <div class="copyright">
+            &copy;2025 LOGO. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
 
     <!-- Added external JavaScript file link -->
-    <script src="src\javascript\aboutus.js"></script>
+    <script src="src/javascript/aboutus.js"></script>
+
+
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const arrow = document.getElementById("arrow");
+    const main = document.querySelector(".main-content");
+
+    if (main) {
+        main.classList.remove("show");
+        main.style.display = "none";
+    }
+
+    if (!arrow || !main) return;
+
+    arrow.addEventListener("click", () => {
+        main.style.display = "block";
+        requestAnimationFrame(() => {
+            main.classList.add("show");
+        });
+        setTimeout(() => {
+            main.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 60);
+
+        arrow.style.display = "none";
+    });
+});
+</script>
+
+
+
+    <script src="src/javascript/home.js"></script>
+    <script src="src/javascript/contact.js"></script>
+
+
+
+
 </body>
 
 </html>
