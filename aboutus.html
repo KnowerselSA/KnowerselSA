@@ -78,21 +78,19 @@
     </section>
 
    <!-- ARROW SECTION -->
-<section class="intro-section">
     <div class="content-load-arrow" id="arrow">
         <div class="img-arrow">
-            <img src="./src/assets/down-arrow.png" alt="down arrow">
+            <img src="./src/assets/down-arrow1.png" alt="down arrow">
         </div>
     </div>
-</section>
+
 
 
 <!-- Main content (hidden initially) -->
 <main class="main-content">
     <div class="container">
         <h1 class="title">
-            <span class="title-purple">Get in Touch</span>
-            <span class="title-green">With Us</span>
+           Get in Touch With Us
         </h1>
 
         <div class="content-wrapper">
@@ -113,12 +111,14 @@
             <div class="right-content">
                 <form class="contact-form" id="contactForm">
                     <input type="text" placeholder="Name*" class="form-input" required>
-                    <input type="email" placeholder="Email*" class="form-input" required>
+                    <input type="email" placeholder="Email*" class="form-input email" required>
                     <input type="tel" placeholder="Phone No. (Optional)" class="form-input">
                     <textarea placeholder="Message" class="form-textarea" rows="6"></textarea>
                     <button type="submit" class="send-button">
-                        Send
-                        <span class="arrow">→</span>
+                       <span class="send-txt">Send</span>
+                        <span class="arrow">
+                            <img src="./src/assets/about-us/send.png" alt="">
+                        </span>
                     </button>
                 </form>
             </div>
@@ -132,8 +132,8 @@
 
 
     <!-- Footer -->
-    <footer>
-    <div class="footer-container">
+    <footer class="footer">
+    <div class="footer-container active">
         <div class="logo">Logo
             <img src="" alt="logo-img">
         </div>
@@ -161,45 +161,11 @@
     </div>
 </footer>
 
+</body>
 
     <!-- Added external JavaScript file link -->
     <script src="src/javascript/aboutus.js"></script>
-
-
-    <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const arrow = document.getElementById("arrow");
-    const main = document.querySelector(".main-content");
-
-    if (main) {
-        main.classList.remove("show");
-        main.style.display = "none";
-    }
-
-    if (!arrow || !main) return;
-
-    arrow.addEventListener("click", () => {
-        main.style.display = "block";
-        requestAnimationFrame(() => {
-            main.classList.add("show");
-        });
-        setTimeout(() => {
-            main.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 60);
-
-        arrow.style.display = "none";
-    });
-});
-</script>
-
-
-
     <script src="src/javascript/home.js"></script>
     <script src="src/javascript/contact.js"></script>
-
-
-
-
-</body>
 
 </html>

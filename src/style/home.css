@@ -70,12 +70,6 @@ backdrop-filter: blur(16px);
 
 }
 
-.list_item:active {
-    background-color: black;
-    padding: 0.5rem;
-    border-radius: 24px;
-}
-
 
 .list_item a:hover {
     border-radius: 2px;

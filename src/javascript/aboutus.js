@@ -60,3 +60,32 @@ function toggleMobileMenu() {
     navLinks.classList.toggle("active")
   }
 }
+// AFTER ARROW CLICKING EFFECT 
+document.addEventListener("DOMContentLoaded", () => {
+    const arrow = document.getElementById("arrow");
+    const main = document.querySelector(".main-content");
+    const footer = document.querySelector(".footer");
+
+    if (main) {
+        main.classList.remove("show");
+        main.style.display = "none";
+        footer.style.display = "none"
+    }
+
+    if (!arrow || !main) return;
+
+    arrow.addEventListener("click", () => {
+        footer.style.display = "grid"
+        main.style.display = "block";
+        requestAnimationFrame(() => {
+            main.classList.add("show");
+        });
+        setTimeout(() => {
+            main.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 60);
+
+        arrow.style.display = "none";
+    });
+});
+
+

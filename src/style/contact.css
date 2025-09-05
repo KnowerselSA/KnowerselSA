@@ -6,7 +6,6 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #f0f0f0 0%, #e0e0e0 30%, #c0c0c0 60%, #808080 100%);
     min-height: 100vh;
 }
 
@@ -65,7 +64,7 @@ body {
 
 .main-content {
     padding: 60px 20px;
-    background-color: white;
+    background:linear-gradient(to bottom, #ffffff 15%, #454545ba 85%);
 }
 
 .container {
@@ -74,20 +73,20 @@ body {
 }
 
 .title {
+   background-image: linear-gradient(to right, #826CF5 25%, #6FEA90
+);
+  
+  /* Clip the background to the shape of the text */
+  -webkit-background-clip: text; /* For WebKit browsers like Chrome and Safari */
+  background-clip: text;
+
+  /* Make the text transparent so the background can show through */
+  -webkit-text-fill-color: transparent; /* For WebKit browsers */
+  color: transparent; /* Fallback for other browsers */
     text-align: center;
     font-size: 48px;
     font-weight: normal;
     margin-bottom: 60px;
-}
-
-.title-purple {
-    color: #826CF5;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.title-green {
-    color: #6FEA90;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .content-wrapper {
@@ -128,7 +127,7 @@ body {
 
 .divider {
     width: 2px;
-    height: 300px;
+    height: 420px;
     background-color: #666;
     margin: 0 20px;
 }
@@ -142,26 +141,30 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background: white;
     padding: 1rem;
     border-radius: 10px;
 }
 
 .form-input,
 .form-textarea {
+    text-transform: capitalize;
+    width: 400px;
     padding: 15px 60px;
     border: 1px solid black;
     border-radius: 25px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(209, 209, 209, 0.8);
     font-size: 16px;
     outline: none;
     transition: background-color 0.3s ease;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+.email{
+    text-transform: lowercase;
+}
 .form-input:focus,
 .form-textarea:focus {
     background-color: rgba(255, 255, 255, 0.95);
+     
 }
 
 .form-textarea {
@@ -171,24 +174,27 @@ body {
 }
 
 .send-button {
-    background-color: #333;
+    background-color: #000000;
     color: white;
     border: none;
-    padding: 10px 30px;
+    padding: 8px 30px;
     border-radius: 25px;
     font-size: 16px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50px;
-    align-self: flex-start;
+    gap: 80px;
     transition: background-color 0.3s ease;
     margin: 0 auto;
 }
-
+.send-txt{
+    font-size: 20px;
+}
 .send-button:hover {
-    background-color: #6d6a6a;
+    transition: all 0.3s ease;
+    transform: scale(1.12);
+    
 }
 
 .arrow {
