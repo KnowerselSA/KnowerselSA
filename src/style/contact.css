@@ -10,57 +10,9 @@ body {
 }
 
 
-/* Navbar Styles */
-.header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    background-color: #121010;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.header.scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-}
-
-.header.scrolled .nav-link {
-    color: rgb(0, 0, 0);
-}
-
-.header.scrolled .logo {
-    color: rgb(12, 10, 10);
-}
 
 
-.logo {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-}
 
-.nav {
-    display: flex;
-    gap: 30px;
-}
-
-.nav-link {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 8px 0px;
-    position: relative;
-}
-
-
-.nav-link:hover {
-    color: #ccc;
-}
 
 .main-content {
     padding: 60px 20px;
@@ -170,7 +122,7 @@ body {
 .form-textarea {
     border-radius: 20px;
     resize: vertical;
-    min-height: 120px;
+    min-height: 220px;
 }
 
 .send-button {
@@ -240,3 +192,175 @@ body {
         font-size: 16px;
     }
 }
+
+
+/* NAVABR STYLE  */
+
+.nav {
+    z-index: 3;
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    width: 100%;
+    height: 5rem;
+    align-items: center;
+    align-content: center;
+    transition: all 0.5s ease;
+    justify-content: space-between;
+}
+
+#nav.scrolled {
+    /* background: linear-gradient(rgba(172, 172, 172, 0.780), rgba(21, 21, 21, 0.700)); */
+background: rgba(17, 17, 17, 0.3);
+backdrop-filter: blur(16px);
+
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.nav-left-section {
+    padding-right: 2rem;
+}
+
+.nav-right-section ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    font-size: 20px;
+    
+    
+
+}
+
+.nav_right-list li {
+    font-weight: bold;
+    padding: 0rem 2rem;
+
+}
+
+.list_item:hover {
+    transform: scale(1.12);
+    transition: all 0.3s ease;
+
+}
+
+.list_item a {
+    text-decoration: none;
+    color: black;
+
+}
+
+
+.list_item a:hover {
+    border-radius: 2px;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(45deg,
+            #ff00ff,
+            /* Neon Pink */
+            #39ff14,
+            /* Neon Green */
+            #00b3ff
+            /* Neon Blue */
+        );
+    border-image-slice: 1;
+}
+/* NAVBAR STYLE END */
+
+
+/* FOOTER STYLE */
+footer {
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: 2px solid #D2005A;
+}
+
+.footer-container {
+    color: white;
+    background-color: rgb(0, 0, 0);
+    padding: 2rem;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "logo menu copyright"
+        "logo socials copyright";
+}
+
+.logo {
+    grid-area: logo;
+}
+
+.menu {
+    grid-area: menu;
+
+}
+
+.menu ul,
+.socials ul {
+    font-size: 18px;
+    justify-content: center;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu ul {
+    gap: 4rem;
+    justify-content: space-around;
+
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: rgb(212, 212, 212);
+}
+
+.menu-item:hover,
+.socials-items:hover {
+    transform: scale(1.12);
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(45deg,
+            #ff00ff,
+            /* Neon Pink */
+            #39ff14,
+            /* Neon Green */
+            #00b3ff
+            /* Neon Blue */
+        );
+    border-image-slice: 1;
+    transition: all 0.2s ease;
+}
+
+.socials ul {
+    gap: 2rem;
+}
+
+.socials {
+    grid-area: socials;
+    align-items: center;
+    padding-top: 2rem;
+
+}
+
+.socials-items img {
+    width: 24px;
+    height: 24px;
+}
+
+.copyright {
+     color: rgb(212, 212, 212);
+    padding: 1.2rem;
+    grid-area: copyright;
+    text-align: center;
+    font-size: 12px;
+    justify-self:end;
+    align-self:self-end ;
+    
+}
+/* FOOTER STYLE END */
