@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     padding: 0;
@@ -11,6 +12,7 @@ body {
 /* NAVABR STYLE  */
 
 .nav {
+
     z-index: 3;
     position: fixed;
     font-family: Arial, Helvetica, sans-serif;
@@ -88,18 +90,21 @@ backdrop-filter: blur(16px);
 
 /* INTRO STYLE */
 .intro-section {
-  margin: 2rem auto 0rem auto;
-  padding: 0;
-  min-width: 100vw;
+margin-top: 3rem;
+  min-width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-image: url("../assets/intro-bg.png");
-  background-size: cover;
+  background-image: url("../assets/Home\ page-1.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position: center;
+  box-sizing: border-box;
+/* 
   position: relative;
-  overflow: hidden;
+  overflow: hidden; */
 }
 
 /* BACKGROUND TEXT */
@@ -151,7 +156,8 @@ backdrop-filter: blur(16px);
 }
 
 #loaded-content {
-    background: linear-gradient(to bottom, #ffffff, #333333);
+    width: 100%;
+    background: linear-gradient( #ffffff 70% , #000000 );
     color: black;
 }
 
@@ -173,7 +179,7 @@ backdrop-filter: blur(16px);
 .home-para {
     padding: 2rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top: 11rem;
+    /* margin-top: 11rem; */
     margin-left: auto;
     margin-right: auto;
     justify-items: center;
@@ -214,8 +220,8 @@ backdrop-filter: blur(16px);
     align-items: center;
 }
 
-.redirect-para a:hover {
-    transform: scale(1.12);
+.redirect-para img:hover {
+    transform: scale(1.5);
     transition: all 0.3s ease;
 }
 
@@ -233,18 +239,22 @@ backdrop-filter: blur(16px);
 /* FOOTER STYLE */
 footer {
     font-family: Arial, Helvetica, sans-serif;
-    border-top: 2px solid #D2005A;
+    border-top: 2px solid red;
+   
 }
 
 .footer-container {
-    color: white;
+    padding: 1rem;
+  color: white;
     background-color: rgb(0, 0, 0);
-    padding: 2rem;
+    /* padding: 2rem; */
     display: grid;
     align-items: center;
+    align-content: center;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: auto auto;
-    grid-template-areas: "logo menu copyright"
+    grid-template-areas:
+        "logo menu copyright"
         "logo socials copyright";
 }
 
@@ -259,6 +269,7 @@ footer {
 
 .menu ul,
 .socials ul {
+ 
     font-size: 18px;
     justify-content: center;
     list-style: none;
@@ -267,6 +278,7 @@ footer {
 }
 
 .menu ul {
+    
     gap: 4rem;
     justify-content: space-around;
 
@@ -300,13 +312,13 @@ footer {
 .socials {
     grid-area: socials;
     align-items: center;
-    padding-top: 2rem;
 
 }
 
 .socials-items img {
     width: 24px;
     height: 24px;
+    
 }
 
 .copyright {

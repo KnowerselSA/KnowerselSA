@@ -41,10 +41,6 @@ backdrop-filter: blur(16px);
 
 }
 
-.nav-left-section {
-    padding-right: 77rem;
-}
-
 .nav-right-section ul {
     display: flex;
     flex-direction: row;
@@ -123,7 +119,14 @@ backdrop-filter: blur(16px);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 500;
   margin-bottom: 1rem;
-  color: #FF9933;
+  background-image: linear-gradient(to right , #FF9933 , #ffffff ,#23E80E 15%);
+  
+  /* Clip the background to the shape of the text */
+  -webkit-background-clip: text; /* For WebKit browsers like Chrome and Safari */
+  background-clip: text;
+  /* Make the text transparent so the background can show through */
+  -webkit-text-fill-color: transparent; /* For WebKit browsers */
+  color: transparent;
   display: flex;
   justify-content: flex-start;
 }
@@ -133,7 +136,15 @@ backdrop-filter: blur(16px);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 500;
   margin-bottom: 1rem;
-  color: #a3a3ff;
+ background-image: linear-gradient(to right , #3939FF
+ , #ffffff  25%);
+  
+  /* Clip the background to the shape of the text */
+  -webkit-background-clip: text; /* For WebKit browsers like Chrome and Safari */
+  background-clip: text;
+  /* Make the text transparent so the background can show through */
+  -webkit-text-fill-color: transparent; /* For WebKit browsers */
+  color: transparent;
   display: flex;
   justify-content: flex-start;
 }
