@@ -69,7 +69,7 @@ backdrop-filter: blur(16px);
 }
 /* NAVBAR STYLE END */
 
-/* Main Style Starts */
+
 
 /* MAIN SECTION */
 .projects-section {
@@ -101,11 +101,13 @@ backdrop-filter: blur(16px);
 }
 
 .project-image {
-  width: 500px;
-  max-width: 80vw;
-  height: auto;
+  height: 420px;            /* Ensures both appear same height */
+  width: auto;              /* Keeps proportions natural */
+  object-fit: contain;      /* Prevents distortion */
   transition: transform 0.3s ease;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.1));
 }
+
 
 .project-image:hover {
   transform: scale(1.05);
@@ -152,7 +154,7 @@ footer {
 
 .menu {
     grid-area: menu;
-
+    
 }
 
 .menu ul,
