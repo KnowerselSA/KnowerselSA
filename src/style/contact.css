@@ -244,7 +244,7 @@ backdrop-filter: blur(16px);
 
 .nav_right-list li {
     font-weight: bold;
-    padding: 0rem 2rem;
+    padding: 0rem 1rem;
 
 }
 
@@ -264,7 +264,7 @@ backdrop-filter: blur(16px);
 .list_item a:hover {
     border-radius: 2px;
     border-bottom: 3px solid transparent;
-    border-image: linear-gradient(to right ,#FF4750 ,#9B9BFF ) 1;
+    border-image: linear-gradient(105deg ,#6666FF,#FF4750 ,#6666FF ) 1;
 }
 /* NAVBAR STYLE END */
 

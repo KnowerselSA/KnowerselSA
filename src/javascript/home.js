@@ -1,9 +1,9 @@
-// INTRO TEXT ANIMATION
-setTimeout(() => {
-    const text = document.getElementById("bg-text");
-    text.classList.add("color-changed")
+// // INTRO TEXT ANIMATION
+// setTimeout(() => {
+//     const text = document.getElementById("bg-text");
+//     text.classList.add("color-changed")
 
-},3000) ;
+// },3000) ;
 
 // animation for navabr after scrolling
 window.addEventListener("scroll", function () {
