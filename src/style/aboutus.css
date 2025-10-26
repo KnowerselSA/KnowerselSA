@@ -10,8 +10,8 @@ body {
   color: black;
 }
 
-/* Navbar Styles */
 .nav {
+
     z-index: 3;
     position: fixed;
     font-family: Arial, Helvetica, sans-serif;
@@ -27,7 +27,7 @@ body {
 
 #nav.scrolled {
     /* background: linear-gradient(rgba(172, 172, 172, 0.780), rgba(21, 21, 21, 0.700)); */
-   background: rgba(17, 17, 17, 0.3);
+background: rgba(17, 17, 17, 0.3);
 backdrop-filter: blur(16px);
 
 }
@@ -37,21 +37,25 @@ backdrop-filter: blur(16px);
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /* padding: 0 0rem; */
 
+}
+
+.nav-left-section {
+    padding-right: 2rem;
 }
 
 .nav-right-section ul {
     display: flex;
     flex-direction: row;
     list-style: none;
-
     font-size: 20px;
+    
+    
 
 }
 
 .nav_right-list li {
-        font-weight: bold;
+    font-weight: bold;
     padding: 0rem 2rem;
 
 }
@@ -68,24 +72,18 @@ backdrop-filter: blur(16px);
 
 }
 
-.list_item:active {
-    background-color: black;
-    padding: 0.5rem;
-    border-radius: 24px;
-}
-
 
 .list_item a:hover {
+    border-radius: 2px;
     border-bottom: 3px solid transparent;
     border-image: linear-gradient(to right ,#FF4750 ,#9B9BFF ) 1;
 }
-
-/* Nav-Style Ends  */
+/* NAVBAR STYLE END */
 
 /* Page Sections */
 .page-section {
   min-height: 100vh;
-  padding: 8rem 2rem 2rem;
+  padding: 4rem 2rem 2rem;
   background-color: black;
   display: none;
 }
@@ -233,7 +231,7 @@ backdrop-filter: blur(16px);
 footer {
     font-family: Arial, Helvetica, sans-serif;
    
-     border-top: 3px solid transparent;
+     border-top: 4px solid transparent;
     border-image: linear-gradient(to right , #D2005A , #6666FF) 1;
    
 }
