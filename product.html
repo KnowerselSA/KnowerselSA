@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="src/style/contact.css"> -->
+    <link rel="stylesheet" href="src/style/product.css">
+    <!-- <link rel="stylesheet" href="src/style/home.css"> -->
+</head>
+<body>
+<!--***************** HEADER NAVBAR ******************** -->
+    <header>
+        <nav class="nav" id="nav">
+            <div class="nav-container">
+                <!-- lOGO  -->
+                <div class="nav-left-section">
+                    <img src="" alt="logo">
+                </div>
+
+                <!-- NAVBAR ITEMS  -->
+                <div class="nav-right-section">
+                    <ul class="nav_right-list">
+                         <li class="list_item" id="list-item"><a href="index.html">Home</a></li>
+                        <li class="list_item" id="list-item"><a href="aboutus.html">About</a></li>
+                        <li class="list_item" id="list-item"><a href="#">Products</a></li>
+                       
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Main Content -->
+<main>
+  <section class="projects-section">
+    <h1 class="projects-heading">Projects Under Development</h1>
+
+    <div class="projects-container">
+      <div class="project">
+        <img src="src/assets/dog.PNG" alt="DORO Robot" class="project-image">
+        <h2 class="project-title red">DORO</h2>
+      </div>
+
+      <div class="project">
+        <img src="src/assets/armo2.PNG" alt="DUALIS Robot" class="project-image">
+        <h2 class="project-title blue">DUALIS</h2>
+      </div>
+    </div>
+  </section>
+</main>
+
+    
+ <!-- *****************FOOTER SECTION START ********************* -->
+    <footer>
+        <div class="footer-container">
+            <div class="logo">
+                <img src="" alt="logo-img">
+            </div>
+            <!-- <div class="menu">
+                <ul>
+                    <li class="menu-item"><a href="">Home</a></li>
+                    <li class="menu-item"><a href="#">Product</a></li>
+                    <li class="menu-item"><a href="#">About us</a></li>
+                    <li class="menu-item"><a href="#">Get in Touch</a></li>
+                </ul>
+            </div> -->
+            <div class="socials">
+                <ul>
+                    <li class="socials-items"><a href="#"><img src="./src/assets/social-icons/linkdn.png"
+                                alt="Linkedin"></a></li>
+                    <li class="socials-items"><a href="#"><img src="./src/assets/social-icons/youtbe.png" alt="youtube"></a>
+                    </li>
+                    <li class="socials-items"><a href="#"><img src="./src/assets/social-icons/twiiter.png" alt="Twitter"></a>
+                    </li>
+                    <li class="socials-items"><a href="#"><img src="./src/assets/social-icons/insta.png" alt="Instagram"></a>
+                    </li>
+                    <li class="socials-items"><a href="#"><img src="./src/assets/social-icons/facebook.png"
+                                alt="Facebook"></a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                &copy;2025 LOGO. All Rights Reserved.
+            </div>
+        </div>
+    </footer> 
+<!-- *****************FOOTER SECTION END******************* -->
+
+</body>
+<script src="src/javascript/contact.js"></script>
+<script>window.addEventListener("scroll", function () {
+    const nav = document.getElementById("nav");
+
+    if (window.scrollY > 50) { // when scrolled down 50px
+        nav.classList.add("scrolled");
+    } else {
+        nav.classList.remove("scrolled");
+    }
+});
+</script>
+</html>
