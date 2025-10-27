@@ -1,9 +1,9 @@
-// INTRO TEXT ANIMATION
-setTimeout(() => {
-    const text = document.getElementById("bg-text");
-    text.classList.add("color-changed")
+// // INTRO TEXT ANIMATION
+// setTimeout(() => {
+//     const text = document.getElementById("bg-text");
+//     text.classList.add("color-changed")
 
-},3000) ;
+// },3000) ;
 
 // animation for navabr after scrolling
 window.addEventListener("scroll", function () {
@@ -23,32 +23,32 @@ window.addEventListener("scroll", function () {
 // *****************end ******************************
 
 // scroll effect
-function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-        rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.bottom >= 0
-    );
-}
+// function isElementInViewport(el) {
+//     const rect = el.getBoundingClientRect();
+//     return (
+//         rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+//         rect.bottom >= 0
+//     );
+// }
 
-// Function to handle the scroll animation
-function handleScrollReveal() {
-    const revealElements = document.querySelectorAll('.scroll-reveal');
+// // Function to handle the scroll animation
+// function handleScrollReveal() {
+//     const revealElements = document.querySelectorAll('.scroll-reveal');
 
-    revealElements.forEach(el => {
-        if (isElementInViewport(el)) {
-            el.classList.add('visible');
-        } else {
-            // Optional: Remove the class if you want the element to re-animate 
-            // when scrolling back up and then down again.
-            // el.classList.remove('visible'); 
-        }
-    });
-}
+//     revealElements.forEach(el => {
+//         if (isElementInViewport(el)) {
+//             el.classList.add('visible');
+//         } else {
+//             // Optional: Remove the class if you want the element to re-animate 
+//             // when scrolling back up and then down again.
+//             // el.classList.remove('visible'); 
+//         }
+//     });
+// }
 
-// Attach the function to scroll and load events
-window.addEventListener('scroll', handleScrollReveal);
-window.addEventListener('load', handleScrollReveal);
+// // Attach the function to scroll and load events
+// window.addEventListener('scroll', handleScrollReveal);
+// window.addEventListener('load', handleScrollReveal);
 
-// Run once on load to reveal elements already in view
-handleScrollReveal();
+// // Run once on load to reveal elements already in view
+// handleScrollReveal();
