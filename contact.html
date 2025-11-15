@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="src/style/contact.css">
     <!-- <link rel="stylesheet" href="src/style/home.css"> -->
 </head>
-<body>
+<body data-container-scroll>
 <!--***************** HEADER NAVBAR ******************** -->
     <header>
         <nav class="nav" id="nav">
@@ -21,8 +21,9 @@
                 <div class="nav-right-section">
                     <ul class="nav_right-list">
                          <li class="list_item" id="list-item"><a href="index.html">Home</a></li>
+                          <li class="list_item" id="list-item"><a href="product.html">Products</a></li>
                         <li class="list_item" id="list-item"><a href="aboutus.html">About</a></li>
-                        <li class="list_item" id="list-item"><a href="product.html">Products</a></li>
+                       
                        
                     </ul>
                 </div>
@@ -35,7 +36,7 @@
     <!-- Main Content -->
 <main class="main-content">
     <div class="container">
-        <h1 class="title">
+        <h1 class="title ">
            Get in Touch With Us
         </h1>
 
@@ -56,11 +57,11 @@
 
             <div class="right-content">
                 <form class="contact-form" id="contactForm">
-                    <input type="text" placeholder="Name*" class="form-input" required>
-                    <input type="email" placeholder="Email*" class="form-input email" required>
-                    <input type="tel" placeholder="Phone No. (Optional)" class="form-input">
-                    <textarea placeholder="Message" class="form-textarea" rows="6"></textarea>
-                    <button type="submit" class="send-button">
+                    <input type="text" placeholder="Name*" class="form-input box1" required>
+                    <input type="email" placeholder="Email*" class="form-input email box2" required>
+                    <input type="tel" placeholder="Phone No. (Optional)" class="form-input box3">
+                    <textarea placeholder="Message" class="form-textarea box4" rows="6"></textarea>
+                    <button type="submit" class="send-button box5">
                        <span class="send-txt">Send</span>
                         <span class="arrow">
                             <img src="./src/assets/about-us/send.png" alt="">
@@ -108,6 +109,19 @@
 <!-- *****************FOOTER SECTION END******************* -->
 
 </body>
+
+<!-- *****************GSAP ANIMATION************ -->
+ <!-- lenis for smooth scrolling -->
+<script src="https://unpkg.com/lenis@1.3.15/dist/lenis.min.js"></script> 
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="./src/javascript/animation.js"></script>
+
+<!-- *****************GSAP ANIMATION END************ -->
+
 <script src="src/javascript/contact.js"></script>
 <script>window.addEventListener("scroll", function () {
     const nav = document.getElementById("nav");
