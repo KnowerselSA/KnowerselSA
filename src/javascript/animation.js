@@ -57,6 +57,7 @@ gsap.from(".para-1 p", {
   opacity: 0,
   duration: 1.5,
   stagger: 0.2,
+ smoothTouch: true,
   ease: "power2.out",
   scrollTrigger: {
     trigger: ".para-1",
@@ -74,6 +75,7 @@ gsap.from(".para-2 p", {
   opacity: 0,
   duration: 1.5,
   stagger: 0.2,
+  smoothTouch: true,
   ease: "power2.out",
   scrollTrigger: {
     trigger: ".para-2",
@@ -91,6 +93,7 @@ gsap.from(".redirect-para span", {
   opacity: 0,
   duration: 1.5,
   stagger: 0.2,
+  smoothTouch: true,
   ease: "power2.out",
   scrollTrigger: {
     trigger: ".redirect-para",
