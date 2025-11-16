@@ -2,9 +2,9 @@
 const lenis = new Lenis({
     smooth : true ,
     duration : 1,
-     wheelMultiplier: 2,
+     wheelMultiplier: 1,
      smoothTouch: true,
-  touchMultiplier: 2,
+  touchMultiplier: 1,
 });
 
 // Use requestAnimationFrame to continuously update the scroll
@@ -162,7 +162,7 @@ ele.forEach((item) =>{
     duration: 1
   });
   setTimeout(function (){
-     window.location.href = "http://127.0.0.1:5501/KnowerselSA/contact.html";
+     window.location.href = "product_1.html";
   } , 1000)
  }else{
      gsap.to(".project .img2", {
@@ -171,7 +171,7 @@ ele.forEach((item) =>{
     duration: 1
   });
   setTimeout(function (){
-     window.location.href = "http://127.0.0.1:5501/KnowerselSA/contact.html";
+     window.location.href = "product_2.html";
   } , 1000)
 
  }

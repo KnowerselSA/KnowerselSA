@@ -373,7 +373,7 @@ footer {
     
   *, html, body{
     margin: 0;
-    padding: 0; 
+    /* padding: 0;  */
     width: 100%;
         box-sizing: border-box;
         overflow-x: hidden;
@@ -393,6 +393,9 @@ footer {
     }
     .nav-left-section{
         padding: 5px;
+    }
+    .nav-right-section{
+        margin-right: 1rem;
     }
 .list_item{
     font-size:10px;
@@ -416,7 +419,7 @@ justify-content: center;
     .background-text h1{
        
        margin-bottom: 10px;
-        font-size: 2rem;
+        font-size: 25px;
         text-align: center;
         line-height: 1.7;
     }
@@ -426,7 +429,6 @@ justify-content: center;
     .home-para{
         margin: 10px;
         height: auto;
-
         overflow: hidden;
     }
     .para-1 , .para-2{
@@ -480,6 +482,10 @@ justify-content: center;
         justify-self:center ;
         align-self: center;
     }
+    .socials ul{
+        gap: 0rem;
+    }
+
     .copyright{
         grid-area: copyright;
         justify-self: center;

@@ -1,0 +1,217 @@
+* {
+    font-family: "Quattrocento Sans", sans-serif;
+}
+
+.list_item a {
+    color: rgb(0, 0, 0) !important;
+    font-size: 22px !important;
+    font-weight: bold !important;
+}
+body{
+ /* background-color: black;
+ color: white; */
+}
+.product-container {
+   
+    margin-top: 5rem;
+    height: 100%;
+    text-align: center;
+    /* flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center; */
+
+}
+
+.product-intro {}
+
+.title h1 {
+    font-size: 4rem;
+    background-image: linear-gradient(to right , #ffbf00 45% ,rgba(137, 41, 254, 0.427),#6666FF 55% );
+
+    /* Clip the background to the shape of the text */
+    -webkit-background-clip: text;
+    /* For WebKit browsers like Chrome and Safari */
+    background-clip: text;
+    /* Make the text transparent so the background can show through */
+    -webkit-text-fill-color: transparent;
+    /* For WebKit browsers */
+    color: transparent;
+}
+
+.para {
+    margin: 0rem 20rem 2rem 20rem;
+    font-size: 22px;
+    /* word-spacing: 10px; */
+    line-height: 1.5;
+    color: #3f3f3f;
+}
+
+.product-img img {
+
+    height: 400px;
+}
+
+.product-desc {
+    margin: 5rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+/* height: 100vh; */
+}
+
+.right-points {
+
+    margin-left: 5rem;
+}
+
+.right-points h2 {
+
+    margin-right: 2rem;
+    text-align: left;
+
+}
+
+.right-items-heading {
+    padding: 0;
+}
+
+.right-items {
+    color: #3f3f3f;
+    text-align: left;
+    list-style: none;
+    padding: 10px 0px;
+}
+
+.left-points {
+
+    margin-right: 5rem;
+}
+
+.left-points h2 {
+
+    margin-left: 2rem;
+    text-align: right;
+}
+
+.left-items-heading {
+    padding: 0;
+}
+
+.left-items {
+    color: #3f3f3f;
+    text-align: right;
+    list-style: none;
+    padding: 10px 0px;
+}
+
+.page2{
+    background-color: black;
+    color: white;
+   /* height: 100vh;  */
+   
+}
+.swiper{
+    width: 80vw;
+    height: 100vh;
+    /* background-color: rgb(202, 27, 27); */
+    margin: 2rem auto 4rem auto;
+}
+.swiper-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.swiper-slide{
+    height: 80vh;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    display:flex !important;
+    flex-direction: row;
+   justify-content:center;
+   align-items: center;
+   column-gap: 2rem;
+   
+}
+.swiper-pagination-vertical.swiper-pagination-bullets{
+    left: 0rem !important;
+}
+.swiper-pagination-bullet {
+  background: #c4c4c4 !important;       /* inactive color */
+  opacity: 1;
+  margin: 1rem !important;
+  height:25px !important ;
+  width: 5px !important;
+  border-radius: 24px !important;
+ 
+}
+.swiper-pagination-bullet-active {
+  background: linear-gradient(to bottom , rgb(255, 192, 249)
+  , rgb(228, 149, 249)) !important;    /* active color */
+   height: 50px !important;
+    width: 7px !important;
+}
+
+.video {
+  width: 380px;
+ height: 580px;
+  aspect-ratio: 16 / 9;     /* default */
+  /* Add this if your videos include Shorts */
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.video iframe {
+  width: 320px;
+  height: 580px;
+  border: none;
+  border-radius: 10px;
+}
+.video-descr{
+  margin-left: 2rem;
+    grid-area: desc;
+    width: 400px;
+    align-self:normal;
+    text-align: left;
+}
+.video-descr h1{
+   margin:  10rem 0rem 0rem 1rem ;
+}
+.video-descr p{
+    margin: 1rem 10rem 0rem 1rem ;
+}
+
+
+/* .pages-wrapper {
+  position: relative;
+  overflow: hidden;
+} */
+
+/* .page1, .page2, .page3 {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+} */
+
+/* Start Page 2 and Page 3 below their previous pages */
+/* .page2 {
+  transform: translateY(100vh);
+  position: relative;
+  z-index: 10;
+} */
+/* 
+.page3 {
+  transform: translateY(100vh);
+  position: relative;
+  z-index: 12;
+} */
+
+/* Scroll continues normally after the animation */
+.footer-container {
+  background-color: white;
+  color: black !important;
+}
+.copyright{
+    color: black;
+    
+}
+
