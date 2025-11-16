@@ -1,11 +1,4 @@
-// // INTRO TEXT ANIMATION
-// setTimeout(() => {
-//     const text = document.getElementById("bg-text");
-//     text.classList.add("color-changed")
 
-// },3000) ;
-
-// animation for navabr after scrolling
 window.addEventListener("scroll", function () {
   const navbar = document.getElementById("nav");
   const right_section = document.getElementById("nav-right")
@@ -19,36 +12,86 @@ window.addEventListener("scroll", function () {
     // Remove the 'scrolled' class if the user scrolls back to the top
     navbar.classList.remove("scrolled");
   }
-})
+});
 // *****************end ******************************
 
-// scroll effect
-// function isElementInViewport(el) {
-//     const rect = el.getBoundingClientRect();
-//     return (
-//         rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-//         rect.bottom >= 0
-//     );
-// }
 
-// // Function to handle the scroll animation
-// function handleScrollReveal() {
-//     const revealElements = document.querySelectorAll('.scroll-reveal');
+// ****************MOBILE MENU ***********************
+(function () {
+  // IDs/classes used in your HTML
+  const MENU_ID = "mobileMenu";
+  const MENU_BTN_ID = "menuBtn";
 
-//     revealElements.forEach(el => {
-//         if (isElementInViewport(el)) {
-//             el.classList.add('visible');
-//         } else {
-//             // Optional: Remove the class if you want the element to re-animate 
-//             // when scrolling back up and then down again.
-//             // el.classList.remove('visible'); 
-//         }
-//     });
-// }
+  // find elements
+  const menu = document.getElementById(MENU_ID);
+  const menuBtn = document.getElementById(MENU_BTN_ID);
 
-// // Attach the function to scroll and load events
-// window.addEventListener('scroll', handleScrollReveal);
-// window.addEventListener('load', handleScrollReveal);
+  if (!menu || !menuBtn) {
+    console.warn("Mobile menu or button not found. Make sure #mobileMenu and #menuBtn exist.");
+    return;
+  }
 
-// // Run once on load to reveal elements already in view
-// handleScrollReveal();
+  // 1) Move menu element to document.body so it's outside stacked/pinned containers
+  if (menu.parentElement !== document.body) {
+    document.body.appendChild(menu);
+  }
+
+  // 2) create (or reuse) overlay for dimming and outside-click
+  let overlay = document.querySelector(".body-menu-overlay");
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.className = "body-menu-overlay";
+    document.body.appendChild(overlay);
+  }
+
+  // helper state
+  let isOpen = false;
+
+  function openMenu() {
+    menu.classList.add("open");
+    overlay.classList.add("visible");
+    // lock body scroll
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    isOpen = true;
+  }
+
+  function closeMenu() {
+    menu.classList.remove("open");
+    overlay.classList.remove("visible");
+    // restore scroll
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+    isOpen = false;
+  }
+
+  // toggle on button click (stopPropagation so doc click doesn't close instantly)
+  menuBtn.addEventListener("click", function (ev) {
+    ev.stopPropagation();
+    if (isOpen) closeMenu();
+    else openMenu();
+  }, { passive: true });
+
+  // close when clicking overlay
+  overlay.addEventListener("click", () => closeMenu(), { passive: true });
+
+  // close when clicking outside the menu (anywhere in document)
+  document.addEventListener("click", function (e) {
+    if (!isOpen) return;
+    if (menu.contains(e.target) || menuBtn.contains(e.target)) return;
+    closeMenu();
+  }, { passive: true });
+
+  // close on Esc key
+  document.addEventListener("keydown", function (e) {
+    if (isOpen && e.key === "Escape") closeMenu();
+  });
+
+  // close when clicking any link inside menu
+  menu.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => closeMenu());
+  });
+
+  // On SPA navigation or page updates you might re-attach menu to body again:
+  // (Optional) observe DOM mutations if menu gets re-inserted somewhere else
+})();

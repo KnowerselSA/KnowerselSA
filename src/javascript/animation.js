@@ -1,9 +1,10 @@
+gsap.registerPlugin(ScrollTrigger);
 // Initialize Lenis
-const lenis = new Lenis({
+window.lenis = new Lenis({
     smooth : true ,
     duration : 1,
      wheelMultiplier: 1,
-     smoothTouch: true,
+    //  smoothTouch: true,
   touchMultiplier: 1,
 });
 
@@ -15,7 +16,7 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 
-gsap.registerPlugin(ScrollTrigger);
+
 
 //for intro text
 gsap.from(".beyond", {
@@ -193,3 +194,21 @@ gsap.from(".project2" , {
     ease : 'power2.out'
 })
 
+// mobile menu
+// Ensure menu button and mobile menu are never affected by GSAP
+if (window.gsap) {
+  gsap.set("#menuBtn, .mobile-menu, .body-menu-overlay", { 
+    clearProps: "all" 
+  });
+}
+
+// Integrate Lenis with ScrollTrigger
+if (window.lenis && window.ScrollTrigger) {
+  lenis.on('scroll', ScrollTrigger.update);
+  
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+  
+  gsap.ticker.lagSmoothing(0);
+}
