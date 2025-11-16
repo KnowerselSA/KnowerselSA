@@ -53,7 +53,7 @@ gsap.from(".horizon", {
 
 // PARA 1 animation
 gsap.from(".para-1 p", {
-  y: 50,
+  y: "50vw",
   opacity: 0,
   duration: 1.5,
   stagger: 0.2,
@@ -71,7 +71,7 @@ gsap.from(".para-1 p", {
 
 // PARA 2 animation
 gsap.from(".para-2 p", {
-  y: 50,
+  y: "50px",
   opacity: 0,
   duration: 1.5,
   stagger: 0.2,
@@ -89,7 +89,7 @@ gsap.from(".para-2 p", {
 
 // redirect-para animation
 gsap.from(".redirect-para span", {
-  y: 50,
+  y: "50px",
   opacity: 0,
   duration: 1.5,
   stagger: 0.2,

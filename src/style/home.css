@@ -374,7 +374,7 @@ footer {
   *, html, body{
     margin: 0;
     padding: 0; 
-    max-width: 100%;
+    width: 100%;
         box-sizing: border-box;
         overflow-x: hidden;
     }
@@ -385,7 +385,7 @@ footer {
         max-width: 100vw;
         font-size: 10px;
         box-sizing: border-box;
-        overflow: hidden;
+        overflow-x: hidden;
     }
     .nav-container{
         max-width: 100vw;
@@ -403,10 +403,10 @@ footer {
 
     }
     .background-text {
+         max-width: 80%;
         height: 100vh;
-        position: absolute;
         text-align: center;
-        left: 53%;
+        /* left: 53%; */
 /* padding: 0px 10px; */
 display: flex;
 flex-direction: column;
@@ -414,8 +414,9 @@ justify-content: center;
 
     }
     .background-text h1{
+       
        margin-bottom: 10px;
-        font-size: 37px;
+        font-size: 2rem;
         text-align: center;
         line-height: 1.7;
     }
@@ -424,20 +425,27 @@ justify-content: center;
     }
     .home-para{
         margin: 10px;
+        height: auto;
+
+        overflow: hidden;
     }
     .para-1 , .para-2{
-        margin: 4rem auto;
+        margin: 3rem auto;
+                overflow: hidden;
+
     }
      .para-1 p , .para-2  p {
 
-        font-size: 15px
+        font-size: 12px
     }
     .redirect-para{
         margin: 4rem auto;
+                overflow: hidden;
+
        
     }
     .redirect-para span{
-         font-size: 20px;
+         font-size: 18px;
     }
     .redirect-para img{
         width: 24px;
@@ -445,7 +453,7 @@ justify-content: center;
     }
     footer{
         width: 100%;
-        overflow: hidden;
+        overflow-x: hidden;
         box-sizing: border-box;
     }
     .footer-container{
@@ -469,7 +477,7 @@ justify-content: center;
     }
     .socials{
         grid-area: socials;
-        justify-self: center;
+        justify-self:center ;
         align-self: center;
     }
     .copyright{
