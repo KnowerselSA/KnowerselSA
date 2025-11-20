@@ -11,72 +11,62 @@ body {
 }
 
 .nav {
-
-    z-index: 3;
-    position: fixed;
-    font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
-    padding: 0;
-    width: 100%;
-    height: 5rem;
-    align-items: center;
-    align-content: center;
-    transition: all 0.5s ease;
-    justify-content: space-between;
+  z-index: 3;
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  width: 100%;
+  height: 5rem;
+  align-items: center;
+  align-content: center;
+  transition: all 0.5s ease;
+  justify-content: space-between;
 }
 
 #nav.scrolled {
-    /* background: linear-gradient(rgba(172, 172, 172, 0.780), rgba(21, 21, 21, 0.700)); */
-background: rgba(17, 17, 17, 0.3);
-backdrop-filter: blur(16px);
-
+  /* background: linear-gradient(rgba(172, 172, 172, 0.780), rgba(21, 21, 21, 0.700)); */
+  background: rgba(17, 17, 17, 0.3);
+  backdrop-filter: blur(16px);
 }
 
 .nav-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-left-section {
-    padding-right: 2rem;
+  padding-right: 2rem;
 }
 
 .nav-right-section ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    font-size: 20px;
-    
-    
-
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  font-size: 20px;
 }
 
 .nav_right-list li {
-    font-weight: bold;
-    padding: 0rem 1rem;
-
+  font-weight: bold;
+  padding: 0rem 1rem;
 }
 
 .list_item:hover {
-    transform: scale(1.12);
-    transition: all 0.3s ease;
-
+  transform: scale(1.12);
+  transition: all 0.3s ease;
 }
 
 .list_item a {
-    text-decoration: none;
-    color: white;
-
+  text-decoration: none;
+  color: white;
 }
 
-
 .list_item a:hover {
-    border-radius: 2px;
-    border-bottom: 3px solid transparent;
-    border-image: linear-gradient(105deg ,#6666FF,#FF4750 ,#6666FF ) 1;
+  border-radius: 2px;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(105deg, #6666FF, #FF4750, #6666FF) 1;
 }
 /* NAVBAR STYLE END */
 
@@ -108,13 +98,10 @@ backdrop-filter: blur(16px);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 500;
   margin-bottom: 1rem;
-  background-image: linear-gradient(to right , #FF9933 , #ffffff ,#23E80E 15%);
-  
-  /* Clip the background to the shape of the text */
-  -webkit-background-clip: text; /* For WebKit browsers like Chrome and Safari */
+  background-image: linear-gradient(to right, #FF9933, #ffffff, #23E80E 15%);
+  -webkit-background-clip: text;
   background-clip: text;
-  /* Make the text transparent so the background can show through */
-  -webkit-text-fill-color: transparent; /* For WebKit browsers */
+  -webkit-text-fill-color: transparent;
   color: transparent;
   display: flex;
   justify-content: flex-start;
@@ -125,14 +112,10 @@ backdrop-filter: blur(16px);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 500;
   margin-bottom: 1rem;
- background-image: linear-gradient(to right , #3939FF
- , #ffffff  25%);
-  
-  /* Clip the background to the shape of the text */
-  -webkit-background-clip: text; /* For WebKit browsers like Chrome and Safari */
+  background-image: linear-gradient(to right, #3939FF, #ffffff 25%);
+  -webkit-background-clip: text;
   background-clip: text;
-  /* Make the text transparent so the background can show through */
-  -webkit-text-fill-color: transparent; /* For WebKit browsers */
+  -webkit-text-fill-color: transparent;
   color: transparent;
   display: flex;
   justify-content: flex-start;
@@ -152,17 +135,19 @@ backdrop-filter: blur(16px);
   text-align: justify;
 }
 
-.about-text a{
- color: #FFD757;
- cursor: pointer;
- text-decoration: underline;
+.about-text a {
+  color: #FFD757;
+  cursor: pointer;
+  text-decoration: underline;
 }
-.let-connect{
+
+.let-connect {
   display: inline-block;
 }
-.let-connect:hover{
+
+.let-connect:hover {
   transform: scale(1.12);
-  transition:  all 0.3s ease ;
+  transition: all 0.3s ease;
 }
 
 .about-text p {
@@ -186,14 +171,14 @@ backdrop-filter: blur(16px);
   font-size: 1.1rem;
   line-height: 1.8;
 }
+
 /* arrow style */
-.content-load-arrow{
-  padding: 2rem ;
-    background:linear-gradient(to bottom, black, #262626);
+.content-load-arrow {
+  padding: 2rem;
+  background: linear-gradient(to bottom, black, #262626);
   display: flex;
   justify-content: center;
   filter: grayscale();
-
 }
 .img-arrow img {
   width: 50px;
@@ -203,6 +188,7 @@ backdrop-filter: blur(16px);
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(10px); }
 }
+
 .values-section {
   margin: 3rem 0;
 }
@@ -229,95 +215,84 @@ backdrop-filter: blur(16px);
 
 /* FOOTER STYLE */
 footer {
-    font-family: Arial, Helvetica, sans-serif;
-   
-     border-top: 4px solid transparent;
-    border-image: linear-gradient(to right , #D2005A , #6666FF) 1;
-   
+  font-family: Arial, Helvetica, sans-serif;
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(to right, #D2005A, #6666FF) 1;
 }
 
 .footer-container {
-   
-    padding: 2rem;
+  padding: 2rem;
   color: black;
-    background-color: white;
-    /* padding: 2rem; */
-    display: grid;
-    align-items: center;
-    align-content: center;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-        "logo menu copyright"
-        "logo socials copyright";
+  background-color: white;
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "logo menu copyright"
+    "logo socials copyright";
 }
 
 .logo {
-    grid-area: logo;
+  grid-area: logo;
 }
 
 .menu {
-    grid-area: menu;
-
+  grid-area: menu;
 }
 
 .menu ul,
 .socials ul {
- 
-    font-size: 18px;
-    justify-content: center;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
+  font-size: 18px;
+  justify-content: center;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
 }
 
 .menu ul {
-    
-    gap: 4rem;
-    justify-content: space-around;
-
+  gap: 4rem;
+  justify-content: space-around;
 }
 
 .menu-item a {
-    text-decoration: none;
-    color: rgb(212, 212, 212);
+  text-decoration: none;
+  color: rgb(212, 212, 212);
 }
 
 .menu-item:hover,
 .socials-items:hover {
-    transform: scale(1.12);
-    transition: all 0.2s ease;
+  transform: scale(1.12);
+  transition: all 0.2s ease;
 }
 
 .socials ul {
-    gap: 2rem;
+  gap: 2rem;
 }
 
 .socials {
-    grid-area: socials;
-    align-items: center;
-
+  grid-area: socials;
+  align-items: center;
 }
 
 .socials-items img {
-    width: 24px;
-    height: 24px;
-    
+  width: 24px;
+  height: 24px;
 }
 
 .copyright {
-     color: black;
-    padding: 1.2rem;
-    grid-area: copyright;
-    text-align: center;
-    font-size: 12px;
-    justify-self:end;
-    align-items: center;
-    
+  color: black;
+  padding: 1.2rem;
+  grid-area: copyright;
+  text-align: center;
+  font-size: 12px;
+  justify-self: end;
+  align-items: center;
 }
 /* FOOTER STYLE END */
 
-/* Mobile Responsive */
+/* Mobile Responsive (existing) */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -331,5 +306,152 @@ footer {
   .about-hero h1,
   .contact-hero h1 {
     font-size: 2rem;
+  }
+}
+
+/* =============================== */
+/* FOOTER MOBILE (same as home)    */
+/* =============================== */
+@media (max-width: 768px) {
+  footer {
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  .footer-container {
+    padding: 10px;
+    height: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 3fr 1.5r 3fr;
+    grid-template-areas:
+      "logo logo logo logo logo"
+      "socials socials socials socials socials"
+      "copyright copyright copyright copyright copyright";
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  .socials {
+    grid-area: socials;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .socials ul {
+    gap: 0rem;
+  }
+
+  .copyright {
+    grid-area: copyright;
+    justify-self: center;
+  }
+}
+
+/* =============================== */
+/* MOBILE MENU STYLE (same as home)*/
+/* =============================== */
+
+/* mobile menu style */
+.mobile-menu {
+  position: fixed !important;
+  top: 0 !important;
+  right: -100% !important;
+  width: 80% !important;
+  max-width: 420px !important;
+  height: 100vh !important;
+  background: transparent !important;
+  backdrop-filter: blur(16px);
+  color: #fff !important;
+  padding: 2rem !important;
+  transition: right 0.35s ease !important;
+  z-index: 2147483646 !important;
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.6) !important;
+  overflow-y: auto !important;
+}
+
+.mobile-menu ul li {
+  padding: 1rem;
+}
+
+.mobile-menu ul li a {
+  font-family: "Quattrocento Sans", sans-serif;
+  text-decoration: none;
+  color: rgb(203, 203, 203);
+  font-weight: bolder;
+}
+
+.mobile-menu ul li a:hover,
+.mobile-menu ul li a::after,
+.mobile-menu ul li a:focus {
+  transform: scale(1.2);
+  border-radius: 2px;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(105deg, #6666FF, #FF4750, #6666FF) 1;
+  transition: all 1s ease-out;
+}
+
+/* When open */
+.mobile-menu.open {
+  right: 0 !important;
+}
+
+/* Menu button should float above everything */
+#menuBtn {
+  position: fixed !important;
+  top: 1rem !important;
+  right: 1rem !important;
+  z-index: 2147483647 !important;
+  background: transparent !important;
+  border: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: end !important;
+}
+
+.menu-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+/* In case GSAP adds spacer class names */
+.pin-spacer,
+.gsap-pin-spacer,
+.gsap-pin-spacer * {
+  z-index: 1 !important;
+  position: relative !important;
+}
+
+/* Small overlay to dim content when menu open (optional) */
+.body-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 2147483645;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.body-menu-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* hide desktop nav on mobile if desired */
+#menuBtn {
+  display: none !important;
+}
+@media (max-width: 768px) {
+  #nav-right {
+    display: none !important;
+  }
+  #menuBtn {
+    display: flex !important;
   }
 }
