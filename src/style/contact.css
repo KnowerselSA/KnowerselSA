@@ -1,26 +1,28 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+/* Let the page grow naturally */
 html{
-    height: 100%;
+    min-height: 100%;
 }
 
 body  {
-     margin: 0;
+    margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    /* REMOVE height:100% + flex – these were blocking scroll on some mobiles */
+    /* height: 100%; */
+    /* display: flex;
+       flex-direction: column; */
+    background:linear-gradient( to bottom, #FFFFFF 85% , #262626 );
 }
 
-
+/* MAIN CONTENT */
 .main-content {
-    padding: 60px 20px;
-     background:linear-gradient( to bottom, #FFFFFF 85% , #262626 );
-     flex-grow: 1;
+    padding: 80px 20px 40px; /* extra top padding because fixed nav */
 }
 
 .container {
@@ -30,25 +32,20 @@ body  {
 
 .title {
    background-image: linear-gradient(to right, #826CF5 25%, #6FEA90);
-  
-  /* Clip the background to the shape of the text */
-  -webkit-background-clip: text; /* For WebKit browsers like Chrome and Safari */
-  background-clip: text;
-
-  /* Make the text transparent so the background can show through */
-  -webkit-text-fill-color: transparent; /* For WebKit browsers */
-  color: transparent; /* Fallback for other browsers */
-    text-align: center;
-    font-size: 48px;
-    font-weight: bold;
-    margin-bottom: 60px;
+   -webkit-background-clip: text;
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+   color: transparent;
+   text-align: center;
+   font-size: 48px;
+   font-weight: bold;
+   margin-bottom: 60px;
 }
 
 .content-wrapper {
     display: flex;
     align-items: flex-start;
     gap: 40px;
-    /* max-width: 800px; */
     margin: 0 auto;
 }
 
@@ -119,7 +116,6 @@ body  {
 .form-input:focus,
 .form-textarea:focus {
     background-color: rgba(255, 255, 255, 0.95);
-     
 }
 
 .form-textarea {
@@ -149,56 +145,73 @@ body  {
 .send-button:hover {
     transition: all 0.3s ease;
     transform: scale(1.12);
-    
 }
 
 .arrow {
     font-size: 18px;
 }
 
+/* ========= CONTACT LAYOUT MOBILE ========= */
 @media (max-width: 768px) {
-    .header {
-        padding: 15px 20px;
-    }
-
-    .nav {
-        gap: 20px;
-    }
-
-    .nav-link {
-        font-size: 16px;
+    .main-content {
+        padding: 80px 16px 32px;
     }
 
     .title {
-        font-size: 36px;
-        margin-bottom: 40px;
+        font-size: 32px;
+        margin-bottom: 32px;
     }
 
     .content-wrapper {
         flex-direction: column;
-        gap: 30px;
+        gap: 24px;
+        align-items: stretch;
     }
 
-    .divider {
-        width: 100%;
-        height: 2px;
-        margin: 0;
-    }
-
-    .left-content,
-    .right-content {
-        padding: 0;
+    .left-content {
+        margin-top: 0;
+        padding-right: 0;
     }
 
     .description,
     .contact-info {
         font-size: 16px;
     }
+
+    .divider {
+        width: 100%;
+        height: 2px;
+        margin: 16px 0;
+    }
+
+    .right-content {
+        padding-left: 0;
+    }
+
+    .contact-form {
+        padding: 0;
+    }
+
+    .form-input,
+    .form-textarea {
+        width: 100%;
+        max-width: 100%;
+        font-size: 16px;
+        padding: 10px 16px;
+    }
+
+    .send-button {
+        width: 100%;
+        max-width: 260px;
+        gap: 24px;
+    }
+
+    .send-txt {
+        font-size: 18px;
+    }
 }
 
-
 /* NAVABR STYLE  */
-
 .nav {
     z-index: 3;
     position: fixed;
@@ -211,13 +224,13 @@ body  {
     align-content: center;
     transition: all 0.5s ease;
     justify-content: space-between;
+    top: 0;
+    left: 0;
 }
 
 #nav.scrolled {
-    /* background: linear-gradient(rgba(172, 172, 172, 0.780), rgba(21, 21, 21, 0.700)); */
-background: rgba(17, 17, 17, 0.3);
-backdrop-filter: blur(16px);
-
+    background: rgba(17, 17, 17, 0.3);
+    backdrop-filter: blur(16px);
 }
 
 .nav-container {
@@ -225,7 +238,6 @@ backdrop-filter: blur(16px);
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .nav-left-section {
@@ -237,29 +249,22 @@ backdrop-filter: blur(16px);
     flex-direction: row;
     list-style: none;
     font-size: 20px;
-    
-    
-
 }
 
 .nav_right-list li {
     font-weight: bold;
     padding: 0rem 1rem;
-
 }
 
 .list_item:hover {
     transform: scale(1.12);
     transition: all 0.3s ease;
-
 }
 
 .list_item a {
     text-decoration: none;
     color: black;
-
 }
-
 
 .list_item a:hover {
     border-radius: 2px;
@@ -268,11 +273,10 @@ backdrop-filter: blur(16px);
 }
 /* NAVBAR STYLE END */
 
-
 /* FOOTER STYLE */
 footer {
     font-family: Arial, Helvetica, sans-serif;
-     border-top: 3px solid transparent;
+    border-top: 3px solid transparent;
     border-image: linear-gradient(to right , #D2005A , #6666FF) 1;
 }
 
@@ -284,7 +288,8 @@ footer {
     align-items: center;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: auto auto;
-    grid-template-areas: "logo menu copyright"
+    grid-template-areas:
+        "logo menu copyright"
         "logo socials copyright";
 }
 
@@ -294,7 +299,6 @@ footer {
 
 .menu {
     grid-area: menu;
-
 }
 
 .menu ul,
@@ -309,7 +313,6 @@ footer {
 .menu ul {
     gap: 4rem;
     justify-content: space-around;
-
 }
 
 .menu-item a {
@@ -331,7 +334,6 @@ footer {
     grid-area: socials;
     align-items: center;
     padding: 1rem;
-
 }
 
 .socials-items img {
@@ -340,13 +342,154 @@ footer {
 }
 
 .copyright {
-     color: rgb(212, 212, 212);
+    color: rgb(212, 212, 212);
     padding: 1.2rem;
     grid-area: copyright;
     text-align: center;
     font-size: 12px;
     justify-self:end;
     align-self:center;
-    
 }
 /* FOOTER STYLE END */
+
+/* ========= FOOTER MOBILE ========= */
+@media (max-width: 768px) {
+  footer {
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  .footer-container {
+    padding: 10px;
+    height: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 3fr 1.5r 3fr;
+    grid-template-areas:
+      "logo logo logo logo logo"
+      "socials socials socials socials socials"
+      "copyright copyright copyright copyright copyright";
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  .socials {
+    grid-area: socials;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .socials ul {
+    gap: 0rem;
+  }
+
+  .copyright {
+    grid-area: copyright;
+    justify-self: center;
+  }
+}
+
+/* ========= MOBILE MENU STYLE ========= */
+.mobile-menu {
+  position: fixed !important;
+  top: 0 !important;
+  right: -100% !important;
+  width: 80% !important;
+  max-width: 420px !important;
+  height: 100vh !important;
+  background: transparent !important;
+  backdrop-filter: blur(16px);
+  color: #fff !important;
+  padding: 2rem !important;
+  transition: right 0.35s ease !important;
+  z-index: 2147483646 !important;
+  box-shadow: -8px 0 30px rgba(0,0,0,0.6) !important;
+  overflow-y: auto !important;
+}
+
+.mobile-menu ul li {
+  padding: 1rem;
+}
+.mobile-menu ul li a {
+  font-family: "Quattrocento Sans", sans-serif;
+  text-decoration: none;
+  color: rgb(203, 203, 203);
+  font-weight: bolder;
+}
+.mobile-menu ul li a:hover,
+.mobile-menu ul li a::after,
+.mobile-menu ul li a:focus {
+  transform: scale(1.2);
+  border-radius: 2px;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(105deg ,#6666FF,#FF4750 ,#6666FF ) 1;
+  transition: all 1s ease-out;
+}
+
+/* When open */
+.mobile-menu.open {
+  right: 0 !important;
+}
+
+/* Menu button should float above everything */
+#menuBtn {
+  position: fixed !important;
+  top: 1rem !important;
+  right: 1rem !important;
+  z-index: 2147483647 !important;
+  background: transparent !important;
+  border: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: end !important;
+}
+.menu-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+/* In case GSAP adds spacer class names */
+.pin-spacer,
+.gsap-pin-spacer,
+.gsap-pin-spacer * {
+  z-index: 1 !important;
+  position: relative !important;
+}
+
+/* Optional overlay for menu (if home.js adds it) */
+.body-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 2147483645;
+  opacity: 0;
+  transition: opacity .25s ease;
+  pointer-events: none;
+}
+.body-menu-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* hide desktop nav on mobile, show menu button */
+#menuBtn {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  #nav-right {
+    display: none !important;
+  }
+  #menuBtn {
+    display: flex !important;
+  }
+  .mobile-menu {
+    display: block !important;
+  }
+}
