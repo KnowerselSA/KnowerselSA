@@ -304,7 +304,9 @@ footer {
 /* =================== TABLET & MOBILE LAYOUT =================== */
 
 @media (max-width: 768px) {
-
+*{
+  box-sizing: border-box;
+}
   /* make sure page scrolls */
   html, body {
     overflow-y: auto;
@@ -413,98 +415,3 @@ footer {
   }
 }
 
-/* =================== MOBILE MENU (copied from home.css) =================== */
-
-/* mobile menu style */
-.mobile-menu {
-  position: fixed !important;    /* fixed to viewport */
-  top: 0 !important;
-  right: -100% !important;       /* hidden by default */
-  width: 80% !important;
-  max-width: 420px !important;
-  height: 100vh !important;
-  background: transparent !important;
-  backdrop-filter: blur(16px);
-  color: #fff !important;
-  padding: 2rem !important;
-  transition: right 0.35s ease !important;
-  z-index: 2147483646 !important; /* extremely high z-index */
-  box-shadow: -8px 0 30px rgba(0,0,0,0.6) !important;
-  overflow-y: auto !important;
-}
-
-.mobile-menu ul li{
-  padding: 1rem;
-}
-
-.mobile-menu ul li a {
-  font-family: "Quattrocento Sans", sans-serif;
-  text-decoration: none;
-  color: rgb(203, 203, 203);
-  font-weight: bolder;
-}
-
-.mobile-menu ul li a:hover,
-.mobile-menu ul li a::after,
-.mobile-menu ul li a:focus {
-  transform: scale(1.2);
-  border-radius: 2px;
-  border-bottom: 3px solid transparent;
-  border-image: linear-gradient(105deg ,#6666FF,#FF4750 ,#6666FF ) 1;
-  transition: all 1s ease-out;
-}
-
-/* When open */
-.mobile-menu.open {
-  right: 0 !important;
-}
-
-/* Menu button should float above everything */
-#menuBtn {
-  position: fixed !important;
-  top: 1rem !important;
-  right: 1rem !important;
-  z-index: 2147483647 !important; /* one above menu */
-  background: transparent !important;
-  border: none !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content:end !important;
-}
-
-.menu-btn img{
-  width: 24px;
-  height: 24px;
-}
-
-/* In case GSAP adds spacer class names */
-.pin-spacer,
-.gsap-pin-spacer,
-.gsap-pin-spacer * {
-  z-index: 1 !important; /* push pin spacers behind the menu */
-  position: relative !important;
-}
-
-/* Small overlay to dim content when menu open (optional) */
-.body-menu-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: 2147483645;
-  opacity: 0;
-  transition: opacity .25s ease;
-  pointer-events: none;
-}
-.body-menu-overlay.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* hide desktop nav on mobile if desired */
-#menuBtn {
-  display: none !important;
-}
-@media (max-width: 768px) {
-  #nav-right { display: none !important; }
-  #menuBtn { display: flex !important; }/* show hamburger */
-}

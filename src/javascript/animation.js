@@ -4,7 +4,7 @@ window.lenis = new Lenis({
   smooth: true,
   duration: 1,
   wheelMultiplier: 1,
-  //  smoothTouch: true,
+   smoothTouch: true,
   touchMultiplier: 1,
 });
 
@@ -54,7 +54,7 @@ gsap.from(".horizon", {
 gsap.from(".intro-img" , {
   scale:0,
   x : 2000,
-  duration: 2.5 ,
+  duration: 2 ,
    ease: "power2.out",
   smoothTouch : true
   // rotate : 360
@@ -160,18 +160,20 @@ console.log(ele);
 ele.forEach((item) => {
   item.addEventListener("click", () => {
     if (item == ele[0]) {
-      gsap.to(".project1 img" , {
-        scale : 1.2 ,
-        duration : 1 
+      gsap.from(".project1 img" , {
+        scale : 1.5 ,
+        duration : 0.5,
+        ease : "power2.in"
       });
       setTimeout(() => {
          window.location.href = "product_1.html";
       }, 1000);
      
     } else {
-      gsap.to(".project2 img" , {
-        scale : 1.2 ,
-        duration : 1 
+      gsap.from(".project2 img" , {
+        scale : 1.5 ,
+        duration : 0.5,
+        ease :"power2.in"
       });
      setTimeout(() => {
          window.location.href = "product_2.html";
