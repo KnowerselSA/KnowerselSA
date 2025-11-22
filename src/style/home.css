@@ -552,7 +552,7 @@ footer {
         padding: 10px;
         height: auto;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 3fr 1.5r 3fr;
+        grid-template-rows: auto auto auto;
         grid-template-areas:
             "logo logo logo logo logo"
             "socials socials socials socials socials"
@@ -573,10 +573,10 @@ footer {
         grid-area: socials;
         justify-self: center;
         align-self: center;
+        padding: 0rem 1rem;
     }
 
     .socials ul {
-        gap: 0rem;
     }
 
     .copyright {
