@@ -18,6 +18,7 @@ requestAnimationFrame(raf);
 //for intro text
 gsap.from(".beyond", {
   scale: 5,
+  duration :1.5,
   y: -300,
   opacity: 0,
   //   scale: 0.5,
@@ -35,6 +36,7 @@ gsap.from(".beyond", {
 gsap.from(".horizon", {
   x: 300,
   scale: 5,
+  duration : 1.5,
   opacity: 0,
   //   scale: 0.5,
   duration: 1,
@@ -48,9 +50,17 @@ gsap.from(".horizon", {
     toggleActions: "play none none reverse",
   },
 });
-
+// intro image animation
+gsap.from(".intro-img" , {
+  scale:0,
+  x : 2000,
+  duration: 2.5 ,
+   ease: "power2.out",
+  smoothTouch : true
+  // rotate : 360
+})
 // PARA 1 animation
-gsap.from(".para-1 p", {
+gsap.from(".para-1 p",  {
   y: "50px",
   opacity: 0,
   duration: 1.5,
