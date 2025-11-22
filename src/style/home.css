@@ -577,6 +577,7 @@ footer {
     }
 
     .socials ul {
+        gap: 3rem;
     }
 
     .copyright {
