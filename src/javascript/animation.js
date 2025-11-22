@@ -4,7 +4,7 @@ window.lenis = new Lenis({
   smooth: true,
   duration: 1,
   wheelMultiplier: 1,
-   smoothTouch: true,
+  smoothTouch: true,
   touchMultiplier: 1,
 });
 
@@ -18,10 +18,9 @@ requestAnimationFrame(raf);
 //for intro text
 gsap.from(".beyond", {
   scale: 5,
-  duration :1.5,
+  duration: 1.5,
   y: -300,
   opacity: 0,
-  //   scale: 0.5,
   duration: 1,
   ease: "power2.out",
   scrollTrigger: {
@@ -36,7 +35,7 @@ gsap.from(".beyond", {
 gsap.from(".horizon", {
   x: 300,
   scale: 5,
-  duration : 1.5,
+  duration: 1.5,
   opacity: 0,
   //   scale: 0.5,
   duration: 1,
@@ -51,64 +50,130 @@ gsap.from(".horizon", {
   },
 });
 // intro image animation
-gsap.from(".intro-img" , {
-  scale:0,
-  x : 2000,
-  duration: 2 ,
-   ease: "power2.out",
-  smoothTouch : true
-  // rotate : 360
-})
-// PARA 1 animation
-gsap.from(".para-1 p",  {
-  y: "50px",
-  opacity: 0,
-  duration: 1.5,
-  smoothTouch: true,
+gsap.from(".intro-img", {
+  scale: 0,
+  x: 2000,
+  duration: 2,
   ease: "power2.out",
-  scrollTrigger: {
-    trigger: ".para-1",
-    scroller: "[data-container-scroll]",
-    // markers: true,
-    start: "top 70%",
-    end: "top 30%",
-    toggleActions: "play none none reverse",
+  smoothTouch: true,
+  // rotate : 360
+});
+// scroll animation for home page
+let el = document.querySelector(".wrapper");
+if (!el) {
+  console.log("wrapper not found !!");
+} else {
+  gsap.to(".wrapper", {
+    y: "-40vh", // better responsive movement
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".wrapper",
+      scroller: "[data-container-scroll]",
+      start: "top bottom",
+      end: "top 20%",
+      scrub: true, // <-- key for natural load/unload effect
+      // markers: true,
+      toggleActions: "play none none reverse",
+      onUpdate: (self) => {
+        // reduce the gap behind the element
+        el.style.marginBottom = `-${self.progress * 20}vh`;
+      },
+    },
+  });
+}
+// drag anywhere the object and laod container
+ScrollTrigger.matchMedia({
+  "(!max-width : 768px)": function () {
+    Draggable.create(".wrapper, .intro-img img", {
+      type: "x,y ",
+      bounds: window,
+      inertia: true,
+    });
   },
 });
+// mobile scroll animation for home page
+ScrollTrigger.matchMedia({
+  "(max-width: 768px)": function () {
+    // drag anywhere the object and laod container
+    Draggable.create(".intro-img", {
+      type: "x,y ",
+      bounds: window,
+      inertia: true,
+    });
+    if (!el) {
+      console.log("wrapper not found !!");
+    } else {
+      gsap.to(".wrapper", {
+        y: "-20vh", // move element up
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".wrapper",
+          scroller: "[data-container-scroll]",
+          start: "top 90%",
+          end: "top top%",
+          markers : true ,
+          scrub: true,
+          toggleActions: "play none none reverse",
+          onUpdate: (self) => {
+            // reduce the gap behind the element
+            el.style.marginBottom = `-${self.progress * 20}vh`;
+          },
+        },
+      });
+    }
+  },
+});
+
+// PARA 1 animation
+// gsap.from(".para-1 p", {
+//   y: "50px",
+//   opacity: 0,
+//   duration: 1.5,
+//   smoothTouch: true,
+//   ease: "power2.out",
+//   scrollTrigger: {
+//     trigger: ".para-1",
+//     scroller: "[data-container-scroll]",
+//     markers: true,
+//     start: "top bottom",
+//     end: "top 30%",
+//     toggleActions: "play none none reverse",
+//   },
+// });
 
 // PARA 2 animation
-gsap.from(".para-2 p", {
-  y: "50px",
-  opacity: 0,
-  duration: 1.5,
-  smoothTouch: true,
-  ease: "power2.out",
-  scrollTrigger: {
-    trigger: ".para-2",
-    scroller: "[data-container-scroll]",
-    // markers: true,
-    start: "top 70%",
-    end: "top 30%",
-    toggleActions: "play none none reverse",
-  },
-});
+// gsap.from(".para-2 p", {
+//   y: "50px",
+//   opacity: 0,
+//   duration: 1.5,
+//   smoothTouch: true,
+//   ease: "power2.out",
+//   scrollTrigger: {
+//     trigger: ".para-2",
+//     scroller: "[data-container-scroll]",
+//     // markers: true,
+//     start: "top bottom%",
+//     end: "top 30%",
+//     toggleActions: "play none none reverse",
+//   },
+// });
 
 // redirect-para animation
-gsap.from(".redirect-para span", {
-  y: "50px",
-  opacity: 0,
-  duration: 1.5,
-  smoothTouch: true,
-  ease: "power2.out",
-  scrollTrigger: {
-    trigger: ".redirect-para",
-    scroller: "[data-container-scroll]",
-    // markers: true,
-    start: "top 75%",
-    end: "top 30%",
-    toggleActions: "play none none reverse",
-  },
-});
+// gsap.from(".redirect-para span", {
+//   y: "50px",
+//   opacity: 0,
+//   duration: 1.5,
+//   smoothTouch: true,
+//   ease: "power2.out",
+//   scrollTrigger: {
+//     trigger: ".redirect-para",
+//     scroller: "[data-container-scroll]",
+//     // markers: true,
+//     start: "top bottom",
+//     end: "top 30%",
+//     toggleActions: "play none none reverse",
+//   },
+// });
 
 // ****************CONTACT FORM ANIMATION***************************
 gsap.from(".left-content", {
@@ -160,23 +225,22 @@ console.log(ele);
 ele.forEach((item) => {
   item.addEventListener("click", () => {
     if (item == ele[0]) {
-      gsap.from(".project1 img" , {
-        scale : 1.5 ,
-        duration : 0.5,
-        ease : "power2.in"
+      gsap.from(".project1 img", {
+        scale: 1.5,
+        duration: 0.5,
+        ease: "power2.in",
       });
       setTimeout(() => {
-         window.location.href = "product_1.html";
+        window.location.href = "product_1.html";
       }, 1000);
-     
     } else {
-      gsap.from(".project2 img" , {
-        scale : 1.5 ,
-        duration : 0.5,
-        ease :"power2.in"
+      gsap.from(".project2 img", {
+        scale: 1.5,
+        duration: 0.5,
+        ease: "power2.in",
       });
-     setTimeout(() => {
-         window.location.href = "product_2.html";
+      setTimeout(() => {
+        window.location.href = "product_2.html";
       }, 1000);
     }
   });

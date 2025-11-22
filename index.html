@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="src/style/home.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
     <!-- media-query style -->
-     <link rel="stylesheet" href="src/style/mediaquery.css">
+    <link rel="stylesheet" href="src/style/mediaquery.css">
     <!-- <base href="/KnowerselSA/"> -->
 </head>
 
@@ -50,56 +50,64 @@
     </header>
 
     <!--****************INTRODUCTION SECTION********************** -->
-  <section class="intro-section">
-    <div class="intro-container">
+    <section class="intro-section">
+        <div class="intro-container">
 
-        <div class="background-text" id="bg-text">
+            <div class="background-text" id="bg-text">
 
-            <div class="text-block">
-                <h1 class="beyond">BEYOND</h1>
-                <h1 class="horizon">HORIZON</h1>
+                <div class="text-block">
+                    <h1 class="beyond">BEYOND</h1>
+                    <h1 class="horizon">HORIZON</h1>
+                </div>
+
+                <div class="intro-img">
+                    <img src="src/assets/intro.png" alt="">
+                </div>
+
             </div>
- 
-            <span class="intro-img">
-                <img src="src/assets/intro.png" alt="">
-            </span>
-
         </div>
-    </div>
-</section>
+    </section>
 
 
     <!-- loaded content -->
-    <div id="loaded-content">
-        <!-- ******************HOME PARA SECTION **********************-->
-        <section class="home-para quattrocento-sans-bold">
-            <div class="home-para-container">
-                <div class="para-1">
-                    <p class="p">
-                        We are crafting Intelligent Robotic Products,
-                    </p>
-                    <p class="p">
-                        enhancing human-robot coworking.
-                    </p>
-                </div>
-                <div class="para-2">
-                    <p class="p">Making Intelligence Meet The Physical World.
-                    </p>
-                </div>
-                <div class="redirect-para">
+    <div class="wrapper">
+        <div class="dragger">
+            <hr>
+            <hr>
+        </div>
+        <div id="loaded-content">
 
-                    <span class="span">Check Out</span>
-                    <span class="span">
-                        <a href="#">
-                            <p>What We're Working On</p>
-                            <img src="./src/assets/share.png" alt="redirect-arrow">
-                        </a>
-                    </span>
+            <!-- ******************HOME PARA SECTION **********************-->
+            <section class="home-para quattrocento-sans-bold">
+                <div class="home-para-container">
+                    <div class="para-1">
+                        <p class="p">
+                            We are crafting Intelligent Robotic Products,
+                        </p>
+                        <p class="p">
+                            enhancing human-robot coworking.
+                        </p>
+                    </div>
+                    <div class="para-2">
+                        <p class="p">Making Intelligence Meet The Physical World.
+                        </p>
+                    </div>
+                    <div class="redirect-para">
+
+                        <span class="span">Check Out</span>
+                        <span class="span">
+                            <a href="#">
+                                <p>What We're Working On</p>
+                                <img src="./src/assets/share.png" alt="redirect-arrow">
+                            </a>
+                        </span>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <!-- **************HOME PARA SECTION END ************** -->
+            </section>
+        </div>
     </div>
+    <!-- **************HOME PARA SECTION END ************** -->
+
     <!-- *****************FOOTER SECTION START ********************* -->
     <footer>
         <div class="footer-container">
@@ -137,6 +145,7 @@
         </div>
     </footer>
     <!-- *****************FOOTER SECTION END******************* -->
+
 </body>
 
 <!-- *****************GSAP ANIMATION************ -->
@@ -146,6 +155,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
     integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Draggable.min.js"
+    integrity="sha512-dgqdovLK5r/NMiV5YfWA0xC94DKGrm+6q1OZpuWHm+uBGLTck6wu58WAX9lmy8wec6cVnsgxbPJ60DtmNFnfgg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
