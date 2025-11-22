@@ -308,7 +308,7 @@ body {
 footer {
     font-family: Arial, Helvetica, sans-serif;
 
-    border-top: 3px solid transparent;
+    border-top: 4px solid transparent;
     border-image: linear-gradient(to right, #D2005A, #6666FF) 1;
 
 }
@@ -420,7 +420,7 @@ footer {
     html,
     body {
         margin: 0;
-        /* padding: 0;  */
+        padding: 0; 
         width: 100%;
         box-sizing: border-box;
         overflow-x: hidden;

@@ -25,9 +25,23 @@ body{
 
 .product-intro {}
 
-.title h1 {
+.title1 h1 {
     font-size: 4rem;
     background-image: linear-gradient(to right , #ffbf00 45% ,rgba(137, 41, 254, 0.427),#6666FF 55% );
+
+    /* Clip the background to the shape of the text */
+    -webkit-background-clip: text;
+    /* For WebKit browsers like Chrome and Safari */
+    background-clip: text;
+    /* Make the text transparent so the background can show through */
+    -webkit-text-fill-color: transparent;
+    /* For WebKit browsers */
+    color: transparent;
+}
+.title2 h1 {
+    font-size: 4rem;
+    background-image: linear-gradient(to right , #32A2AD 45% ,#FF7062
+ 55% );
 
     /* Clip the background to the shape of the text */
     -webkit-background-clip: text;

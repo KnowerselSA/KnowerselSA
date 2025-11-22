@@ -137,18 +137,37 @@ font-size: 22px;
 
 .project-title {
   /* margin-top: 1.2rem; */
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 900;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
   /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 .project-title.red {
-  color: #ff4c4c;
+   background-image: linear-gradient(to right , #ffbf00 30% ,rgba(137, 41, 254, 0.427),#6666FF 75% );
+
+    /* Clip the background to the shape of the text */
+    -webkit-background-clip: text;
+    /* For WebKit browsers like Chrome and Safari */
+    background-clip: text;
+    /* Make the text transparent so the background can show through */
+    -webkit-text-fill-color: transparent;
+    /* For WebKit browsers */
+    color: transparent;
 }
 
 .project-title.blue {
-  color: #5a4cff;
+  background-image: linear-gradient(to right , #32A2AD 35% ,#FF7062
+ 75% );
+
+    /* Clip the background to the shape of the text */
+    -webkit-background-clip: text;
+    /* For WebKit browsers like Chrome and Safari */
+    background-clip: text;
+    /* Make the text transparent so the background can show through */
+    -webkit-text-fill-color: transparent;
+    /* For WebKit browsers */
+    color: transparent;
 }
 
 /* FOOTER STYLE */

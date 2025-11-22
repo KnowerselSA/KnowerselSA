@@ -109,7 +109,7 @@ ScrollTrigger.matchMedia({
         scrollTrigger: {
           trigger: ".wrapper",
           scroller: "[data-container-scroll]",
-          start: "top 90%",
+          start: "top bottom",
           end: "top top%",
           markers : true ,
           scrub: true,
