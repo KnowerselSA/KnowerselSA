@@ -18,15 +18,27 @@
                 </div>
 
                 <!-- NAVBAR ITEMS  -->
-                <div class="nav-right-section">
+                <div class="nav-right-section" id="nav-right">
                     <ul class="nav_right-list">
                          <li class="list_item" id="list-item"><a href="index.html">Home</a></li>
-                          <li class="list_item" id="list-item"><a href="product.html">Products</a></li>
-                        <li class="list_item" id="list-item"><a href="aboutus.html">About</a></li>
-                       
-                       
+                         <li class="list_item" id="list-item"><a href="product.html">Products</a></li>
+                         <li class="list_item" id="list-item"><a href="aboutus.html">About</a></li>
                     </ul>
                 </div>
+
+                <!-- MOBILE MENU BUTTON -->
+                <div class="menu-btn" id="menuBtn">
+                    <img src="src/assets/menu.png" alt="menu">
+                </div>
+
+                <!-- MOBILE SLIDE-IN MENU -->
+                <nav class="mobile-menu" id="mobileMenu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="aboutus.html">About</a></li>
+                    </ul>
+                </nav>
 
             </div>
         </nav>
@@ -120,10 +132,14 @@
 
 <script src="./src/javascript/animation.js"></script>
 
+<!-- HOME JS FOR NAV + MOBILE MENU (same behavior as home page) -->
+<script src="src/javascript/home.js"></script>
+
 <!-- *****************GSAP ANIMATION END************ -->
 
 <script src="src/javascript/contact.js"></script>
-<script>window.addEventListener("scroll", function () {
+<script>
+window.addEventListener("scroll", function () {
     const nav = document.getElementById("nav");
 
     if (window.scrollY > 50) { // when scrolled down 50px
