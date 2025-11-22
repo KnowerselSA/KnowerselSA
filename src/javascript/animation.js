@@ -71,7 +71,7 @@ if (!el) {
       scroller: "[data-container-scroll]",
       start: "top bottom",
       end: "top 20%",
-      scrub: true, // <-- key for natural load/unload effect
+      scrub: 0.2, // <-- key for natural load/unload effect
       // markers: true,
       toggleActions: "play none none reverse",
       onUpdate: (self) => {
@@ -109,10 +109,10 @@ ScrollTrigger.matchMedia({
         scrollTrigger: {
           trigger: ".wrapper",
           scroller: "[data-container-scroll]",
-          start: "top bottom",
+          start: "top 70%",
           end: "top top%",
           markers : true ,
-          scrub: true,
+          scrub: 0.2,
           toggleActions: "play none none reverse",
           onUpdate: (self) => {
             // reduce the gap behind the element
