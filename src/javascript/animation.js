@@ -104,20 +104,20 @@ ScrollTrigger.matchMedia({
       console.log("wrapper not found !!");
     } else {
       gsap.to(".wrapper", {
-        y: "-20vh", // move element up
+      marginTop: "-20vh", // move element up
         ease: "none",
         scrollTrigger: {
           trigger: ".wrapper",
           scroller: "[data-container-scroll]",
-          start: "top 70%",
-          end: "top top%",
+          start: "top 90%",
+          end: "top top",
           markers : true ,
-          scrub: 0.2,
+          scrub: 0.5  ,
           toggleActions: "play none none reverse",
-          onUpdate: (self) => {
-            // reduce the gap behind the element
-            el.style.marginBottom = `-${self.progress * 20}vh`;
-          },
+          // onUpdate: (self) => {
+          //   // reduce the gap behind the element
+          //   el.style.marginBottom = `-${self.progress * 20}vh`;
+          // },
         },
       });
     }
