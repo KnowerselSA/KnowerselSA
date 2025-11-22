@@ -3,7 +3,7 @@
 }
 
 .list_item a {
-    color: rgb(0, 0, 0) !important;
+   color: black;
     font-size: 22px !important;
     font-weight: bold !important;
 }
