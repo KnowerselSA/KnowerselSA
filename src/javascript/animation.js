@@ -111,7 +111,7 @@ ScrollTrigger.matchMedia({
           scroller: "[data-container-scroll]",
           start: "top 90%",
           end: "top top",
-          markers : true ,
+          // markers : true ,
           scrub: 0.5  ,
           toggleActions: "play none none reverse",
           // onUpdate: (self) => {
