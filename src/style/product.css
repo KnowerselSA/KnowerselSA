@@ -69,7 +69,7 @@ body {
 } */
 .list_item a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0) !important;
 font-weight: 900 !important;
 font-size: 22px;
 }
