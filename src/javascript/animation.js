@@ -309,4 +309,16 @@ gsap.to(".list_item a" , {
     start : "top 10%"
   }
   
-})
+});
+
+gsap.to(".list_item a" , {
+    color : "black" , 
+  scrollTrigger :{
+    trigger : ".home-para" ,
+    scroller: "[data-container-scroll]",
+    toggleActions: "play none none reverse",
+    markers : true,
+    start : "top 10%"
+  }
+  
+});
