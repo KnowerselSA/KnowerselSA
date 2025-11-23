@@ -255,15 +255,29 @@ ele.forEach((item) => {
 });
 
 // animation after loading
-gsap.from(".project1 ", {
+gsap.from(".project1", {
   x: -1250,
   duration: 1.5,
   ease: "power2.out",
+   scrollTrigger :{
+    trigger : ".project1" ,
+    scroller: "[data-container-scroll]",
+    toggleActions: "play none none reverse",
+    // markers : true,
+    // start : "top 10%"
+  }
 });
 gsap.from(".project2", {
   x: 1250,
   duration: 1.5,
   ease: "power2.out",
+   scrollTrigger :{
+    trigger : ".project2" ,
+    scroller: "[data-container-scroll]",
+    toggleActions: "play none none reverse",
+    // markers : true,
+    // start : "top 10%"
+  }
 });
 
 // mobile menu
