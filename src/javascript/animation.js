@@ -240,7 +240,7 @@ ele.forEach((item) => {
       });
       setTimeout(() => {
         window.location.href = "product_1.html";
-      }, 1000);
+      }, 500);
     } else {
       gsap.from(".project2 img", {
         scale: 1.5,
@@ -249,7 +249,7 @@ ele.forEach((item) => {
       });
       setTimeout(() => {
         window.location.href = "product_2.html";
-      }, 1000);
+      }, 500);
     }
   });
 });
