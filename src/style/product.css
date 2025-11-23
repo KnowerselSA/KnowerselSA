@@ -145,9 +145,7 @@ font-size: 22px;
 
 .project-title.red {
 color: transparent;
--webkit-text-stroke: 3px #E53935;
-background: linear-gradient(90deg, #E53935, #F8B7B7, #FFFFFF);
--webkit-background-clip: text;
+background: linear-gradient(to right, #FF4750 75%, #ffcccc);
 
     /* Clip the background to the shape of the text */
     -webkit-background-clip: text;
@@ -160,7 +158,7 @@ background: linear-gradient(90deg, #E53935, #F8B7B7, #FFFFFF);
 }
 
 .project-title.blue {
-background: linear-gradient(90deg, #2F2CFF, #4800C7, #A78BFF);
+background: linear-gradient(90deg, #5555fd, #ad94ff);
 -webkit-background-clip: text;
 color: transparent;
 

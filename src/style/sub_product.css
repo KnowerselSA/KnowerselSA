@@ -301,18 +301,19 @@ body{
     height: auto;
   }
   .swiper {
-    width: 100vw;
-    height:80vh;
+    width: 90vw !important;
+    height:80vh !important;
     margin: 1rem auto;
   }
 
   .swiper-wrapper {
     flex-direction: row; /* fixes vertical shrink bug on mobile */
+    height: auto !important;
   }
 
   .swiper-slide {
     flex-direction: column;
-    height: 80vh;
+    height: 80vh !important;
     gap: 1rem;
   }
 
