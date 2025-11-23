@@ -298,7 +298,7 @@ body{
 
   /* PAGE 3 (SWIPER SECTION) */
   .page2{
-    height: auto;
+    /* height: 100vh; */
   }
   .swiper {
     width: 90vw !important;
@@ -308,7 +308,7 @@ body{
 
   .swiper-wrapper {
     flex-direction: row; /* fixes vertical shrink bug on mobile */
-    height: auto !important;
+    /* height: 100% !important; */
   }
 
   .swiper-slide {
@@ -319,7 +319,7 @@ body{
 
   .video {
     width: 80%;
-    height: auto;
+    height: 23%;
     border: none;
     order: 2;
   }
