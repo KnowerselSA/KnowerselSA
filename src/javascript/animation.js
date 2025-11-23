@@ -67,70 +67,70 @@ gsap.from(".intro-img", {
   }
 });
 // scroll animation for home page
-let el = document.querySelector(".wrapper");
-if (!el) {
-  console.log("wrapper not found !!");
-} else {
-  gsap.to(".wrapper", {
-    y: "-40vh", // better responsive movement
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".wrapper",
-      scroller: "[data-container-scroll]",
-      start: "top 90%",
-      end: "top 20%",
-      scrub: 0.2, // <-- key for natural load/unload effect
-      // markers: true,
-      toggleActions: "play none none reverse",
-      onUpdate: (self) => {
-        // reduce the gap behind the element
-        el.style.marginBottom = `-${self.progress * 20}vh`;
-      },
-    },
-  });
-}
-// drag anywhere the object and laod container
-ScrollTrigger.matchMedia({
-  "(min-width : 769px)": function () {
-    Draggable.create(".wrapper, .intro-img", {
-      type: "x,y",
-      bounds: window,
-      inertia: true,
-    });
-  },
-});
-// mobile scroll animation for home page
-ScrollTrigger.matchMedia({
-  "(max-width: 768px)": function () {
-    // drag anywhere the object and laod container
-    Draggable.create(".intro-img", {
-      type: "x,y",
-      bounds: window,
-      inertia: true,
-    });
-    if (!el) {
-      console.log("wrapper not found !!");
-    } else {
-      gsap.to(".wrapper", {
-      marginTop: "-20vh", // move element up
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".wrapper",
-          scroller: "[data-container-scroll]",
-          start: "top 90%",
-          end: "top top",
-          // markers : true ,
-          scrub: 0.5  ,
-          toggleActions: "play none none reverse",
-          // onUpdate: (self) => {
-          //   // reduce the gap behind the element
-          //   el.style.marginBottom = `-${self.progress * 20}vh`;
-          // },
-        },
-      });
-    }
-  },
-});
+// let el = document.querySelector(".wrapper");
+// if (!el) {
+//   console.log("wrapper not found !!");
+// } else {
+//   gsap.to(".wrapper", {
+//     y: "-40vh", // better responsive movement
+//     ease: "none",
+//     scrollTrigger: {
+//       trigger: ".wrapper",
+//       scroller: "[data-container-scroll]",
+//       start: "top 90%",
+//       end: "top 20%",
+//       scrub: 0.2, // <-- key for natural load/unload effect
+//       // markers: true,
+//       toggleActions: "play none none reverse",
+//       onUpdate: (self) => {
+//         // reduce the gap behind the element
+//         el.style.marginBottom = `-${self.progress * 20}vh`;
+//       },
+//     },
+//   });
+// }
+// // drag anywhere the object and laod container
+// ScrollTrigger.matchMedia({
+//   "(min-width : 769px)": function () {
+//     Draggable.create(".wrapper, .intro-img", {
+//       type: "x,y",
+//       bounds: window,
+//       inertia: true,
+//     });
+//   },
+// });
+// // mobile scroll animation for home page
+// ScrollTrigger.matchMedia({
+//   "(max-width: 768px)": function () {
+//     // drag anywhere the object and laod container
+//     Draggable.create(".intro-img", {
+//       type: "x,y",
+//       bounds: window,
+//       inertia: true,
+//     });
+//     if (!el) {
+//       console.log("wrapper not found !!");
+//     } else {
+//       gsap.to(".wrapper", {
+//       marginTop: "-20vh", // move element up
+//         ease: "none",
+//         scrollTrigger: {
+//           trigger: ".wrapper",
+//           scroller: "[data-container-scroll]",
+//           start: "top 90%",
+//           end: "top top",
+//           // markers : true ,
+//           scrub: 0.5  ,
+//           toggleActions: "play none none reverse",
+//           // onUpdate: (self) => {
+//           //   // reduce the gap behind the element
+//           //   el.style.marginBottom = `-${self.progress * 20}vh`;
+//           // },
+//         },
+//       });
+//     }
+//   },
+// });
 
 // PARA 1 animation
 // gsap.from(".para-1 p", {
@@ -299,18 +299,7 @@ if (window.lenis && window.ScrollTrigger) {
   gsap.ticker.lagSmoothing(0);
 }
 
-gsap.to(".list_item a" , {
-    color : "white" , 
-  scrollTrigger :{
-    trigger : ".page-container" ,
-    scroller: "[data-container-scroll]",
-    toggleActions: "play none none reverse",
-    // markers : true,
-    start : "top 10%"
-  }
-  
-});
-
+// home page nav items
 gsap.to(".list_item a" , {
     color : "black" , 
   scrollTrigger :{
@@ -322,3 +311,4 @@ gsap.to(".list_item a" , {
   }
   
 });
+

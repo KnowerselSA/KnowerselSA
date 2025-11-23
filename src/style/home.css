@@ -234,7 +234,7 @@ body {
 
 /* SECOND PAGE STYLE */
 .home-para {
-    padding: 2rem;
+    /* padding: 2rem; */
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     /* margin-top: 11rem; */
     margin: 0rem 16rem 0rem 16rem;
@@ -421,7 +421,7 @@ footer {
     body {
         margin: 0;
         padding: 0; 
-        width: 100%;
+        /* width: 100%; */
         box-sizing: border-box;
         overflow-x: hidden;
     }
@@ -505,6 +505,7 @@ footer {
 }
     #loaded-content {
         width: 100%;
+        height: auto;
     }
 
     .home-para {

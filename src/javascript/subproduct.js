@@ -1,7 +1,7 @@
 // slider 
 var swiper = new Swiper('.mySwiper' ,{
-    direction : "vertcal" ,
-    effect : "fade  " ,
+    direction : "vertical" ,
+    effect : "fade" ,
      pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -9,7 +9,23 @@ var swiper = new Swiper('.mySwiper' ,{
      
       mousewheel :true
 });
-
+// product page nav items 
+gsap.to(".list_item a" , {
+    color : "white" , 
+  scrollTrigger :{
+    trigger : ".page-container" ,
+    // scroller: "body",
+    toggleActions: "play none none reverse",
+    // markers : true,
+    start : "top 10%"
+  }
+  
+});
+// const lenis = new Lenis({
+//   smooth: true,
+//   lerp: 0.05,   // default ~0.1
+//    wheelMultiplier: 0.5, 
+// });
 
 // gsap.registerPlugin(ScrollTrigger);
 
@@ -30,6 +46,3 @@ var swiper = new Swiper('.mySwiper' ,{
 //         pinSpacing: false
 //     }
 // })
-
-
-

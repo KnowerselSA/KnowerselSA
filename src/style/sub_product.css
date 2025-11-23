@@ -229,3 +229,140 @@ body{
     
 }
 
+/* ***************MOBIILE RESPONSIVE**************** */
+/* ---------------------- MOBILE RESPONSIVE ---------------------- */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .nav {
+    padding: 1rem 1.5rem;
+  }
+
+  .nav_right-list {
+    gap: 1rem;
+  }
+
+  .list_item a {
+    font-size: 16px !important;
+  }
+
+  /* PAGE 1 (PRODUCT INTRO) */
+  .product-container {
+    margin-top: 5rem;
+  }
+
+  .title1 h1 {
+    font-size: 2.2rem;
+  }
+
+  .para {
+    margin: 1.5rem;
+    font-size: 16px;
+    text-align: justify;
+  }
+
+  .product-img img {
+    width: 80%;
+    height: auto;
+  }
+
+  /* PAGE 2 (ADVANTAGES + APPLICATIONS) */
+  .product-desc {
+    flex-direction: column;
+    margin: 2rem 1rem;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .product-desc h2 {
+    text-align: left !important;
+    margin: 0;
+    font-size: 24px;
+  }
+.right-items-heading ,.left-items-heading{
+    margin-top: 1.5rem;
+   
+}
+  .right-items, 
+  .left-items {
+    text-align:left !important;
+    padding: 5px 0;
+    font-size: 20px;
+   
+  }
+
+  .right-points, 
+  .left-points {
+    margin: 0 !important;
+  }
+
+  /* PAGE 3 (SWIPER SECTION) */
+  .page2{
+    height: auto;
+  }
+  .swiper {
+    width: 100vw;
+    height:80vh;
+    margin: 1rem auto;
+  }
+
+  .swiper-wrapper {
+    flex-direction: row; /* fixes vertical shrink bug on mobile */
+  }
+
+  .swiper-slide {
+    flex-direction: column;
+    height: 80vh;
+    gap: 1rem;
+  }
+
+  .video {
+    width: 80%;
+    height: auto;
+    border: none;
+    order: 2;
+  }
+
+  .video iframe {
+    width: 100%;
+    height: auto;
+  }
+
+  .video-descr {
+    order: 1;
+    width: 100%;
+    margin: 2rem 0rem;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .video-descr h1 {
+    margin: 1rem 0 0.5rem 0;
+    font-size: 1.4rem;
+  }
+    .video-descr hr {
+        margin: 1rem 2rem;
+    }
+  .video-descr p {
+    margin: 0 1rem;
+    font-size: 15px;
+  }
+
+  /* SWIPER BULLETS */
+  .swiper-pagination-bullet {
+    height: 15px !important;
+    width: 4px !important;
+    margin: 0.5rem !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    height: 30px !important;
+    width: 5px !important;
+  }
+
+  /* FOOTER */
+  .footer-container {
+    padding: 1rem;
+    font-size: 14px;
+  }
+}
