@@ -144,7 +144,10 @@ font-size: 22px;
 }
 
 .project-title.red {
-   background-image: linear-gradient(to right , #ffbf00 30% ,rgba(137, 41, 254, 0.427),#6666FF 75% );
+color: transparent;
+-webkit-text-stroke: 3px #E53935;
+background: linear-gradient(90deg, #E53935, #F8B7B7, #FFFFFF);
+-webkit-background-clip: text;
 
     /* Clip the background to the shape of the text */
     -webkit-background-clip: text;
@@ -157,8 +160,11 @@ font-size: 22px;
 }
 
 .project-title.blue {
-  background-image: linear-gradient(to right , #32A2AD 35% ,#FF7062
- 75% );
+background: linear-gradient(90deg, #2F2CFF, #4800C7, #A78BFF);
+-webkit-background-clip: text;
+color: transparent;
+
+
 
     /* Clip the background to the shape of the text */
     -webkit-background-clip: text;
