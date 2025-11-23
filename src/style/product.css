@@ -300,12 +300,15 @@ footer {
     align-self: center;
   }
 
-  .socials ul {
-    gap: 3rem;
+.socials ul {
+    padding: 0;
+    gap: 1.5rem;
+      display: flex;
+        justify-content: center ;
   }
-
   .copyright {
     grid-area: copyright;
     justify-self: center;
+    padding: 0;
   }
 }

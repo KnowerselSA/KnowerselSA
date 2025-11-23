@@ -586,8 +586,8 @@ footer {
     }
 
     .socials ul {
-        display: flex;
-        justify-content: center;
+        display: flex !important;
+        justify-content: center !important;
         gap: 1.5rem;
          padding: 0;
     }

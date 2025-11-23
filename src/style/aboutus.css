@@ -277,6 +277,7 @@ footer {
 .socials {
   grid-area: socials;
   align-items: center;
+  padding: 1rem;
 }
 
 .socials-items img {
@@ -346,16 +347,21 @@ footer {
   }
 
   .socials {
+    /* padding: 1rem; */
     grid-area: socials;
     justify-self: center;
     align-self: center;
   }
 
   .socials ul {
-    gap: 3rem;
+    padding: 0;
+    gap: 1.5rem;
+      display: flex;
+        justify-content: center ;
   }
 
   .copyright {
+    padding: 0;
     grid-area: copyright;
     justify-self: center;
   }

@@ -409,17 +409,21 @@ footer {
   }
 
   .socials {
+    padding: 1rem;
     grid-area: socials;
     justify-self: center;
     align-self: center;
   }
 
   .socials ul {
-    gap: 3rem;
+    padding: 0;
+    gap: 1.5rem;
+      display: flex;
+        justify-content: center ;
   }
-
   .copyright {
     grid-area: copyright;
     justify-self: center;
+    padding: 0;
   }
 }
