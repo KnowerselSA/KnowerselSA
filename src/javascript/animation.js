@@ -317,7 +317,7 @@ gsap.to(".list_item a" , {
     trigger : ".home-para" ,
     scroller: "[data-container-scroll]",
     toggleActions: "play none none reverse",
-    markers : true,
+    // markers : true,
     start : "top 10%"
   }
   
