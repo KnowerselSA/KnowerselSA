@@ -284,3 +284,15 @@ if (window.lenis && window.ScrollTrigger) {
 
   gsap.ticker.lagSmoothing(0);
 }
+
+gsap.to(".list_item a" , {
+    color : "white" , 
+  scrollTrigger :{
+    trigger : ".page-container" ,
+    scroller: "[data-container-scroll]",
+    toggleActions: "play none none reverse",
+    // markers : true,
+    start : "top 10%"
+  }
+  
+})
