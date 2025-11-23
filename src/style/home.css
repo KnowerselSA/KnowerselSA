@@ -141,7 +141,7 @@ body {
     /* Make the text transparent so the background can show through */
     -webkit-text-fill-color: transparent;
     /* For WebKit browsers */
-    font-size: 13rem;
+    font-size: 215px;
     font-family: 'Slim Joe Regular';
     font-weight: 900;
     margin: 0;
