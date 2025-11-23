@@ -100,8 +100,7 @@ gsap.from(".intro-img", {
 //   },
 // });
 // // mobile scroll animation for home page
-// ScrollTrigger.matchMedia({
-//   "(max-width: 768px)": function () {
+// 
 //     // drag anywhere the object and laod container
 //     Draggable.create(".intro-img", {
 //       type: "x,y",

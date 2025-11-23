@@ -26,12 +26,12 @@ gsap.to("menu-img", {
   scrollTrigger: {
     trigger: ".swiper-wrapper",
     // markers : true,
-    start: "top 5%",
+    start: "top 14%",
     onEnter: () => {
       document.getElementById("menu-img").src = "src/assets/menu2.png";
     },
     onLeaveBack: () => {
-      document.getElementById("menu-img").src = "src/assets/menu.PNG";
+      document.getElementById("menu-img").src = "src/assets/menu.png";
     },
   },
 });
@@ -58,3 +58,45 @@ gsap.to("menu-img", {
 //         pinSpacing: false
 //     }
 // })
+
+// return to top 
+gsap.from("#top-arr", {
+      opacity : 0,
+      ease :"power2.out",
+  scrollTrigger: {
+    trigger: ".swiper-wrapper",
+    // markers : true,
+    start: "top 50%",
+    // markers : true,
+
+    onEnter: () => {
+      document.getElementById("top-arr").style.display = "flex";
+    },
+    onLeaveBack: () => {
+      document.getElementById("top-arr").style.display = "none";
+    },
+  
+  },
+});
+
+document.getElementById("top-arr").addEventListener("click" ,  ()=>{
+  gsap.to(window , {
+    duration : 0.5 ,
+    scrollTo : 0,
+    ease : "power2.out"
+  })
+})
+// header-color-changed
+gsap.to("nav" , {
+  scrollTrigger : {
+    trigger : ".swiper-wrapper",
+    // markers : true,
+    start : "top 14%", 
+    onEnter : ()=>{
+      document.getElementById("nav").style.backgroundColor = "black"
+    },
+    onLeaveBack: ()=>{
+      document.getElementById("nav").style.background ="rgba(17, 17, 17, 0.3)"
+    }
+  }
+})
