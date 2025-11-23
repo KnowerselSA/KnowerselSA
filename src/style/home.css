@@ -122,7 +122,7 @@ body {
 /* BACKGROUND TEXT */
 .background-text {
     position: absolute;
-    top: 47%;
+    top: 43%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -141,7 +141,7 @@ body {
     /* Make the text transparent so the background can show through */
     -webkit-text-fill-color: transparent;
     /* For WebKit browsers */
-    font-size: 12rem;
+    font-size: 13rem;
     font-family: 'Slim Joe Regular';
     font-weight: 900;
     margin: 0;
@@ -159,7 +159,7 @@ body {
     justify-self: center;
 }
 .intro-img img{
-    width: 1100px ;
+    width: 1200px ;
     height: auto;
 }
 

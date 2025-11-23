@@ -51,12 +51,20 @@ gsap.from(".horizon", {
 });
 // intro image animation
 gsap.from(".intro-img", {
-  scale: 0,
-  x: 2000,
-  duration: 2,
+  y : -300,
+  scale: 5,
+  opacity: 0,
+  duration:1,
   ease: "power2.out",
   smoothTouch: true,
-  // rotate : 360
+   scrollTrigger: {
+    trigger: ".background-text",
+    scroller: "[data-container-scroll]",
+    // markers: true,
+    start: "top 50%",
+    end: "top 0%",
+    toggleActions: "play none none reverse",
+  }
 });
 // scroll animation for home page
 let el = document.querySelector(".wrapper");
@@ -83,9 +91,9 @@ if (!el) {
 }
 // drag anywhere the object and laod container
 ScrollTrigger.matchMedia({
-  "(!max-width : 768px)": function () {
-    Draggable.create(".wrapper, .intro-img img", {
-      type: "x,y ",
+  "(min-width : 769px)": function () {
+    Draggable.create(".wrapper, .intro-img", {
+      type: "x,y",
       bounds: window,
       inertia: true,
     });
@@ -96,7 +104,7 @@ ScrollTrigger.matchMedia({
   "(max-width: 768px)": function () {
     // drag anywhere the object and laod container
     Draggable.create(".intro-img", {
-      type: "x,y ",
+      type: "x,y",
       bounds: window,
       inertia: true,
     });
