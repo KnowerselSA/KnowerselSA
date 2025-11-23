@@ -243,7 +243,7 @@ body {
 }
 
 .home-para-container {
-    margin: auto;
+    margin: 8rem  auto;
 }
 
 .para-1 {
@@ -512,7 +512,9 @@ footer {
         height: auto;
         overflow: hidden;
     }
-
+.home-para-container{
+    margin: auto;
+}
     .para-1,
     .para-2 {
         margin: 3rem auto;

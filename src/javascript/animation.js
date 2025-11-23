@@ -77,7 +77,7 @@ if (!el) {
     scrollTrigger: {
       trigger: ".wrapper",
       scroller: "[data-container-scroll]",
-      start: "top bottom",
+      start: "top 90%",
       end: "top 20%",
       scrub: 0.2, // <-- key for natural load/unload effect
       // markers: true,
