@@ -197,3 +197,99 @@ document.getElementById("top-arr").addEventListener("click", () => {
 });
 
 });
+
+// for mobile 
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Initial Setup for Mobile Viewports
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+    // 2. Swiper Initialization (Optimized for Mobile Touch)
+    const swiper = new Swiper(".mySwiper", {
+        direction: "vertical",
+        effect: "slide", // 'slide' is often smoother than 'fade' on mobile processors
+        speed: 400,
+        mousewheel: false, // Disable mousewheel for mobile
+        touchReleaseOnEdges: true, // Allows native scroll when at boundaries
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+
+    // 3. Touch Handling Variables
+    let touchStartY = 0;
+    let touchMoveY = 0;
+
+    // 4. THE MOBILE SCROLL TRAP
+    const page2 = document.querySelector(".page2");
+
+    window.addEventListener("touchstart", (e) => {
+        touchStartY = e.touches[0].clientY;
+    }, { passive: false });
+
+    window.addEventListener("touchmove", (e) => {
+        touchMoveY = e.touches[0].clientY;
+        const rect = page2.getBoundingClientRect();
+        
+        // Is Page 2 currently the primary view?
+        const isCentered = Math.abs(rect.top) < 50; 
+
+        if (isCentered) {
+            const deltaY = touchStartY - touchMoveY;
+            const scrollingDown = deltaY > 5;
+            const scrollingUp = deltaY < -5;
+
+            // EXIT DOWN: On last slide, swiping UP (to scroll down)
+            if (swiper.isEnd && scrollingDown) {
+                return; // Let native scroll happen
+            }
+            // EXIT UP: On first slide, swiping DOWN (to scroll up)
+            else if (swiper.isBeginning && scrollingUp) {
+                return; // Let native scroll happen
+            }
+            // TRAP: In middle slides, prevent native scroll so Swiper takes over
+            else {
+                if (e.cancelable) e.preventDefault();
+            }
+        }
+    }, { passive: false });
+
+    // --- MOBILE HEADER LOGIC ---
+    const setHeaderDark = () => {
+        const nav = document.getElementById("nav");
+        const links = document.querySelectorAll(".list_item a");
+        const menuImg = document.getElementById("menu-img");
+
+        gsap.to(nav, { backgroundColor: "black", duration: 0.3 });
+        gsap.to(links, { color: "white", duration: 0.3 });
+        if (menuImg) {
+            menuImg.src = "src/assets/menu2.png";
+            gsap.to(menuImg, { filter: "brightness(0) invert(1)", duration: 0.3 });
+        }
+    };
+
+    const resetHeaderMobile = () => {
+        const nav = document.getElementById("nav");
+        const links = document.querySelectorAll(".list_item a");
+        const menuImg = document.getElementById("menu-img");
+
+        gsap.to(nav, { backgroundColor: "rgba(17, 17, 17, 0.3)", duration: 0.3 });
+        gsap.to(links, { color: "black", duration: 0.3 });
+        if (menuImg) {
+            menuImg.src = "src/assets/menu.png";
+            gsap.to(menuImg, { filter: "brightness(0) invert(0)", duration: 0.3 });
+        }
+    };
+
+    ScrollTrigger.create({
+        trigger: ".page2",
+        start: "top 20%",
+        end: "bottom 80%",
+        onEnter: setHeaderDark,
+        onLeave: resetHeaderMobile,
+        onEnterBack: setHeaderDark,
+        onLeaveBack: resetHeaderMobile,
+    });
+});

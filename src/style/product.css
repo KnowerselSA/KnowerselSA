@@ -277,11 +277,19 @@ footer {
     height: auto;
   }
   .img2{
-    width: 80%;
+    width: 90%;
   }
   .projects-heading{
     margin-bottom: 7rem;
   }
+  .project{
+    gap: 3rem;
+    text-align: center;
+  }
+  .project h2{
+    text-align: center;
+  }
+
   footer {
     width: 100%;
     overflow-x: hidden;
