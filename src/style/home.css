@@ -484,7 +484,7 @@ footer {
     }
 
     .background-text h1 {
-        font-size: 3.5rem;
+        font-size: 3.3rem;
         margin-bottom: 10px;
         line-height: 3.3;
         letter-spacing: 15px;
@@ -540,7 +540,7 @@ footer {
 
     .para-1 p,
     .para-2 p {
-        font-size: 24px;
+        font-size: 1.5rem;
         /* line-height: 1.5; */
     }
 
@@ -552,7 +552,7 @@ footer {
     }
 
     .redirect-para span {
-        font-size: 26px;
+        font-size: 1.7rem;
     }
 
     .redirect-para img {
@@ -601,7 +601,11 @@ footer {
         gap: 1.5rem;
          padding: 0;
     }
-
+.socials-items.active img{
+    filter: brightness(10);
+        transform: scale(1.2);
+    transition: all 0.2s ease;
+}
     .copyright {
         padding: 0;
         grid-area: copyright;

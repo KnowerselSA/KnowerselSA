@@ -300,7 +300,7 @@ scroll-snap-align: start;
   /* PAGE 2 (ADVANTAGES + APPLICATIONS) */
   .product-desc {
     flex-direction: column;
-    margin: 2rem 1rem;
+    margin: 2rem 3rem;
     gap: 5rem;
     align-items: center;
   }
@@ -316,9 +316,11 @@ scroll-snap-align: start;
 }
   .right-items, 
   .left-items {
+   
     text-align:left !important;
     padding: 5px 0;
-    font-size: 20px;
+    font-size: 16px;
+    list-style: disc;
    
   }
 
@@ -388,7 +390,7 @@ scroll-snap-align: start;
 
   /* SWIPER BULLETS */
   .swiper-pagination-vertical.swiper-pagination-bullets{
-    left: 1rem !important;
+    left: 0.5rem !important;
   }
   .swiper-pagination-bullet {
     height: 15px !important;
@@ -401,16 +403,19 @@ scroll-snap-align: start;
     width: 5px !important;
   }
   .top-arr{
+    width: 48px;
+    height: 48px;
     z-index: 987654;
     position: fixed;
     right: 2%;
 top: 80%;
-padding: 1rem;
-border-radius: 40%;
+padding:1rem;
+border-radius: 50%;
 /* margin: 1rem; */
    background: linear-gradient(to right, #4e0022, #320096);;
    display: flex;
    align-items: center;
+   justify-content: center;
   }
 .top-arr img{
     justify-content: center;

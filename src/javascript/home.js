@@ -95,3 +95,10 @@ window.addEventListener("scroll", function () {
   // On SPA navigation or page updates you might re-attach menu to body again:
   // (Optional) observe DOM mutations if menu gets re-inserted somewhere else
 })();
+
+// hover effect for mobile
+document.querySelectorAll(".socials-items").forEach(item => {
+  item.addEventListener("click", () => {
+    item.classList.toggle("active");
+  });
+});
