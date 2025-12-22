@@ -2,13 +2,23 @@
   font-family: "Quattrocento Sans", sans-serif;
   margin: 0;
   padding: 0;
-  /* box-sizing: border-box; Ensures padding and border are inside the element's total width/height */
+  /* box-sizing: border-box;  */
 }
 
 /* Remove default margin/padding from the body, which often causes the gap */
-body {
+body  {
   margin: 0;
   padding: 0;
+    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+   background: linear-gradient(
+    to bottom,
+    #ffffff,
+    #f9f9f9 65%,
+    rgba(0, 0, 0, 0.4) 80%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
 }
 
 /* NAVABR STYLE  */
@@ -85,13 +95,8 @@ font-size: 22px;
 .projects-section {
   text-align: center;
   padding: 8rem 2rem 6rem;
-  background: linear-gradient(
-    to bottom,
-    #ffffff,
-    #f9f9f9 85%,
-    rgba(0, 0, 0, 0.4) 95%,
-    rgba(0, 0, 0, 0.8) 100%
-  );
+ 
+  flex: 1;
 }
 
 .projects-heading {
@@ -129,7 +134,7 @@ font-size: 22px;
   filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.1));
 }
 .img2{
-  width: 60%;
+  width: 95%;
 }
 .project-image:hover {
   transform: scale(1.05);
@@ -176,13 +181,15 @@ color: transparent;
 
 /* FOOTER STYLE */
 footer {
+  margin-top: auto;
   font-family: Arial, Helvetica, sans-serif;
   border-top: 3px solid transparent;
   border-image: linear-gradient(to right, #D2005A, #6666FF) 1;
 }
 
 .footer-container {
-   height: 40px ;
+   min-height: 40px ;
+   /* box-sizing: border-box; */
     padding: 2rem;
     color: white;
     background-color: rgb(0, 0, 0);
@@ -242,6 +249,12 @@ footer {
 .socials-items img {
   width: 24px;
   height: 24px;
+  
+}
+.socials-items img:hover{
+  filter: brightness(10);
+   transform: scale(1.2);
+    transition: all 0.2s ease;
 }
 
 .copyright {
@@ -251,7 +264,7 @@ footer {
   text-align: center;
   font-size: 12px;
   justify-self: end;
-  align-self: center;
+  align-self: flex-start;
 }
 /* FOOTER STYLE END */
 
@@ -277,9 +290,9 @@ footer {
 
   .footer-container {
     padding: 10px;
-    height: auto;
+    height: 25vh;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 3fr 1.5r 3fr;
+    grid-template-rows: 3fr 1.5fr 3fr;
     grid-template-areas:
       "logo logo logo logo logo"
       "socials socials socials socials socials"

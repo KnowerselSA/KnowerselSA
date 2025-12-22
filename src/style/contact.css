@@ -13,6 +13,7 @@ html {
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -291,6 +292,11 @@ footer {
   width: 24px;
   height: 24px;
 }
+.socials-items img:hover{
+  filter:brightness(10);
+   transform: scale(1.2);
+    transition: all 0.2s ease;
+}
 
 .copyright {
   color: rgb(212, 212, 212);
@@ -321,7 +327,7 @@ footer {
   }
 
   .title {
-    font-size: 32px;
+    font-size: 34px;
     margin-bottom: 32px;
   }
 
@@ -338,7 +344,7 @@ footer {
 
   .description,
   .contact-info {
-    font-size: 16px;
+    font-size: 18 px;
     text-align: center;
     display: block;
     line-height: 1.5;
@@ -366,10 +372,11 @@ footer {
 
   .form-input,
   .form-textarea {
-    width: 100%;
+    width: 80%;
     max-width: 100%;
     font-size: 16px;
     padding: 10px 16px;
+    align-self: center;
   }
 
   .send-button {
