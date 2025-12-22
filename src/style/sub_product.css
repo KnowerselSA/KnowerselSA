@@ -1,29 +1,31 @@
 * {
     font-family: "Quattrocento Sans", sans-serif;
 }
+html{
+  scroll-snap-type: y proximity; 
+  scroll-behavior: smooth;
+}
 
 .list_item a {
    color: black;
     font-size: 22px !important;
     font-weight: bold !important;
 }
-body{
- /* background-color: black;
- color: white; */
+
+header{
+  scroll-snap-align: start;
+  /* height: 100vh; */
 }
 .product-container {
-   
+scroll-snap-align: start;
     margin-top: 5rem;
-    height: 100%;
+    /* CHANGE: Change height from 100vh to min-height */
+    min-height: 100vh; 
+    height: auto; 
     text-align: center;
-    /* flex-direction: column;
-    justify-content: center;
-    justify-items: center;
-    align-items: center; */
-
+  
 }
 
-.product-intro {}
 
 .title1 h1 {
     font-size: 4rem;
@@ -67,11 +69,14 @@ body{
 }
 
 .product-desc {
-    margin: 5rem;
+   margin: 5rem;
     display: flex;
     justify-content: space-between;
     font-size: 22px;
-/* height: 100vh; */
+    /* Ensure it doesn't get hidden */
+    position: relative; 
+    visibility: visible;
+    opacity: 1;
 }
 
 .right-points {
@@ -119,24 +124,27 @@ body{
     padding: 10px 0px;
 }
 
-.page2{
-    background-color: black;
-    color: white;
-   /* height: 100vh;  */
-   
+.page2 {
+ background-color: black;
+  color: white;
+  /* height: 100vh;  */
+  display: block; 
+  scroll-snap-align: start; /* This is what creates the snap effect */
+  scroll-snap-stop: always;
+  overflow: hidden;
 }
 .swiper{
-    width: 80vw;
-    height: 100vh;
-    /* background-color: rgb(202, 27, 27); */
-    margin: 2rem auto 4rem auto;
+ width: 100vw;
+  height: 100vh;
+  margin: 0 !important;/* Removed top/bottom margins to prevent alignment issues */
 }
 .swiper-wrapper{
+  height: 100vh;
     display: flex;
     flex-direction: column;
 }
 .swiper-slide{
-    height: 80vh;
+    height: 100vh;
     text-align: center;
     background-color: rgb(0, 0, 0);
     display:flex !important;
@@ -194,7 +202,14 @@ body{
     margin: 1rem 10rem 0rem 1rem ;
 }
 .top-arr{
+  z-index: 99999;
+  padding: 0.5rem;
+  border-radius: 50%;
     display: none;
+        position: fixed;
+    background:linear-gradient(to right, #D2005A, #6666FF) ;
+    bottom: 121px;
+    right: 28px;
 }
 
 /* .pages-wrapper {
@@ -223,6 +238,7 @@ body{
 
 /* Scroll continues normally after the animation */
 .footer-container {
+  scroll-snap-align: start;
   background-color: white;
   color: black !important;
 }

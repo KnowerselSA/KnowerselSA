@@ -1,102 +1,91 @@
-// slider
-var swiper = new Swiper(".mySwiper", {
-  direction: "vertical",
-  effect: "fade",
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
+document.addEventListener("DOMContentLoaded", () => {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-  mousewheel: true,
+    const swiper = new Swiper(".mySwiper", {
+        direction: "vertical",
+        effect: "fade",
+        speed: 200, // Slightly slower for a more premium feel
+        mousewheel: {
+            // CRITICAL CHANGE: releaseOnEdges MUST be false to trap the user
+            releaseOnEdges: true, 
+            sensitivity: 1,
+            thresholdDelta: 20,
+        }
+    });
+
+    window.addEventListener('wheel', function(e) {
+        const page2 = document.querySelector('.page2');
+        const rect = page2.getBoundingClientRect();
+        
+        // Tolerance: Is the slider occupying the screen?
+        const isCentered = Math.abs(rect.top) < 15;
+
+        if (isCentered) {
+            const scrollingUp = e.deltaY < 0;
+            const scrollingDown = e.deltaY > 0;
+
+            // 1. EXIT DOWN: Only if on LAST slide and user scrolls DOWN
+            if (swiper.isEnd && scrollingDown) {
+                return; // Release to browser (scrolls to footer)
+            } 
+            
+            // 2. EXIT UP: Only if on FIRST slide and user scrolls UP
+            else if (swiper.isBeginning && scrollingUp) {
+                return; // Release to browser (scrolls to header)
+            } 
+            
+            // 3. THE TRAP: For all other cases, block page scroll.
+            // When coming UP from footer, swiper.isBeginning is FALSE.
+            // This code hits the 'else' and prevents the page from moving up,
+            // forcing the Swiper to handle the wheel and change slides instead.
+            else {
+                if (e.cancelable) e.preventDefault();
+            }
+        }
+    }, { passive: false });
+
+    // --- YOUR HEADER & NAV LOGIC (UNCHANGED) ---
+    const resetHeader = () => {
+        const nav = document.getElementById("nav");
+        const links = document.querySelectorAll(".list_item a");
+        gsap.to(nav, { backgroundColor: "rgba(17, 17, 17, 0.3)", duration: 0.3, overwrite: "auto" });
+        gsap.to(links, { color: "black", duration: 0.3 });
+    };
+
+    const setHeaderDark = () => {
+        const nav = document.getElementById("nav");
+        const links = document.querySelectorAll(".list_item a");
+        gsap.to(nav, { backgroundColor: "black", duration: 0.3, overwrite: "auto" });
+        gsap.to(links, { color: "white", duration: 0.3 });
+    };
+      const reset2Header = () => {
+        const nav = document.getElementById("nav");
+        const links = document.querySelectorAll(".list_item a");
+        gsap.to(nav, { backgroundColor: "transparent", duration: 0.3, overwrite: "auto" });
+        gsap.to(links, { color: "black", duration: 0.3 });
+    };
+
+    ScrollTrigger.create({
+        trigger: ".page2",
+        // markers : true,
+        start: "top 50%",
+        end: "bottom 50%",
+        onEnter: setHeaderDark,
+        onLeave: resetHeader,
+        onEnterBack: setHeaderDark,
+        onLeaveBack: reset2Header
+    });
+
+    document.getElementById("top-arr").addEventListener("click", () => {
+        gsap.to(window, { 
+            duration: 0.8, 
+            scrollTo: 0, 
+            onComplete: () => {
+                swiper.slideTo(0, 0);
+                resetHeader();
+            }
+        });
+    });
 });
-// product page nav items
-gsap.to(".list_item a", {
-  color: "white",
-  scrollTrigger: {
-    trigger: ".page-container",
-    // scroller: "body",
-    toggleActions: "play none none reverse",
-    // markers : true,
-    start: "top 10%",
-  },
-});
-
-// changing the menu img when it reach the slider
-gsap.to("menu-img", {
-  scrollTrigger: {
-    trigger: ".swiper-wrapper",
-    // markers : true,
-    start: "top 14%",
-    onEnter: () => {
-      document.getElementById("menu-img").src = "src/assets/menu2.png";
-    },
-    onLeaveBack: () => {
-      document.getElementById("menu-img").src = "src/assets/menu.png";
-    },
-  },
-});
-// const lenis = new Lenis({
-//   smooth: true,
-//   lerp: 0.05,   // default ~0.1
-//    wheelMultiplier: 0.5,
-// });
-
-// gsap.registerPlugin(ScrollTrigger);
-
-// gsap.to('.page2' , {
-//     y : "-50vh",
-//     // duration : 2 ,
-//     opacity : 1 ,
-//     scrollTrigger:{
-//         trigger : ".page1   " ,
-//         scroller : "body" ,
-//         markers : true ,
-//         start : "bottom 70%" ,
-//         end : "bottom 30%" ,
-//         scrub : true,
-//         pin : true ,
-//         pinSpacing: false
-//     }
-// })
-
-// return to top 
-gsap.from("#top-arr", {
-      opacity : 0,
-      ease :"power2.out",
-  scrollTrigger: {
-    trigger: ".swiper-wrapper",
-    // markers : true,
-    start: "top 50%",
-    // markers : true,
-
-    onEnter: () => {
-      document.getElementById("top-arr").style.display = "flex";
-    },
-    onLeaveBack: () => {
-      document.getElementById("top-arr").style.display = "none";
-    },
-  
-  },
-});
-
-document.getElementById("top-arr").addEventListener("click" ,  ()=>{
-  gsap.to(window , {
-    duration : 0.5 ,
-    scrollTo : 0,
-    ease : "power2.out"
-  })
-})
-// header-color-changed
-gsap.to("nav" , {
-  scrollTrigger : {
-    trigger : ".swiper-wrapper",
-    // markers : true,
-    start : "top 14%", 
-    onEnter : ()=>{
-      document.getElementById("nav").style.backgroundColor = "black"
-    },
-    onLeaveBack: ()=>{
-      document.getElementById("nav").style.background ="rgba(17, 17, 17, 0.3)"
-    }
-  }
-})
