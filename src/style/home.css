@@ -487,7 +487,7 @@ footer {
         font-size: 3.3rem;
         margin-bottom: 10px;
         line-height: 3.3;
-        letter-spacing: 15px;
+        letter-spacing: 10px;
     }
 
     .text-block {
@@ -554,7 +554,10 @@ footer {
     .redirect-para span {
         font-size: 1.7rem;
     }
-
+.redirect-para a{
+    flex-direction: column;
+    align-items: self-start;
+}
     .redirect-para img {
         width: 24px;
         height: 24px;
