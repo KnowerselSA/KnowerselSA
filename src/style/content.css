@@ -1,0 +1,431 @@
+* {
+    font-family: "Quattrocento Sans", sans-serif;
+}
+
+html {
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+}
+
+.nav-container {
+    background-color: white;
+}
+
+#back {
+  filter: brightness(0) !important;
+}
+
+
+.list_item a {
+    color: black !important;
+    font-size: 22px !important;
+    font-weight: bold !important;
+}
+
+.list_item a img {
+    width: 24px;
+    height: 24px;
+    text-decoration: none;
+}
+
+header {
+    scroll-snap-align: start;
+    /* height: 100vh; */
+}
+
+.product-container {
+    scroll-snap-align: start;
+    margin-top: 5rem;
+    /* CHANGE: Change height from 100vh to min-height */
+    min-height: 100vh;
+    height: auto;
+    text-align: center;
+}
+
+.title1 h1 {
+    font-size: 4rem;
+    background-image: linear-gradient(to right, #ffbf00 45%, rgba(137, 41, 254, 0.427), #6666FF 55%);
+    /* Clip the background to the shape of the text */
+    -webkit-background-clip: text;
+    /* For WebKit browsers like Chrome and Safari */
+    background-clip: text;
+    /* Make the text transparent so the background can show through */
+    -webkit-text-fill-color: transparent;
+    /* For WebKit browsers */
+    color: transparent;
+}
+
+.title2 h1 {
+    font-size: 4rem;
+    background-image: linear-gradient(to right, #32A2AD 45%, #FF7062 55%);
+    /* Clip the background to the shape of the text */
+    -webkit-background-clip: text;
+    /* For WebKit browsers like Chrome and Safari */
+    background-clip: text;
+    /* Make the text transparent so the background can show through */
+    -webkit-text-fill-color: transparent;
+    /* For WebKit browsers */
+    color: transparent;
+}
+
+.para {
+    margin: 0rem 20rem 2rem 20rem;
+    font-size: 22px;
+    /* word-spacing: 10px; */
+    line-height: 1.5;
+    color: #3f3f3f;
+}
+
+.product-img img {
+    height: 400px;
+}
+
+.product-desc {
+    margin: 5rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+    /* Ensure it doesn't get hidden */
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+}
+
+.right-points {
+    margin-left: 5rem;
+}
+
+.right-points h2 {
+    margin-right: 2rem;
+    text-align: left;
+}
+
+.right-items-heading {
+    padding: 0;
+}
+
+.right-items {
+    color: #3f3f3f;
+    text-align: left;
+    list-style: none;
+    padding: 10px 0px;
+}
+
+.left-points {
+    margin-right: 5rem;
+}
+
+.left-points h2 {
+    margin-left: 2rem;
+    text-align: right;
+}
+
+.left-items-heading {
+    padding: 0;
+}
+
+.left-items {
+    color: #3f3f3f;
+    text-align: right;
+    list-style: none;
+    padding: 10px 0px;
+}
+
+.page2 {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    /* height: 100vh; */
+    display: block;
+    scroll-snap-align: start;
+    /* This is what creates the snap effect */
+    scroll-snap-stop: always;
+    overflow: hidden;
+}
+
+.swiper {
+    width: 100vw;
+    height: 100vh;
+    margin: 0 !important;
+    /* Removed top/bottom margins to prevent alignment issues */
+}
+
+.swiper-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.swiper-slide {
+    height: 100vh;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.swiper-pagination-vertical.swiper-pagination-bullets {
+    left: 6rem !important;
+}
+
+.swiper-pagination-bullet {
+    background: #c4c4c4 !important;
+    /* inactive color */
+    opacity: 1;
+    margin: 1rem !important;
+    height: 25px !important;
+    width: 5px !important;
+    border-radius: 24px !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: linear-gradient(to bottom, rgb(255, 192, 249), rgb(228, 149, 249)) !important;
+    /* active color */
+    height: 50px !important;
+    width: 7px !important;
+}
+
+.video {
+    width: 380px;
+    height: 580px;
+    aspect-ratio: 16 / 9;
+    /* default */
+    /* Add this if your videos include Shorts */
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.video iframe {
+    width: 320px;
+    height: 580px;
+    border: none;
+    border-radius: 10px;
+}
+
+.video-descr {
+    margin-left: 2rem;
+    grid-area: desc;
+    width: 400px;
+    align-self: normal;
+    text-align: left;
+}
+
+.video-descr h1 {
+    margin: 10rem 0rem 0rem 1rem;
+}
+
+.video-descr p {
+    margin: 1rem 10rem 0rem 1rem;
+}
+
+.top-arr {
+    z-index: 99999;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: none;
+    position: fixed;
+    background: linear-gradient(to right, #D2005A, #6666FF);
+    bottom: 121px;
+    right: 28px;
+}
+
+/* Scroll continues normally after the animation */
+.footer-container {
+    scroll-snap-align: start;
+    background-color: white;
+    color: black !important;
+}
+
+.socials-items img:hover {
+    filter: brightness(0);
+    transform: scale(1.2);
+    transition: all 0.2s ease;
+}
+
+.copyright {
+    color: black;
+    align-self: flex-start;
+    font-size: 13px;
+}
+
+/* ***************MOBIILE RESPONSIVE**************** */
+/* ---------------------- MOBILE RESPONSIVE ---------------------- */
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    .nav {
+        padding: 1rem 1.5rem;
+    }
+
+    .nav_right-list {
+        gap: 1rem;
+    }
+
+    .list_item a {
+        font-size: 16px !important;
+    }
+
+    .mobile-menu ul {
+        padding: 0;
+    }
+
+    /* PAGE 1 (PRODUCT INTRO) */
+    .product-container {
+        margin-top: 5rem;
+    }
+
+    .title1 h1 {
+        font-size: 2.2rem;
+    }
+
+    .para {
+        margin: 1.5rem;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .product-img img {
+        width: 80%;
+        height: auto;
+    }
+
+    /* PAGE 2 (ADVANTAGES + APPLICATIONS) */
+    .product-desc {
+        flex-direction: column;
+        margin: 2rem 3rem;
+        gap: 5rem;
+        align-items: center;
+    }
+
+    .product-desc h2 {
+        text-align: left !important;
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .right-items-heading,
+    .left-items-heading {
+        margin-top: 1.5rem;
+    }
+
+    .right-items,
+    .left-items {
+        text-align: left !important;
+        padding: 5px 0;
+        font-size: 16px;
+        list-style: disc;
+    }
+
+    .right-points,
+    .left-points {
+        margin: 0 !important;
+    }
+
+    /* PAGE 3 (SWIPER SECTION) */
+    .page2 {
+        /* height: 100vh; */
+    }
+
+    .swiper {
+        width: 100vw !important;
+        height: 80vh !important;
+        margin: 1rem auto;
+    }
+
+    .swiper-wrapper {
+        flex-direction: row;
+        /* fixes vertical shrink bug on mobile */
+        /* height: 100% !important; */
+        /* padding-left: 1rem; */
+    }
+
+    .swiper-slide {
+        margin: 3rem auto;
+        flex-direction: column;
+        height: 70vh !important;
+        gap: 1rem;
+        justify-content: start;
+        /* background-color: rebeccapurple; */
+    }
+
+    .video {
+        width: 80%;
+        height: 23%;
+        border: none;
+        order: 2;
+    }
+
+    .video iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    .video-descr {
+        order: 1;
+        width: 100%;
+        margin: 4rem 0rem 2rem 0rem;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .video-descr h1 {
+        margin: 1rem 0 0.5rem 0;
+        font-size: 1.4rem;
+    }
+
+    .video-descr hr {
+        margin: 1rem 2rem;
+    }
+
+    .video-descr p {
+        margin: 0 1rem;
+        font-size: 15px;
+    }
+
+    /* SWIPER BULLETS */
+    .swiper-pagination-vertical.swiper-pagination-bullets {
+        left: 0.5rem !important;
+    }
+
+    .swiper-pagination-bullet {
+        height: 15px !important;
+        width: 4px !important;
+        margin: 0.5rem !important;
+    }
+
+    .swiper-pagination-bullet-active {
+        height: 30px !important;
+        width: 5px !important;
+    }
+
+    .top-arr {
+        width: 38px;
+        height: 38px;
+        z-index: 987654;
+        position: fixed;
+        right: 2%;
+        top: 80%;
+        padding: 1rem;
+        border-radius: 50%;
+        /* margin: 1rem; */
+        background: linear-gradient(to right, #4e0022, #320096);
+        ;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .top-arr img {
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+    }
+
+    /* FOOTER */
+    .footer-container {
+        padding: 1rem;
+        font-size: 14px;
+    }
+}

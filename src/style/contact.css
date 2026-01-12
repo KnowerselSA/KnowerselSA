@@ -434,3 +434,14 @@ footer {
     padding: 0;
   }
 }
+
+/* FIX: Center arrow image inside Send button */
+.send-button .arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-button .arrow img {
+  display: block;
+}

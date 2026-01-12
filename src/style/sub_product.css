@@ -243,8 +243,8 @@ scroll-snap-align: start;
 /* Scroll continues normally after the animation */
 .footer-container {
   scroll-snap-align: start;
-  background-color: white;
-  color: black !important;
+  background-color: black;
+  color: white !important;
 }
 .socials-items img:hover{
   filter: brightness(0);
@@ -252,7 +252,7 @@ scroll-snap-align: start;
     transition: all 0.2s ease;
 }
 .copyright{
-    color: black;
+    color: white;
     align-self: flex-start;
     font-size: 13px;
     
@@ -426,5 +426,61 @@ border-radius: 50%;
   .footer-container {
     padding: 1rem;
     font-size: 14px;
+  }
+}
+
+
+/* ===================== CHECK OUT CTA ===================== */
+.checkout-cta {
+  background-color: white;
+  padding: 4rem 5rem;
+}
+
+.checkout-link {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+}
+
+/* 🔥 BIGGER & BOLDER */
+.checkout-link .small-text {
+  display: block;
+  font-size: 28px;       /* increased */
+  font-weight: 800;     /* bolder */
+  letter-spacing: 0.5px;
+  margin-bottom: 0.8rem;
+}
+
+.checkout-link .big-text {
+  font-size: 36px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.checkout-link .arrow {
+  font-size: 30px;
+  transition: transform 0.2s ease;
+}
+
+.checkout-link:hover .arrow {
+  transform: translate(5px, -5px);
+}
+
+/* Mobile responsive */
+
+@media (max-width: 768px) {
+  .checkout-cta {
+    padding: 2.5rem 2rem;
+  }
+
+  .checkout-link .small-text {
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  .checkout-link .big-text {
+    font-size: 26px;
   }
 }
