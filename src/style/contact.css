@@ -289,23 +289,26 @@ footer {
 }
 
 .socials-items img {
+  margin: 0rem !important;
   width: 24px;
   height: 24px;
 }
-.socials-items img:hover{
-  filter:brightness(10);
-   transform: scale(1.2);
-    transition: all 0.2s ease;
+
+.socials-items img:hover {
+  filter: brightness(10);
+  transform: scale(1.2);
+  transition: all 0.2s ease;
 }
 
 .copyright {
+  /* margin-top: 2rem; */
   color: rgb(212, 212, 212);
   padding: 1.2rem;
   grid-area: copyright;
   text-align: center;
   font-size: 12px;
   justify-self: end;
-  align-self: center;
+  /* align-self: center; */
 }
 
 /* =================== TABLET & MOBILE LAYOUT =================== */
@@ -353,7 +356,7 @@ footer {
   .contact-info a {
     display: block;
     margin-top: 5px;
-}
+  }
 
 
   .divider {
@@ -425,9 +428,10 @@ footer {
   .socials ul {
     padding: 0;
     gap: 1.5rem;
-      display: flex;
-        justify-content: center ;
+    display: flex;
+    justify-content: center;
   }
+
   .copyright {
     grid-area: copyright;
     justify-self: center;

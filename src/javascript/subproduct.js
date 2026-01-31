@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
             thresholdDelta: 20,
         },
         // Enable touch features specifically for mobile
-        touchReleaseOnEdges: true, 
+        touchReleaseOnEdges: true,
         simulateTouch: true,
         pagination: {
             el: ".swiper-pagination",
@@ -47,8 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const backImg = document.querySelector(".list_item a img");
         const menuImg = document.getElementById("menu-img");
 
-        gsap.to(nav, { backgroundColor: "black", duration: 0.3, overwrite: "auto" });
-        gsap.to(links, { color: "white", duration: 0.3 });
+        gsap.to(nav, { backgroundColor: "white", duration: 0.3, overwrite: "auto" });
+        gsap.to(links, { color: "black", duration: 0.3 });
         if (backImg) gsap.to(backImg, { filter: "brightness(0) invert(1)", duration: 0.3 });
         if (menuImg) {
             menuImg.src = "src/assets/menu2.png";
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!isMobile) return;
         const touchMoveY = e.touches[0].clientY;
         const rect = page2.getBoundingClientRect();
-        
+
         if (Math.abs(rect.top) < 50) {
             const deltaY = touchStartY - touchMoveY;
             if (swiper.isEnd && deltaY > 5) return;
