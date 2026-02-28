@@ -12,11 +12,10 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* background: linear-gradient(to bottom,
+  background: linear-gradient(to bottom,
       #ffffff,
-      #f9f9f9 65%,
-      rgba(0, 0, 0, 0.4) 80%,
-      rgba(0, 0, 0, 0.8) 100%); */
+      #f9f9f9 80%,
+      rgba(0, 0, 0, 0.8) 95%);
   background-color: White;
 }
 
@@ -81,7 +80,8 @@ body {
   text-decoration: none;
   color: rgb(0, 0, 0) !important;
   font-weight: 900 !important;
-  font-size: 22px;
+  font-size: 24px;
+  padding-bottom: 0px;
 }
 
 .list_item a:hover {
@@ -267,7 +267,7 @@ footer {
   padding: 1.2rem;
   grid-area: copyright;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   justify-self: end;
   align-self: flex-start;
 }

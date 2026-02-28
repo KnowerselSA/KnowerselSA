@@ -10,6 +10,7 @@ html{
    color: black;
     font-size: 22px !important;
     font-weight: bold !important;
+    padding-bottom: 0px;
 }
 .list_item a img{
   width: 24px;
@@ -32,6 +33,7 @@ scroll-snap-align: start;
 
 
 .title1 h1 {
+  margin-top: 0rem;
     font-size: 4rem;
     background-image: linear-gradient(to right , #ffbf00 45% ,rgba(137, 41, 254, 0.427),#6666FF 55% );
 
@@ -45,6 +47,7 @@ scroll-snap-align: start;
     color: transparent;
 }
 .title2 h1 {
+  margin-top: 0rem;
     font-size: 4rem;
     background-image: linear-gradient(to right , #32A2AD 45% ,#FF7062
  55% );
@@ -61,7 +64,7 @@ scroll-snap-align: start;
 
 .para {
     margin: 0rem 20rem 2rem 20rem;
-    font-size: 22px;
+    font-size: 26px;
     /* word-spacing: 10px; */
     line-height: 1.5;
     color: #3f3f3f;
@@ -82,7 +85,15 @@ scroll-snap-align: start;
     visibility: visible;
     opacity: 1;
 }
+.prod-para-1 ,.prod-para-2{
+  width: 65vw;
+  word-spacing: 2px;
+  margin: auto;
+    font-size: 26px;
+    font-weight: 400 !important;
+}
 
+/* for product-1 */
 .right-points {
 
     margin-left: 5rem;
@@ -127,7 +138,34 @@ scroll-snap-align: start;
     list-style: none;
     padding: 10px 0px;
 }
+/* product-1 end */
+/* product-2  */
+.product-desc--stacked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    margin: 2rem 10rem;
+    text-align: center;
+}
 
+.stacked-point {
+    max-width: 70vw;
+    width: 100%;
+}
+
+.stacked-point h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+.desc-para {
+    font-size: 26px;
+    line-height: 1.7;
+    color: #3f3f3f;
+}
+/* product-2 end */
 .page2 {
  background-color: black;
   color: white;
@@ -254,7 +292,7 @@ scroll-snap-align: start;
 .copyright{
     color: white;
     align-self: flex-start;
-    font-size: 13px;
+    font-size: 14px;
     
 }
 
@@ -328,7 +366,18 @@ scroll-snap-align: start;
   .left-points {
     margin: 0 !important;
   }
+.product-desc--stacked {
+        margin: 2rem 1.5rem;
+        gap: 2rem;
+    }
 
+    .stacked-point h2 {
+        font-size: 1.3rem;
+    }
+
+    .desc-para {
+        font-size: 16px;
+    }
   /* PAGE 3 (SWIPER SECTION) */
   .page2{
     /* height: 100vh; */
@@ -457,6 +506,11 @@ border-radius: 50%;
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
+ 
+}
+.checkout-link:hover .big-text {
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(105deg, #6666FF, #FF4750, #6666FF) 1;
 }
 
 .checkout-link .arrow {

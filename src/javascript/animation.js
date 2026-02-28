@@ -224,7 +224,6 @@ gsap.from(".contact-form", {
 //     duration : 0.5 ,
 
 // })
-
 const ele = document.querySelectorAll(".project");
 console.log(ele);
 
@@ -238,7 +237,7 @@ ele.forEach((item) => {
         ease: "power2.in",
       });
       setTimeout(() => {
-        window.location.href = "product_1.html";
+        window.location.href = "Product_details.html?id=product_1";
       }, 500);
     } else {
       gsap.from(".project2 img", {
@@ -247,7 +246,7 @@ ele.forEach((item) => {
         ease: "power2.in",
       });
       setTimeout(() => {
-        window.location.href = "product_2.html";
+        window.location.href = "Product_details.html?id=product_2";
       }, 500);
     }
   });

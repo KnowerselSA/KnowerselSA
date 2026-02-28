@@ -215,6 +215,8 @@ body {
 .list_item a {
   text-decoration: none;
   color: black;
+  font-size: 22px;
+  padding-bottom: 2px;
 }
 
 .list_item a:hover {
@@ -306,7 +308,7 @@ footer {
   padding: 1.2rem;
   grid-area: copyright;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   justify-self: end;
   /* align-self: center; */
 }
