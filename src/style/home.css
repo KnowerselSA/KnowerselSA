@@ -554,7 +554,7 @@ footer {
 
     .para-1 p,
     .para-2 p {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         /* line-height: 1.5; */
     }
 
@@ -570,7 +570,7 @@ footer {
     }
 
     .redirect-para a {
-        flex-direction: column;
+        flex-direction: row;
         align-items: self-start;
     }
 
