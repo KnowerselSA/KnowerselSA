@@ -541,3 +541,19 @@ border-radius: 50%;
     font-size: 26px;
   }
 }
+
+
+/* Arrow top */
+#back {
+    transform: rotate(-90deg);
+    pointer-events: auto;
+    width: 15px;
+    height: 15px; 
+    filter: brightness(0);
+}
+
+#back-link:hover {
+    border-bottom: none !important;
+    border-image: none !important;
+    
+}
