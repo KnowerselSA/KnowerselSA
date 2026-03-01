@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const swiper = new Swiper(".mySwiper", {
         direction: "vertical",
         effect: isMobile ? "slide" : "fade",
-        speed: isMobile ? 400 : 200,
+        speed: isMobile ? 400 : 600,
 
         mousewheel: isMobile ? false : {
             releaseOnEdges: true,
@@ -136,32 +136,65 @@ document.addEventListener("DOMContentLoaded", () => {
     // =============================================
 
     const page2 = document.querySelector(".page2");
+    let isSwiperActive = false;
     let touchStartY = 0;
+
+    // Track when Swiper section is in view
+    const observer = new IntersectionObserver((entries) => {
+        isSwiperActive = entries[0].isIntersecting;
+    }, { threshold: 0.6 });
+
+    observer.observe(page2);
+
+    // Debounce flag
+    let isScrolling = false;
 
     window.addEventListener("wheel", (e) => {
         if (isMobile) return;
-        const rect = page2.getBoundingClientRect();
-        if (Math.abs(rect.top) < 15) {
-            if (swiper.isEnd && e.deltaY > 0) return;
-            if (swiper.isBeginning && e.deltaY < 0) return;
-            if (e.cancelable) e.preventDefault();
-        }
+        if (!isSwiperActive) return;
+
+        const scrollingDown = e.deltaY > 0;
+        const scrollingUp = e.deltaY < 0;
+
+        // Allow escape to footer or product section
+        if (swiper.isEnd && scrollingDown) return;
+        if (swiper.isBeginning && scrollingUp) return;
+
+        e.preventDefault();
+
+        // Block rapid firing
+        if (isScrolling) return;
+        isScrolling = true;
+
+        // Snap page2 into view
+        page2.scrollIntoView({ behavior: "instant" });
+
+        if (scrollingDown) swiper.slideNext();
+        if (scrollingUp) swiper.slidePrev();
+
+        // Cooldown matches your Swiper speed (200ms desktop)
+        setTimeout(() => {
+            isScrolling = false;
+        }, 200);
+
     }, { passive: false });
 
     window.addEventListener("touchstart", (e) => {
         touchStartY = e.touches[0].clientY;
-    }, { passive: false });
+    }, { passive: true });
 
     window.addEventListener("touchmove", (e) => {
         if (!isMobile) return;
-        const touchMoveY = e.touches[0].clientY;
-        const rect = page2.getBoundingClientRect();
-        if (Math.abs(rect.top) < 50) {
-            const deltaY = touchStartY - touchMoveY;
-            if (swiper.isEnd && deltaY > 5) return;
-            if (swiper.isBeginning && deltaY < -5) return;
-            if (e.cancelable) e.preventDefault();
-        }
+        if (!isSwiperActive) return;
+
+        const deltaY = touchStartY - e.touches[0].clientY;
+        const scrollingDown = deltaY > 5;
+        const scrollingUp = deltaY < -5;
+
+        if (swiper.isEnd && scrollingDown) return;
+        if (swiper.isBeginning && scrollingUp) return;
+
+        if (e.cancelable) e.preventDefault();
     }, { passive: false });
 
     // =============================================

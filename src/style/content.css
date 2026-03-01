@@ -1,6 +1,15 @@
 /* =============================================
    RESET & BASE
    ============================================= */
+@media (resolution: 120dpi),
+(resolution: 1.25dppx) {
+
+    /* Windows at 125% scaling */
+    html {
+        font-size: 90%;
+    }
+}
+
 * {
     font-family: "Quattrocento Sans", sans-serif;
     margin: 0;
@@ -112,7 +121,9 @@ header {
 }
 
 .para {
-    margin: 0rem 20rem 2rem 20rem;
+    margin: 0 auto 2rem auto;
+    max-width: 800px;
+    padding: 0 2rem;
     font-size: 22px;
     line-height: 1.5;
     color: #3f3f3f;
@@ -193,6 +204,7 @@ header {
 .swiper-wrapper {
     /* Let Swiper control this completely */
 }
+
 .heading-1 {
     width: 100%;
     text-align: center;
@@ -200,7 +212,7 @@ header {
     top: 2rem;
     left: 0;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .swiper-slide {
@@ -216,7 +228,7 @@ header {
 
 /* Pagination */
 .swiper-pagination-vertical.swiper-pagination-bullets,
-.swiper-vertical > .swiper-pagination-bullets {
+.swiper-vertical>.swiper-pagination-bullets {
     left: 2rem !important;
     right: auto;
 }
@@ -240,8 +252,8 @@ header {
 /* For portrait/Shorts-style: 9:16 */
 .video {
 
-    width: 380px;
-    height: 650px;
+    width: min(380px, 20vw);
+    height: min(650px, 75vh);
     border: 1px solid rgba(255, 255, 255, 0.82);
     border-radius: 12px;
     overflow: hidden;
@@ -274,7 +286,7 @@ header {
 
 .video-descr hr {
     border: none;
-    border-top: 1px solid rgba(255,255,255,0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     margin-bottom: 1rem;
 }
 
@@ -291,7 +303,7 @@ header {
     border-radius: 50%;
     display: none;
     position: fixed;
-    background-color: rgba(128,128,128,0.8);
+    background-color: rgba(128, 128, 128, 0.8);
     bottom: 2rem;
     right: 2rem;
     width: 40px;
@@ -303,7 +315,7 @@ header {
 }
 
 .top-arr:hover {
-    background-color: rgba(100,100,100,1);
+    background-color: rgba(100, 100, 100, 1);
 }
 
 .top-arr img {
@@ -412,6 +424,7 @@ footer {
     color: rgb(0, 0, 0);
     padding: 0.4rem;
 }
+
 /* =============================================
    MOBILE RESPONSIVE
    ============================================= */
@@ -484,10 +497,12 @@ footer {
         width: 100%;
         height: 100vh;
     }
-.heading-1 {
+
+    .heading-1 {
         top: 2rem;
         font-size: 0.9rem;
     }
+
     .swiper-slide {
         /* FIX: stack video and description vertically on mobile */
         flex-direction: column;
@@ -526,7 +541,7 @@ footer {
 
     /* Pagination bullets */
     .swiper-pagination-vertical.swiper-pagination-bullets,
-    .swiper-vertical > .swiper-pagination-bullets {
+    .swiper-vertical>.swiper-pagination-bullets {
         left: 0.4rem !important;
     }
 

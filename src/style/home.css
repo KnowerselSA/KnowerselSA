@@ -14,6 +14,15 @@
     src: url('./fonts/Slim Joe.woff') format('woff');
 }
 
+/* for different OS */
+@media (resolution: 120dpi),
+(resolution: 1.25dppx) {
+
+    /* Windows at 125% scaling */
+    html {
+        font-size: 90%;
+    }
+}
 
 
 body {
