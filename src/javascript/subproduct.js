@@ -101,6 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
         },
     });
 
+    ScrollTrigger.refresh();
+
     // =============================================
     //  5. HEADER LOGIC
     // =============================================
@@ -110,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const links = document.querySelectorAll(".list_item a");
         const menuImg = document.getElementById("menu-img");
 
-        gsap.to(nav, { backgroundColor: "rgba(17, 17, 17, 0.3)", duration: 0.3, overwrite: "auto" });
+        gsap.to(nav, { backgroundColor: "rgba(17, 17, 17, 0.76)", duration: 0.3, overwrite: "auto" });
         gsap.to(links, { color: "white", duration: 0.3 });
         if (menuImg) {
             menuImg.src = "src/assets/menu.png";
@@ -136,28 +138,43 @@ document.addEventListener("DOMContentLoaded", () => {
     // =============================================
 
     const page2 = document.querySelector(".page2");
-    let isSwiperActive = false;
+    const footer = document.querySelector("footer");
     let touchStartY = 0;
 
     // Track when Swiper section is in view
-    const observer = new IntersectionObserver((entries) => {
-        isSwiperActive = entries[0].isIntersecting;
+    const page2Observer = new IntersectionObserver((entries) => {
+        // intentionally empty — we use footer observer for header logic
     }, { threshold: 0.6 });
+    page2Observer.observe(page2);
 
-    observer.observe(page2);
+    // Footer observer — resets navbar when footer is visible
+    const footerObserver = new IntersectionObserver((entries) => {
+        console.log("footer intersecting:", entries[0].isIntersecting);
+        if (entries[0].isIntersecting) {
+            resetHeader();
+        } else {
+            // Footer left view — check if page2 is still visible
+            const rect = page2.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                setHeaderDark();
+            }
+        }
+    }, { threshold: 0, rootMargin: "0px" });
 
-    // Debounce flag
-    let isScrolling = false;
+    footerObserver.observe(footer);
 
     window.addEventListener("wheel", (e) => {
         if (isMobile) return;
         const rect = page2.getBoundingClientRect();
         if (Math.abs(rect.top) < 15) {
-            if (swiper.isEnd && e.deltaY > 0) return; // ✅ allow scroll to footer
-            // ❌ REMOVED: if (swiper.isBeginning && e.deltaY < 0) return;
+            if (swiper.isEnd && e.deltaY > 0) return; // allow scroll to footer
             if (e.cancelable) e.preventDefault();
         }
     }, { passive: false });
+
+    window.addEventListener("touchstart", (e) => {
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
 
     window.addEventListener("touchmove", (e) => {
         if (!isMobile) return;
@@ -165,8 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const rect = page2.getBoundingClientRect();
         if (Math.abs(rect.top) < 50) {
             const deltaY = touchStartY - touchMoveY;
-            if (swiper.isEnd && deltaY > 5) return; // ✅ allow scroll to footer
-            // ❌ REMOVED: if (swiper.isBeginning && deltaY < -5) return;
+            if (swiper.isEnd && deltaY > 5) return; // allow scroll to footer
             if (e.cancelable) e.preventDefault();
         }
     }, { passive: false });
@@ -192,15 +208,11 @@ document.addEventListener("DOMContentLoaded", () => {
         onLeaveBack: () => gsap.to("#top-arr", { opacity: 0, display: "none", duration: 0.3 }),
     });
 
+    // Arrow button → scroll to page2 and go to last slide
     document.getElementById("top-arr").addEventListener("click", () => {
-        gsap.to(window, {
-            duration: 0.2,
-            scrollTo: 0,
-            ease: "expo.out",
-            onComplete: () => {
-                swiper.slideTo(0, 0);
-                resetHeader();
-            },
-        });
+        page2.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+            swiper.slideTo(swiper.slides.length - 1, 400);
+        }, 500);
     });
 });
