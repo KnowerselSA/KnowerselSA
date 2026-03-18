@@ -28,7 +28,7 @@ const PRODUCTS = {
         ],
 
         // --- content.html (video swiper) data ---
-        sectionHeading: "Current Progress",
+        sectionHeading: "Research Preview",
         slides: [
             {
                 title: "Title of the Video 1",

@@ -72,16 +72,19 @@
                 <div class="divider"></div>
 
                 <div class="right-content">
-                    <form class="contact-form" id="contactForm">
-                        <input type="text" placeholder="Name*" class="form-input box1" required>
-                        <input type="email" placeholder="Email*" class="form-input email box2" required>
-                        <input type="tel" placeholder="Phone No. (Optional)" class="form-input box3">
-                        <textarea placeholder="Message" class="form-textarea box4" rows="6"></textarea>
+                    <form  class="contact-form" id="contactForm">
+
+                        <input type="text" placeholder="Name*" name="name" class="form-input box1" required>
+                        <input type="email" placeholder="Email*" name="email" class="form-input email box2" required>
+                        <input type="tel" placeholder="Phone No. (Optional)" name="phone" class="form-input box3">
+
+                        <textarea placeholder="Message" name="message" class="form-textarea box4" rows="6"></textarea>
                         <button type="submit" class="send-button box5">
                             <span class="send-txt">Send</span>
                             <span class="arrow">
                                 <img src="./src/assets/about-us/send.png" alt="">
                             </span>
+                            
                         </button>
                     </form>
                 </div>
