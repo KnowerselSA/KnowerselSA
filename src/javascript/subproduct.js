@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (slide.type === "youtube") {
       mediaHTML = `
                 <iframe
-                    src="${slide.src}"
+                    tabindex="0"
+                    src="${slide.src}${slide.src.includes('?') ? '&' : '?'}enablejsapi=1"
                     title="${slide.title}"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -45,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     allowfullscreen>
                 </iframe>`;
     } else {
-      mediaHTML = `<video src="${slide.src}" controls></video>`;
+      mediaHTML = `<video tabindex="0" src="${slide.src}" controls></video>`;
     }
 
     // Only first slide gets the section heading
@@ -102,6 +103,24 @@ document.addEventListener("DOMContentLoaded", () => {
       clickable: true,
       type: "bullets",
     },
+
+    on: {
+      slideChange: function () {
+        // Pause all native HTML5 local videos
+        document.querySelectorAll('.mySwiper .swiper-slide video').forEach((vid) => {
+          if (!vid.paused) {
+            vid.pause();
+          }
+        });
+        
+        // Stop any playing iframe globally by forcing a soft buffer reload.
+        // This securely stops YouTube videos AND local .mp4 files accidentally mounted manually inside iframes!
+        document.querySelectorAll('.mySwiper .swiper-slide iframe').forEach((iframe) => {
+          let currentFrame = iframe.src;
+          iframe.src = currentFrame; 
+        });
+      }
+    }
   });
 
   ScrollTrigger.refresh();
