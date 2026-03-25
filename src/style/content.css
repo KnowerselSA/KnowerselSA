@@ -200,11 +200,6 @@ header {
     height: 100vh;
 }
 
-/* FIX: REMOVE height and flex overrides — Swiper sets these internally */
-.swiper-wrapper {
-    /* Let Swiper control this completely */
-}
-
 .heading-1 {
     width: 100%;
     text-align: center;
@@ -251,7 +246,6 @@ header {
 /* FIX: Video dimensions — choose ONE: either width+height or aspect-ratio, not both */
 /* For portrait/Shorts-style: 9:16 */
 .video {
-
     width: min(380px, 20vw);
     height: min(650px, 75vh);
     border: 1px solid rgba(255, 255, 255, 0.82);
@@ -259,6 +253,12 @@ header {
     overflow: hidden;
     background: #000000;
     box-shadow: 0px 1px 12px 2px rgba(155, 155, 155, 0.836);
+    transition: all 0.4s ease;
+}
+
+.video:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 4px 20px 5px rgba(255, 255, 255, 0.15);
 }
 
 .video iframe,
@@ -311,11 +311,12 @@ header {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.3s ease;
 }
 
 .top-arr:hover {
     background-color: rgba(100, 100, 100, 1);
+    transform: translateY(-3px);
 }
 
 .top-arr img {
@@ -333,6 +334,7 @@ header {
 
   background: linear-gradient(90deg, #FFC000, #FF8C42, #FF4750);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -466,6 +468,11 @@ footer {
     .title1 h1,
     .title2 h1 {
         font-size: 2.2rem;
+    }
+
+    .research-heading {
+        font-size: 28px !important;
+        padding: 0 1rem;
     }
 
     .para {
