@@ -153,11 +153,6 @@
   padding-top: 0 !important;
   align-self: center !important;
 }
-.socials-items img:hover {
-  filter: brightness(10) !important;
-  transform: scale(1.2) !important;
-  transition: all 0.2s ease !important;
-}
 
 /* Large Desktop (1440px and below) */
 @media (max-width: 1440px) {
