@@ -28,14 +28,38 @@ const PRODUCTS = {
         ],
 
         // --- content.html (video swiper) data ---
-        sectionHeading: "Research Preview",
+        sectionHeading: "Current Progress",
         slides: [
             {
                 title: "Title of the Video 1",
                 description: "Description of the videos presenting the development.",
                 type: "youtube",
                 src: "https://www.youtube.com/embed/zBjJUV-lzHo?si=kuXoIw4uJkzPbnFW",
-            }
+            },
+            {
+                title: "Title of the Video 2",
+                description: "Description of the videos presenting the development.",
+                type: "video",
+                src: "",
+            },
+            {
+                title: "Title of the Video 3",
+                description: "Description of the videos presenting the development.",
+                type: "video",
+                src: "",
+            },
+            {
+                title: "Title of the Video 4",
+                description: "Description of the videos presenting the development.",
+                type: "video",
+                src: "",
+            },
+            {
+                title: "Title of the Video 5",
+                description: "Description of the videos presenting the development.",
+                type: "video",
+                src: "",
+            },
         ],
     },
 
@@ -56,19 +80,13 @@ const PRODUCTS = {
             label: "Applicable Deployment",
             text: "Ideal for human-robot coworking, can be deployed in structured workspaces like Industrial automation and unstructured settings like home. Used for Lab assistance, Parts Assembly, packaging & etc."
         },
-        sectionHeading: "Research Preview",
+        sectionHeading: "",
         slides: [
             {
                 title: "Title of the Video 1",
                 description: "Description of the videos presenting the development.",
                 type: "youtube",
-                src: "src/assets/videos/Dualis/Video_1.mp4",
-            },
-            {
-                title: "Title of the Video 2",
-                description: "Description of the videos presenting the development.",
-                type: "youtube",
-                src: "src/assets/videos/Dualis/video_2.mp4",
+                src: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
             },
         ],
     },
