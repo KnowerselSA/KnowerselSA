@@ -333,13 +333,14 @@ scroll-snap-align: start;
   .product-img img {
     width: 80%;
     height: auto;
+    margin-bottom: 3rem;
   }
 
   /* PAGE 2 (ADVANTAGES + APPLICATIONS) */
   .product-desc {
     flex-direction: column;
     margin: 2rem 3rem;
-    gap: 5rem;
+    gap: 3rem;
     align-items: center;
   }
 
@@ -373,6 +374,7 @@ scroll-snap-align: start;
 
     .stacked-point h2 {
         font-size: 1.3rem;
+        justify-self: center;
     }
 
     .desc-para {
@@ -527,6 +529,7 @@ border-radius: 50%;
 @media (max-width: 768px) {
   .checkout-cta {
     padding: 2.5rem 2rem;
+    margin: auto;
   }
 
   .checkout-link .small-text {
@@ -537,4 +540,20 @@ border-radius: 50%;
   .checkout-link .big-text {
     font-size: 26px;
   }
+}
+
+
+/* Arrow top */
+#back {
+    transform: rotate(-90deg);
+    pointer-events: auto;
+    width: 15px;
+    height: 15px; 
+    filter: brightness(0);
+}
+
+#back-link:hover {
+    border-bottom: none !important;
+    border-image: none !important;
+    
 }
