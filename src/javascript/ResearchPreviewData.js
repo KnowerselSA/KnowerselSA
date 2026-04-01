@@ -28,7 +28,7 @@ const PRODUCTS = {
         ],
 
         // --- content.html (video swiper) data ---
-        sectionHeading: "Current Progress",
+        sectionHeading: "Research Preview",
         slides: [
 
         ],
@@ -51,7 +51,7 @@ const PRODUCTS = {
             label: "Applicable Deployment",
             text: "Ideal for human-robot coworking, can be deployed in structured workspaces like Industrial automation and unstructured settings like home. Used for Lab assistance, Parts Assembly, packaging & etc."
         },
-        sectionHeading: "Current Progress",
+        sectionHeading: "Research Preview",
         slides: [
             {
                 title: "Simultaneous Motor Control!",

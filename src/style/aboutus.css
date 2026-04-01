@@ -468,20 +468,41 @@ footer {
 
 .nav-right-section ul {
   display: flex;
-  gap: 1rem;
+  gap: 25px;
   list-style: none;
 }
 
-.nav_right-list li {
-  font-weight: bold;
+.nav_right-list {
+  display: flex;
+  list-style: none;
+  gap: 25px;
 }
 
-.nav_right-list li a {
-  color: white;
+.nav_right-list a {
   text-decoration: none;
-  font-size: 1rem;
+  color: black;
+  /* font-weight: bold; */
+  font-size: 20px;
 }
 
-.nav_right-list li a:hover {
-  color: #ffbf00;
+.list_item:hover {
+  transform: scale(1.12);
+  transition: all 0.3s ease;
+
+}
+
+.list_item a {
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+  padding-bottom: 2px;
+
+}
+
+
+.list_item a:hover {
+  border-radius: 2px;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(105deg, #6666FF, #FF4750, #6666FF) 1;
+
 }
