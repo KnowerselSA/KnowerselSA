@@ -1,5 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("nav").classList.add("scrolled");
+    const nav = document.getElementById("nav");
+
+    const updateNavBlur = () => {
+        if (window.scrollY > 10) {
+            nav.classList.add("scrolled");
+        } else {
+            nav.classList.remove("scrolled");
+        }
+    };
+
+    updateNavBlur();
+    window.addEventListener("scroll", updateNavBlur);
+
     if ("scrollRestoration" in history) history.scrollRestoration = "manual";
     window.scrollTo(0, 0);
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -24,6 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Back arrow → returns to Product_details.html with same id
     document.getElementById("back-link").href = `Product_details.html?id=${productId}`;
+
+    // Check if slides exist
+    if (!product.slides || product.slides.length === 0) {
+        alert("Content is coming soon");
+        window.location.href = `Product_details.html?id=${productId}`;
+        return;
+    }
 
     // =============================================
     //  2. BUILD SLIDES DYNAMICALLY

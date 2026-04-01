@@ -36,6 +36,17 @@ window.addEventListener("scroll", function () {
     document.body.appendChild(menu);
   }
 
+  // ensure dialog wrapper in menu for centered modal style
+  let menuDialog = menu.querySelector(".mobile-menu-dialog");
+  if (!menuDialog) {
+    menuDialog = document.createElement("div");
+    menuDialog.className = "mobile-menu-dialog";
+    while (menu.firstChild) {
+      menuDialog.appendChild(menu.firstChild);
+    }
+    menu.appendChild(menuDialog);
+  }
+
   // 2) create (or reuse) overlay for dimming and outside-click
   let overlay = document.querySelector(".body-menu-overlay");
   if (!overlay) {
@@ -48,6 +59,14 @@ window.addEventListener("scroll", function () {
   let isOpen = false;
 
   function openMenu() {
+    const rect = menuBtn.getBoundingClientRect();
+    const topOffset = rect.bottom + 8;
+    const rightOffset = window.innerWidth - rect.right + 8;
+
+    menuDialog.style.position = "absolute";
+    menuDialog.style.top = `${topOffset}px`;
+    menuDialog.style.right = `${rightOffset}px`;
+
     menu.classList.add("open");
     overlay.classList.add("visible");
     // lock body scroll
@@ -75,12 +94,19 @@ window.addEventListener("scroll", function () {
   // close when clicking overlay
   overlay.addEventListener("click", () => closeMenu(), { passive: true });
 
-  // close when clicking outside the menu (anywhere in document)
-  document.addEventListener("click", function (e) {
-    if (!isOpen) return;
-    if (menu.contains(e.target) || menuBtn.contains(e.target)) return;
-    closeMenu();
+  // close when clicking outside the dialog (on the menu container)
+  menu.addEventListener("click", function (e) {
+    if (!menuDialog.contains(e.target)) {
+      closeMenu();
+    }
   }, { passive: true });
+
+  // close when clicking outside the menu (anywhere in document) - but since menu is full screen, this won't trigger, so remove it
+  // document.addEventListener("click", function (e) {
+  //   if (!isOpen) return;
+  //   if (menu.contains(e.target) || menuBtn.contains(e.target)) return;
+  //   closeMenu();
+  // }, { passive: true });
 
   // close on Esc key
   document.addEventListener("keydown", function (e) {
@@ -102,3 +128,79 @@ document.querySelectorAll(".socials-items").forEach(item => {
     item.classList.toggle("active");
   });
 });
+
+// Dynamic header/footer logo selection by theme (black/white backgrounds)
+function setLogoImagesByTheme() {
+  const logoBase = "src/assets/logos/";
+  const headerLogo = document.querySelector(".nav-left-section img");
+  const footerLogo = document.querySelector("footer .logo img");
+  const nav = document.getElementById("nav");
+  const footer = document.querySelector("footer");
+
+  if (!headerLogo || !footerLogo || !nav || !footer) return;
+
+  function parseRgb(color) {
+    const match = color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+    return match ? [Number(match[1]), Number(match[2]), Number(match[3])] : null;
+  }
+
+  function isDarkColor(color) {
+    const rgb = parseRgb(color);
+    if (!rgb) return false;
+    const [r, g, b] = rgb.map(c => c / 255);
+    const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    return lum < 0.5;
+  }
+
+  function getBackgroundColor(element) {
+    const style = window.getComputedStyle(element);
+    if (!style) return "rgba(0,0,0,0)";
+    const bg = style.backgroundColor;
+    if (bg && bg !== "transparent" && !bg.startsWith("rgba(0, 0, 0, 0)")) {
+      return bg;
+    }
+    if (element.parentElement) {
+      return getBackgroundColor(element.parentElement);
+    }
+    return "rgba(0, 0, 0, 0)";
+  }
+
+  // header uses TL icons (aboutus white, contact black, product black with white footer, others switch on scroll)
+  const currentPath = window.location.pathname.toLowerCase();
+  const productMode = currentPath.includes("product.html") || currentPath.includes("product_details.html") || currentPath.includes("product_details") || currentPath.includes("product-");
+
+  if (currentPath.includes("aboutus.html")) {
+    headerLogo.src = logoBase + "TL1.2.png"; // white logo
+  } else if (currentPath.includes("contact.html")) {
+    headerLogo.src = logoBase + "TL2.1.png"; // black logo
+  } else if (currentPath.includes("content.html")) {
+    headerLogo.src = logoBase + "TL1.2.png"; // content page header white
+  } else if (productMode) {
+    headerLogo.src = logoBase + "TL2.1.png"; // product page header black
+  } else {
+    const isHeaderBlur = nav.classList.contains("scrolled");
+    headerLogo.src = isHeaderBlur ? logoBase + "TL2.1.png" : logoBase + "TL1.2.png";
+  }
+
+  // footer uses BL icons
+  if (currentPath.includes("aboutus.html")) {
+    footerLogo.src = logoBase + "BL2.png"; // aboutus footer black
+  } else if (currentPath.includes("content.html")) {
+    footerLogo.src = logoBase + "BL2.png"; // content page footer black
+  } else if (productMode) {
+    footerLogo.src = logoBase + "BL1.1.png"; // product footer white
+  } else {
+    const footerBg = getBackgroundColor(footer);
+    const footerIsDark = isDarkColor(footerBg);
+    footerLogo.src = footerIsDark ? logoBase + "BL1.1.png" : logoBase + "BL2.png";
+  }
+}
+
+// Set on load and whenever nav class changes (as in scroll transitions)
+window.addEventListener("load", setLogoImagesByTheme);
+window.addEventListener("scroll", () => {
+  setLogoImagesByTheme();
+});
+
+// Re-run after 300ms to handle dynamic class toggles
+setInterval(setLogoImagesByTheme, 300);

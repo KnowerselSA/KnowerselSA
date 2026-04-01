@@ -1,224 +1,242 @@
 * {
-    font-family: "Quattrocento Sans", sans-serif;
+  font-family: "Quattrocento Sans", sans-serif;
 }
-html{
-  scroll-snap-type: y proximity; 
+
+html {
+  scroll-snap-type: y proximity;
   scroll-behavior: smooth;
 }
 
 .list_item a {
-   color: black;
-    font-size: 22px !important;
-    font-weight: bold !important;
-    padding-bottom: 0px;
+  color: black;
+  font-size: 22px !important;
+  font-weight: bold !important;
+  padding-bottom: 0px;
 }
-.list_item a img{
+
+.list_item a img {
   width: 24px;
   height: 24px;
-text-decoration: none;
+  text-decoration: none;
 }
-header{
+
+header {
   scroll-snap-align: start;
   /* height: 100vh; */
 }
+
 .product-container {
-scroll-snap-align: start;
-    margin-top: 5rem;
-    /* CHANGE: Change height from 100vh to min-height */
-    min-height: 100vh; 
-    height: auto; 
-    text-align: center;
-  
+  scroll-snap-align: start;
+  margin-top: 5rem;
+  /* CHANGE: Change height from 100vh to min-height */
+  min-height: 100vh;
+  height: auto;
+  text-align: center;
+
 }
 
 
 .title1 h1 {
   margin-top: 0rem;
-    font-size: 4rem;
-    background-image: linear-gradient(to right , #ffbf00 45% ,rgba(137, 41, 254, 0.427),#6666FF 55% );
+  font-size: 4rem;
+  background-image: linear-gradient(to right, #ffbf00 45%, rgba(137, 41, 254, 0.427), #6666FF 55%);
 
-    /* Clip the background to the shape of the text */
-    -webkit-background-clip: text;
-    /* For WebKit browsers like Chrome and Safari */
-    background-clip: text;
-    /* Make the text transparent so the background can show through */
-    -webkit-text-fill-color: transparent;
-    /* For WebKit browsers */
-    color: transparent;
+  /* Clip the background to the shape of the text */
+  -webkit-background-clip: text;
+  /* For WebKit browsers like Chrome and Safari */
+  background-clip: text;
+  /* Make the text transparent so the background can show through */
+  -webkit-text-fill-color: transparent;
+  /* For WebKit browsers */
+  color: transparent;
 }
+
 .title2 h1 {
   margin-top: 0rem;
-    font-size: 4rem;
-    background-image: linear-gradient(to right , #32A2AD 45% ,#FF7062
- 55% );
+  font-size: 4rem;
+  background-image: linear-gradient(to right, #32A2AD 45%, #FF7062 55%);
 
-    /* Clip the background to the shape of the text */
-    -webkit-background-clip: text;
-    /* For WebKit browsers like Chrome and Safari */
-    background-clip: text;
-    /* Make the text transparent so the background can show through */
-    -webkit-text-fill-color: transparent;
-    /* For WebKit browsers */
-    color: transparent;
+  /* Clip the background to the shape of the text */
+  -webkit-background-clip: text;
+  /* For WebKit browsers like Chrome and Safari */
+  background-clip: text;
+  /* Make the text transparent so the background can show through */
+  -webkit-text-fill-color: transparent;
+  /* For WebKit browsers */
+  color: transparent;
 }
 
 .para {
-    margin: 0rem 20rem 2rem 20rem;
-    font-size: 26px;
-    /* word-spacing: 10px; */
-    line-height: 1.5;
-    color: #3f3f3f;
+  margin: 0rem 20rem 2rem 20rem;
+  font-size: 26px;
+  /* word-spacing: 10px; */
+  line-height: 1.5;
+  color: #3f3f3f;
 }
 
 .product-img img {
 
-    height: 400px;
+  height: 400px;
 }
 
 .product-desc {
-   margin: 5rem;
-    display: flex;
-    justify-content: space-between;
-    font-size: 22px;
-    /* Ensure it doesn't get hidden */
-    position: relative; 
-    visibility: visible;
-    opacity: 1;
+  margin: 5rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+  /* Ensure it doesn't get hidden */
+  position: relative;
+  visibility: visible;
+  opacity: 1;
 }
-.prod-para-1 ,.prod-para-2{
+
+.prod-para-1,
+.prod-para-2 {
   width: 65vw;
   word-spacing: 2px;
   margin: auto;
-    font-size: 26px;
-    font-weight: 400 !important;
+  font-size: 26px;
+  font-weight: 400 !important;
 }
 
 /* for product-1 */
 .right-points {
 
-    margin-left: 5rem;
+  margin-left: 5rem;
 }
 
 .right-points h2 {
 
-    margin-right: 2rem;
-    text-align: left;
+  margin-right: 2rem;
+  text-align: left;
 
 }
 
 .right-items-heading {
-    padding: 0;
+  padding: 0;
 }
 
 .right-items {
-    color: #3f3f3f;
-    text-align: left;
-    list-style: none;
-    padding: 10px 0px;
+  color: #3f3f3f;
+  text-align: left;
+  list-style: none;
+  padding: 10px 0px;
 }
 
 .left-points {
 
-    margin-right: 5rem;
+  margin-right: 5rem;
 }
 
 .left-points h2 {
 
-    margin-left: 2rem;
-    text-align: right;
+  margin-left: 2rem;
+  text-align: right;
 }
 
 .left-items-heading {
-    padding: 0;
+  padding: 0;
 }
 
 .left-items {
-    color: #3f3f3f;
-    text-align: right;
-    list-style: none;
-    padding: 10px 0px;
+  color: #3f3f3f;
+  text-align: right;
+  list-style: none;
+  padding: 10px 0px;
 }
+
 /* product-1 end */
 /* product-2  */
 .product-desc--stacked {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5rem;
-    margin: 2rem 10rem;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 2rem 10rem;
+  text-align: center;
 }
 
 .stacked-point {
-    max-width: 70vw;
-    width: 100%;
+  max-width: 70vw;
+  width: 100%;
 }
 
 .stacked-point h2 {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-    color: #111;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #111;
 }
 
 .desc-para {
-    font-size: 26px;
-    line-height: 1.7;
-    color: #3f3f3f;
+  font-size: 26px;
+  line-height: 1.7;
+  color: #3f3f3f;
 }
+
 /* product-2 end */
 .page2 {
- background-color: black;
+  background-color: black;
   color: white;
   /* height: 100vh;  */
-  display: block; 
-  scroll-snap-align: start; /* This is what creates the snap effect */
+  display: block;
+  scroll-snap-align: start;
+  /* This is what creates the snap effect */
   scroll-snap-stop: always;
   overflow: hidden;
 }
-.swiper{
- width: 100vw;
+
+.swiper {
+  width: 100vw;
   height: 100vh;
-  margin: 0 !important;/* Removed top/bottom margins to prevent alignment issues */
+  margin: 0 !important;
+  /* Removed top/bottom margins to prevent alignment issues */
 }
-.swiper-wrapper{
+
+.swiper-wrapper {
   height: 100vh;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-.swiper-slide{
-    height: 100vh;
-    text-align: center;
-    background-color: rgb(0, 0, 0);
-    display:flex !important;
-    flex-direction: row;
-   justify-content:center;
-   align-items: center;
-   column-gap: 2rem;
-   
+
+.swiper-slide {
+  height: 100vh;
+  text-align: center;
+  background-color: rgb(0, 0, 0);
+  display: flex !important;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+
 }
-.swiper-pagination-vertical.swiper-pagination-bullets{
-    left: 6rem !important;
+
+.swiper-pagination-vertical.swiper-pagination-bullets {
+  left: 6rem !important;
 }
+
 .swiper-pagination-bullet {
-  background: #c4c4c4 !important;       /* inactive color */
+  background: #c4c4c4 !important;
+  /* inactive color */
   opacity: 1;
   margin: 1rem !important;
-  height:25px !important ;
+  height: 25px !important;
   width: 5px !important;
   border-radius: 24px !important;
- 
+
 }
+
 .swiper-pagination-bullet-active {
-  background: linear-gradient(to bottom , rgb(255, 192, 249)
-  , rgb(228, 149, 249)) !important;    /* active color */
-   height: 50px !important;
-    width: 7px !important;
+  background: linear-gradient(to bottom, rgb(255, 192, 249), rgb(228, 149, 249)) !important;
+  /* active color */
+  height: 50px !important;
+  width: 7px !important;
 }
 
 .video {
   width: 380px;
- height: 580px;
-  aspect-ratio: 16 / 9;     /* default */
+  height: 580px;
+  aspect-ratio: 16 / 9;
+  /* default */
   /* Add this if your videos include Shorts */
   border: 1px solid white;
   border-radius: 10px;
@@ -230,28 +248,32 @@ scroll-snap-align: start;
   border: none;
   border-radius: 10px;
 }
-.video-descr{
+
+.video-descr {
   margin-left: 2rem;
-    grid-area: desc;
-    width: 400px;
-    align-self:normal;
-    text-align: left;
+  grid-area: desc;
+  width: 400px;
+  align-self: normal;
+  text-align: left;
 }
-.video-descr h1{
-   margin:  10rem 0rem 0rem 1rem ;
+
+.video-descr h1 {
+  margin: 10rem 0rem 0rem 1rem;
 }
-.video-descr p{
-    margin: 1rem 10rem 0rem 1rem ;
+
+.video-descr p {
+  margin: 1rem 10rem 0rem 1rem;
 }
-.top-arr{
+
+.top-arr {
   z-index: 99999;
   padding: 0.5rem;
   border-radius: 50%;
-    display: none;
-        position: fixed;
-    background:linear-gradient(to right, #D2005A, #6666FF) ;
-    bottom: 121px;
-    right: 28px;
+  display: none;
+  position: fixed;
+  background: linear-gradient(to right, #D2005A, #6666FF);
+  bottom: 121px;
+  right: 28px;
 }
 
 /* .pages-wrapper {
@@ -284,16 +306,49 @@ scroll-snap-align: start;
   background-color: black;
   color: white !important;
 }
-.socials-items img:hover{
-  filter: brightness(0);
-   transform: scale(1.2);
-    transition: all 0.2s ease;
+
+.nav-left-section {
+  padding-right: 2rem;
+  display: flex;
+  align-items: center;
 }
-.copyright{
-    color: white;
-    align-self: flex-start;
-    font-size: 14px;
-    
+
+.nav-left-section img {
+  max-width: 150px;
+  max-height: 48px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-container .logo {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+}
+
+.footer-container .logo img {
+  max-width: 140px;
+  max-height: 40px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+
+.socials-items img:hover {
+  filter: brightness(0);
+  transform: scale(1.2);
+  transition: all 0.2s ease;
+}
+
+.copyright {
+  color: white;
+  align-self: flex-start;
+  font-size: 14px;
+  align-self: center;
+
 }
 
 /* ***************MOBIILE RESPONSIVE**************** */
@@ -312,9 +367,11 @@ scroll-snap-align: start;
   .list_item a {
     font-size: 16px !important;
   }
-.mobile-menu ul{
+
+  .mobile-menu ul {
     padding: 0;
-}
+  }
+
   /* PAGE 1 (PRODUCT INTRO) */
   .product-container {
     margin-top: 5rem;
@@ -348,52 +405,59 @@ scroll-snap-align: start;
     margin: 0;
     font-size: 24px;
   }
-.right-items-heading ,.left-items-heading{
+
+  .right-items-heading,
+  .left-items-heading {
     margin-top: 1.5rem;
-   
-}
-  .right-items, 
+
+  }
+
+  .right-items,
   .left-items {
-   
-    text-align:left !important;
+
+    text-align: left !important;
     padding: 5px 0;
     font-size: 16px;
     list-style: disc;
-   
+
   }
 
-  .right-points, 
+  .right-points,
   .left-points {
     margin: 0 !important;
   }
-.product-desc--stacked {
-        margin: 2rem 1.5rem;
-        gap: 2rem;
-    }
 
-    .stacked-point h2 {
-        font-size: 1.3rem;
-    }
+  .product-desc--stacked {
+    margin: 2rem 1.5rem;
+    gap: 2rem;
+  }
 
-    .desc-para {
-        font-size: 16px;
-    }
+  .stacked-point h2 {
+    font-size: 1.3rem;
+  }
+
+  .desc-para {
+    font-size: 16px;
+  }
+
   /* PAGE 3 (SWIPER SECTION) */
-  .page2{
+  .page2 {
     /* height: 100vh; */
   }
+
   .swiper {
     width: 100vw !important;
-    height:80vh !important;
+    height: 80vh !important;
     margin: 1rem auto;
   }
 
   .swiper-wrapper {
-    flex-direction: row; /* fixes vertical shrink bug on mobile */
+    flex-direction: row;
+    /* fixes vertical shrink bug on mobile */
     /* height: 100% !important; */
 
     /* padding-left: 1rem; */
-    
+
   }
 
   .swiper-slide {
@@ -401,7 +465,7 @@ scroll-snap-align: start;
     flex-direction: column;
     height: 70vh !important;
     gap: 1rem;
-    justify-content:start;
+    justify-content: start;
     /* background-color: rebeccapurple; */
   }
 
@@ -429,18 +493,21 @@ scroll-snap-align: start;
     margin: 1rem 0 0.5rem 0;
     font-size: 1.4rem;
   }
-    .video-descr hr {
-        margin: 1rem 2rem;
-    }
+
+  .video-descr hr {
+    margin: 1rem 2rem;
+  }
+
   .video-descr p {
     margin: 0 1rem;
     font-size: 15px;
   }
 
   /* SWIPER BULLETS */
-  .swiper-pagination-vertical.swiper-pagination-bullets{
+  .swiper-pagination-vertical.swiper-pagination-bullets {
     left: 0.5rem !important;
   }
+
   .swiper-pagination-bullet {
     height: 15px !important;
     width: 4px !important;
@@ -451,30 +518,39 @@ scroll-snap-align: start;
     height: 30px !important;
     width: 5px !important;
   }
-  .top-arr{
+
+  .top-arr {
     width: 38px;
     height: 38px;
     z-index: 987654;
     position: fixed;
     right: 2%;
-top: 80%;
-padding:1rem;
-border-radius: 50%;
-/* margin: 1rem; */
-   background: linear-gradient(to right, #4e0022, #320096);;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+    top: 80%;
+    padding: 1rem;
+    border-radius: 50%;
+    /* margin: 1rem; */
+    background: linear-gradient(to right, #4e0022, #320096);
+    ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-.top-arr img{
+
+  .top-arr img {
     justify-content: center;
     width: 20px;
     height: 20px;
-}
+  }
+
   /* FOOTER */
   .footer-container {
     padding: 1rem;
     font-size: 14px;
+  }
+
+  .footer-container .logo {
+    justify-self: center;
+
   }
 }
 
@@ -494,8 +570,10 @@ border-radius: 50%;
 /* 🔥 BIGGER & BOLDER */
 .checkout-link .small-text {
   display: block;
-  font-size: 28px;       /* increased */
-  font-weight: 800;     /* bolder */
+  font-size: 28px;
+  /* increased */
+  font-weight: 800;
+  /* bolder */
   letter-spacing: 0.5px;
   margin-bottom: 0.8rem;
 }
@@ -506,8 +584,9 @@ border-radius: 50%;
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
- 
+
 }
+
 .checkout-link:hover .big-text {
   border-bottom: 3px solid transparent;
   border-image: linear-gradient(105deg, #6666FF, #FF4750, #6666FF) 1;
@@ -536,5 +615,10 @@ border-radius: 50%;
 
   .checkout-link .big-text {
     font-size: 26px;
+  }
+
+  .footer-container .logo {
+    justify-self: center;
+
   }
 }

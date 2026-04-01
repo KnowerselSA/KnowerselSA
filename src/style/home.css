@@ -61,6 +61,31 @@ body {
 
 .nav-left-section {
     padding-right: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav-left-section img {
+    max-width: 150px;
+    max-height: 48px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-container .logo {
+    display: flex;
+    align-items: center;
+    justify-self: start;
+}
+
+.footer-container .logo img {
+    max-width: 140px;
+    max-height: 40px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
 
 .nav-right-section ul {
@@ -342,6 +367,7 @@ footer {
 
 .logo {
     grid-area: logo;
+    justify-self: start;
 }
 
 .menu {
@@ -399,14 +425,14 @@ footer {
 }
 
 .copyright {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     color: rgb(212, 212, 212);
     padding: 1.2rem;
     grid-area: copyright;
     text-align: center;
     font-size: 14px;
     justify-self: end;
-    align-self: flex-start;
+    align-self: center;
 
 }
 
@@ -604,6 +630,11 @@ footer {
     .logo {
         grid-area: logo;
         justify-self: center;
+    }
+
+    .footer-container .logo {
+        justify-self: center;
+
     }
 
     .socials {

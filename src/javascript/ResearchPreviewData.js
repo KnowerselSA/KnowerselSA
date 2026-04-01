@@ -30,36 +30,7 @@ const PRODUCTS = {
         // --- content.html (video swiper) data ---
         sectionHeading: "Current Progress",
         slides: [
-            {
-                title: "Title of the Video 1",
-                description: "Description of the videos presenting the development.",
-                type: "youtube",
-                src: "https://www.youtube.com/embed/zBjJUV-lzHo?si=kuXoIw4uJkzPbnFW",
-            },
-            {
-                title: "Title of the Video 2",
-                description: "Description of the videos presenting the development.",
-                type: "video",
-                src: "",
-            },
-            {
-                title: "Title of the Video 3",
-                description: "Description of the videos presenting the development.",
-                type: "video",
-                src: "",
-            },
-            {
-                title: "Title of the Video 4",
-                description: "Description of the videos presenting the development.",
-                type: "video",
-                src: "",
-            },
-            {
-                title: "Title of the Video 5",
-                description: "Description of the videos presenting the development.",
-                type: "video",
-                src: "",
-            },
+
         ],
     },
 
@@ -80,13 +51,19 @@ const PRODUCTS = {
             label: "Applicable Deployment",
             text: "Ideal for human-robot coworking, can be deployed in structured workspaces like Industrial automation and unstructured settings like home. Used for Lab assistance, Parts Assembly, packaging & etc."
         },
-        sectionHeading: "",
+        sectionHeading: "Current Progress",
         slides: [
             {
-                title: "Title of the Video 1",
-                description: "Description of the videos presenting the development.",
+                title: "Simultaneous Motor Control!",
+                description: "Short demo of synchronized motor control behavior in the Robo Arm.",
                 type: "youtube",
-                src: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
+                src: "https://www.youtube.com/embed/NTIROMR3U2g?loop=1&mute=1&controls=1",
+            },
+            {
+                title: "Robo Arm Initial Phase!",
+                description: "Introductory phase demo of the Robo Arm motion and setup.",
+                type: "youtube",
+                src: "https://www.youtube.com/embed/EqJdYDzWX3M?&mute=1&controls=1",
             },
         ],
     },
