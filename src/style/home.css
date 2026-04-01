@@ -14,15 +14,6 @@
     src: url('./fonts/Slim Joe.woff') format('woff');
 }
 
-/* for different OS */
-@media (resolution: 120dpi),
-(resolution: 1.25dppx) {
-
-    /* Windows at 125% scaling */
-    html {
-        font-size: 90%;
-    }
-}
 
 
 body {
@@ -70,6 +61,31 @@ body {
 
 .nav-left-section {
     padding-right: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav-left-section img {
+    max-width: 150px;
+    max-height: 48px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-container .logo {
+    display: flex;
+    align-items: center;
+    justify-self: start;
+}
+
+.footer-container .logo img {
+    max-width: 140px;
+    max-height: 40px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
 
 .nav-right-section ul {
@@ -154,12 +170,12 @@ body {
     /* Make the text transparent so the background can show through */
     -webkit-text-fill-color: transparent;
     /* For WebKit browsers */
-    font-size: clamp(3rem, 14vw, 215px);
+    font-size: 215px;
     font-family: 'Slim Joe Regular';
     font-weight: 900;
     margin: 0;
     line-height: 1.2;
-    letter-spacing: clamp(4px, 1.5vw, 1.8rem);
+    letter-spacing: 1.8rem;
     text-shadow: -4px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -170,13 +186,10 @@ body {
     right: 0vw;
     left: 0vw;
     justify-self: center;
-    display: flex;
-    justify-content: center;
 }
 
 .intro-img img {
     width: 1200px;
-    max-width: 100%;
     height: auto;
 }
 
@@ -260,7 +273,7 @@ body {
     /* padding: 2rem; */
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     /* margin-top: 11rem; */
-    margin: 0rem clamp(1.5rem, 10vw, 16rem) 0rem clamp(1.5rem, 10vw, 16rem);
+    margin: 0rem 16rem 0rem 16rem;
     /* justify-items: center; */
 
 }
@@ -272,7 +285,7 @@ body {
 .para-1 {
     word-spacing: 2px;
     margin: 4rem auto;
-    font-size: clamp(1rem, 2vw, 26px);
+    font-size: 26px;
     font-weight: 400 !important;
 
 }
@@ -280,12 +293,12 @@ body {
 .para-2 {
     word-spacing: 2px;
     margin-top: 2rem;
-    font-size: clamp(1rem, 2vw, 26px);
+    font-size: 26px;
     font-weight: 400 !important;
 }
 
 .redirect-para {
-    font-size: clamp(1rem, 2vw, 26px);
+    font-size: 26px;
     margin: 8rem auto 2rem auto;
 
 }
@@ -296,7 +309,7 @@ body {
     flex-direction: column;
     font-weight: bold;
     gap: 0rem;
-    font-size: clamp(1.2rem, 3vw, 2.5rem);
+    font-size: 2.5rem;
 }
 
 .redirect-para a {
@@ -354,6 +367,7 @@ footer {
 
 .logo {
     grid-area: logo;
+    justify-self: start;
 }
 
 .menu {
@@ -411,14 +425,14 @@ footer {
 }
 
 .copyright {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     color: rgb(212, 212, 212);
     padding: 1.2rem;
     grid-area: copyright;
     text-align: center;
     font-size: 14px;
     justify-self: end;
-    align-self: flex-start;
+    align-self: center;
 
 }
 
@@ -566,7 +580,7 @@ footer {
 
     .para-1 p,
     .para-2 p {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         /* line-height: 1.5; */
     }
 
@@ -582,7 +596,7 @@ footer {
     }
 
     .redirect-para a {
-        flex-direction: row;
+        flex-direction: column;
         align-items: self-start;
     }
 
@@ -616,6 +630,11 @@ footer {
     .logo {
         grid-area: logo;
         justify-self: center;
+    }
+
+    .footer-container .logo {
+        justify-self: center;
+
     }
 
     .socials {

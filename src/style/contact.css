@@ -1,11 +1,11 @@
-/* =================== FONTS (optional, same family as home) =================== */
-@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans:wght@400;700&display=swap');
 
 /* =================== GLOBAL =================== */
+
 * {
   margin: 0;
   padding: 0;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
 
 html {
@@ -14,8 +14,6 @@ html {
 
 body {
   min-height: 100vh;
-  margin: 0;
-  padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
@@ -23,54 +21,47 @@ body {
   background: linear-gradient(to bottom, #FFFFFF 85%, #262626);
 }
 
-/* =================== MAIN CONTENT =================== */
+/* =================== MAIN =================== */
 .main-content {
-  padding: 80px 20px 40px;
-  /* padding-top accounts for fixed navbar */
+  padding: 70px 20px 40px;
   flex: 1 0 auto;
 }
 
 .container {
-  max-width: 1100px;
-  margin: 2rem auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* =================== TITLE =================== */
 .title {
   background-image: linear-gradient(to right, #826CF5 25%, #6FEA90);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent;
   text-align: center;
   font-size: 48px;
   font-weight: bold;
-  margin-bottom: 60px;
+  margin-top: 40px;
+  margin-bottom: 50px;
 }
 
+/* =================== LAYOUT =================== */
 .content-wrapper {
   display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
 }
 
 .left-content {
   flex: 1;
-  padding-right: 20px;
-  margin-top: 50px;
+  text-align: center;
 }
 
-.description {
-  font-size: 25px;
-  line-height: 1.6;
-  color: black;
-  margin-bottom: 30px;
-}
-
+.description,
 .contact-info {
-  font-size: 25px;
+  font-size: 24px;
   line-height: 1.6;
-  color: black;
+  margin-bottom: 25px;
 }
 
 .email-link {
@@ -82,162 +73,174 @@ body {
   color: #7c4dff;
 }
 
+/* =================== DIVIDER =================== */
 .divider {
   width: 2px;
-  height: 455px;
   background-color: #666;
-  margin: 0 20px;
+  align-self: stretch;
 }
 
+/* =================== FORM =================== */
 .right-content {
   flex: 1;
-  padding-left: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .contact-form {
+  width: 100%;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 1rem;
-  border-radius: 10px;
 }
 
 .form-input,
 .form-textarea {
-  text-transform: capitalize;
-  width: 400px;
-  max-width: 100%;
-  padding: 9px 30px;
+  width: 100%;
+  padding: 14px 24px;
+  border-radius: 30px;
   border: 1px solid black;
-  border-radius: 20px;
-  background-color: rgb(232 232 232 / 80%);
-  font-size: 20px;
+  background-color: rgba(232, 232, 232, 0.8);
+  font-size: 18px;
   outline: none;
-  transition: background-color 0.3s ease;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.email {
-  text-transform: lowercase;
-}
-
-.form-input:focus,
-.form-textarea:focus {
-  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .form-textarea {
+  min-height: 200px;
   border-radius: 20px;
-  resize: vertical;
-  min-height: 165px;
+  resize: none;
 }
 
+/* =================== BUTTON =================== */
 .send-button {
-  background-color: #000000;
+  background-color: black;
   color: white;
   border: none;
-  padding: 10px 30px;
-  border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
+  border-radius: 30px;
+  padding: 12px 20px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: 80px;
-  transition: background-color 0.3s ease;
-  margin: 0 auto;
-}
-
-.send-txt {
-  font-size: 20px;
+  width: 220px;
+  margin: 10px auto 0;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .send-button:hover {
-  transition: all 0.3s ease;
-  transform: scale(1.12);
+  transform: scale(1.05);
 }
 
-.arrow {
+.send-txt {
   font-size: 18px;
 }
 
-/* =================== NAVBAR (same behavior as home) =================== */
+.arrow img {
+  width: 20px;
+}
 
+/* =================== NAVBAR =================== */
 .nav {
-  z-index: 3;
   position: fixed;
-  font-family: Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
-  padding: 1rem 16px;
+  top: 0;
   width: 100%;
   height: 65px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
   align-items: center;
-  align-content: center;
-  transition: all 0.5s ease;
-  justify-content: space-between;
-  top: 0;
-  left: 0;
+  padding: 0 20px;
+  z-index: 100;
+  transition: all 0.3s ease;
+
 }
 
 #nav.scrolled {
   background: rgba(17, 17, 17, 0.3);
-  backdrop-filter: blur(16px);
+  /* semi transparent */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* subtle depth */
 }
 
 .nav-container {
+  width: 100%;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
+/* 🔥 HEADER LOGO */
 .nav-left-section {
-  padding-right: 2rem;
-}
-
-.nav-right-section ul {
   display: flex;
-  flex-direction: row;
-  list-style: none;
-  font-size: 20px;
+  align-items: center;
 }
 
-.nav_right-list li {
+.nav-left-section img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.nav-left-section img:hover {
+  transform: scale(1.08);
+}
+
+/* NAV LINKS */
+.nav_right-list {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav_right-list a {
+  text-decoration: none;
+  color: black;
   font-weight: bold;
-  padding: 0rem 1rem;
+  font-size: 20px;
 }
 
 .list_item:hover {
   transform: scale(1.12);
   transition: all 0.3s ease;
+
 }
 
 .list_item a {
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 22px;
   padding-bottom: 2px;
+
 }
+
 
 .list_item a:hover {
   border-radius: 2px;
   border-bottom: 3px solid transparent;
   border-image: linear-gradient(105deg, #6666FF, #FF4750, #6666FF) 1;
+
 }
 
-/* =================== FOOTER (same structure as home) =================== */
-
+/* =================== FOOTER =================== */
 footer {
   font-family: Arial, Helvetica, sans-serif;
+
   border-top: 4px solid transparent;
   border-image: linear-gradient(to right, #D2005A, #6666FF) 1;
+
 }
 
 .footer-container {
   height: 40px;
-  padding: 2rem;
+  padding: 50px 40px;
   color: white;
   background-color: rgb(0, 0, 0);
+  /* padding: 2rem; */
   display: grid;
   align-items: center;
   align-content: center;
@@ -250,10 +253,26 @@ footer {
 
 .logo {
   grid-area: logo;
+  justify-self: start;
+}
+
+.footer-container .logo {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+}
+
+.footer-container .logo img {
+  max-width: 140px;
+  max-height: 40px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 .menu {
   grid-area: menu;
+
 }
 
 .menu ul,
@@ -266,8 +285,10 @@ footer {
 }
 
 .menu ul {
+
   gap: 4rem;
   justify-content: space-around;
+
 }
 
 .menu-item a {
@@ -275,25 +296,26 @@ footer {
   color: rgb(212, 212, 212);
 }
 
-.menu-item:hover,
-.socials-items:hover {
+.menu-item:hover {
   transform: scale(1.12);
   transition: all 0.2s ease;
-}
-
-.socials {
-  grid-area: socials;
-  align-items: center;
 }
 
 .socials ul {
   gap: 2rem;
 }
 
+.socials {
+  grid-area: socials;
+  align-items: center;
+
+}
+
 .socials-items img {
-  margin: 0rem !important;
   width: 24px;
   height: 24px;
+
+
 }
 
 .socials-items img:hover {
@@ -305,13 +327,16 @@ footer {
 .copyright {
   /* margin-top: 2rem; */
   color: rgb(212, 212, 212);
-  padding: 1.2rem;
+  /* padding: 1.2rem; */
   grid-area: copyright;
   text-align: center;
   font-size: 14px;
-  justify-self: end;
-  /* align-self: center; */
+  justify-self: center;
+  align-self: center;
+
 }
+
+/* FOOTER STYLE END */
 
 /* =================== TABLET & MOBILE LAYOUT =================== */
 
@@ -438,6 +463,10 @@ footer {
     grid-area: copyright;
     justify-self: center;
     padding: 0;
+  }
+
+  .footer-container .logo {
+    justify-self: center;
   }
 }
 
