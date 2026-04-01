@@ -29,33 +29,52 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height: 75px;
+    height: 65px;
     display: flex;
     align-items: center;
     padding: 1rem 16px;
     transition: all 0.5s ease;
-    /* FIX: Apply blur only here, not also on .nav-container */
     background: rgba(17, 17, 17, 0.45) !important;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
 }
 
-/* FIX: Remove duplicate blur from container */
+/* Base transparent nav container */
 .nav-container {
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* Remove the #nav override that was creating the second blur */
-#nav {
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+/* Logo section — vertical centering in navbar */
+.nav-left-section {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-left-section img {
+    max-width: 140px;
+    max-height: 48px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* #nav {
+    background: rgba(17, 17, 17, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 0.35s ease, backdrop-filter 0.35s ease;
+} */
+
+#nav.scrolled {
+    background: rgba(17, 17, 17, 0.35) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
 #back {
@@ -68,17 +87,6 @@ header {
 .arrow-link:hover {
     border-bottom: none !important;
     border-image: none !important;
-}
-
-#nav {
-    background: rgba(17, 17, 17, 0.25);
-    backdrop-filter: blur(8px);
-    transition: background 0.35s ease, backdrop-filter 0.35s ease;
-}
-
-#nav.scrolled {
-    background: rgba(17, 17, 17, 0.6);
-    backdrop-filter: blur(16px);
 }
 
 .list_item a {
@@ -257,7 +265,7 @@ header {
     font-size: 1.5rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
     .swiper-slide {
         flex-direction: column;
         row-gap: 1.5rem;
