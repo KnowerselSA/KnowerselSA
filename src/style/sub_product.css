@@ -25,6 +25,13 @@ header {
   /* height: 100vh; */
 }
 
+/* ✅ NAVBAR BLUR ON SCROLL */
+#nav.scrolled {
+  background: rgba(17, 17, 17, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
 .product-container {
   scroll-snap-align: start;
   margin-top: 5rem;
@@ -74,8 +81,13 @@ header {
   color: #3f3f3f;
 }
 
-.product-img img {
+.product-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.product-img img {
   height: 400px;
 }
 
@@ -165,6 +177,7 @@ header {
   font-size: 1.6rem;
   margin-bottom: 1rem;
   color: #111;
+  text-align: center;
 }
 
 .desc-para {
@@ -311,10 +324,12 @@ header {
   padding-right: 2rem;
   display: flex;
   align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .nav-left-section img {
-  max-width: 150px;
+  max-width: 140px;
   max-height: 48px;
   width: auto;
   height: auto;
@@ -325,7 +340,8 @@ header {
 .footer-container .logo {
   display: flex;
   align-items: center;
-  justify-self: start;
+  justify-content: center;
+  justify-self: center;
 }
 
 .footer-container .logo img {
@@ -441,10 +457,6 @@ header {
   }
 
   /* PAGE 3 (SWIPER SECTION) */
-  .page2 {
-    /* height: 100vh; */
-  }
-
   .swiper {
     width: 100vw !important;
     height: 80vh !important;

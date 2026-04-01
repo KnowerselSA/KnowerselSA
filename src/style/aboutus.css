@@ -43,16 +43,19 @@ body {
   padding-right: 2rem;
   display: flex;
   align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .nav-left-section img {
-  max-width: 150px;
+  max-width: 140px;
   max-height: 48px;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
 }
+
 
 .footer-container .logo {
   display: flex;
