@@ -46,8 +46,8 @@ app.post("/send-email", async (req, res) => {
 
   try {
     const mailOptions = {
-      from: process.env.EMAIL_USER, // your Gmail
-      to: process.env.EMAIL_USER, // you receive here
+      from: process.env.EMAIL_USER, // your Gmail (SMTP sender)
+      to: process.env.EMAIL_RECEIVER, // client receives here
       replyTo: email, // user email for reply
       subject: "New Contact Form Message",
       text: `
