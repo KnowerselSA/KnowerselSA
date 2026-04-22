@@ -142,6 +142,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
     background: linear-gradient(to top, white, rgb(127, 127, 127) 55%, rgb(33, 33, 33) 95%);
     /* background-image: url("../assets/Home\ page-1.jpg");
   background-size:cover;
@@ -161,6 +162,8 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 1;
+    width: 100%;
+    max-width: 100vw;
 }
 
 .text-block {
@@ -177,12 +180,12 @@ body {
     /* Make the text transparent so the background can show through */
     -webkit-text-fill-color: transparent;
     /* For WebKit browsers */
-    font-size: 215px;
+    font-size: clamp(60px, 15vw, 215px);
     font-family: 'Slim Joe Regular';
     font-weight: 900;
     margin: 0;
     line-height: 1.2;
-    letter-spacing: 1.8rem;
+    letter-spacing: clamp(0.5rem, 1.2vw, 1.8rem);
     text-shadow: -4px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -196,7 +199,7 @@ body {
 }
 
 .intro-img img {
-    width: 1200px;
+    width: min(1200px, 100%);
     height: auto;
 }
 
@@ -280,7 +283,7 @@ body {
     /* padding: 2rem; */
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     /* margin-top: 11rem; */
-    margin: 0rem 16rem 0rem 16rem;
+    margin: 0rem clamp(1rem, 10vw, 16rem) 0rem clamp(1rem, 10vw, 16rem);
     /* justify-items: center; */
 
 }
