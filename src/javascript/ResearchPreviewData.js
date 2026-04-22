@@ -7,7 +7,7 @@ const PRODUCTS = {
 
     product_1: {
         // --- Product_details.html data ---
-        pageTitle: "KnowerselSA — DORO",
+        pageTitle: "DORO",
         backLink: "product.html",
         name: "DORO",
         description: "A Quadruped Robot, or simply Robot Dog - is one of the advanced and versatile legged robotic solution available today. Designed for agility and efficiency, it excels at navigating complex environments where traditional wheeled or tracked robots fall short.",
@@ -35,7 +35,7 @@ const PRODUCTS = {
     },
 
     product_2: {
-        pageTitle: "KnowerselSA — Dualis",
+        pageTitle: "Dualis",
         backLink: "product.html",
         name: "Dualis",
         description: "A Bimanual Manipulation or Dual Arm Robot - is a robotic system of two robotic arms working in coordination and synchronized motion to do and replicate tasks just like human hands.",
