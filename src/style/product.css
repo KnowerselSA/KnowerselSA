@@ -106,8 +106,9 @@ body {
 .list_item a {
   text-decoration: none;
   color: rgb(0, 0, 0) !important;
-  font-weight: 900 !important;
-  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold !important;
+  font-size: 22px;
   padding-bottom: 0px;
 }
 
@@ -221,7 +222,7 @@ footer {
 .footer-container {
   min-height: 40px;
   /* box-sizing: border-box; */
-  padding: 2rem;
+  padding: 1rem 2rem;
   color: white;
   background-color: rgb(0, 0, 0);
   display: grid;
@@ -230,8 +231,9 @@ footer {
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: auto auto;
   grid-template-areas:
-    "logo menu copyright"
-    "logo socials copyright";
+    ".    socials   ."
+    "logo .         copyright";
+  row-gap: 0.5rem;
 }
 
 .logo {
@@ -275,7 +277,6 @@ footer {
 .socials {
   grid-area: socials;
   align-items: center;
-  padding: 1rem;
 }
 
 .socials-items img {
@@ -292,7 +293,6 @@ footer {
 
 .copyright {
   color: rgb(212, 212, 212);
-  padding: 1.2rem;
   grid-area: copyright;
   text-align: center;
   font-size: 14px;

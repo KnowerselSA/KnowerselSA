@@ -49,6 +49,7 @@ header {
 
 /* Logo section — vertical centering in navbar */
 .nav-left-section {
+    padding-right: 2rem;
     height: 100%;
     display: flex;
     align-items: center;
@@ -474,22 +475,19 @@ footer {
 }
 
 .footer-container {
-    /* FIX: height: 40px was collapsing the entire footer — use min-height + auto rows instead */
-    min-height: 110px;
-    height: auto;
-    padding: 1.2rem 2rem;
+    min-height: 40px;
+    padding: 1rem 2rem;
     color: black;
     background-color: white;
     display: grid;
     align-items: center;
-    /* FIX: align-content: center was squishing rows together — stretch lets rows breathe */
-    align-content: stretch;
+    align-content: center;
     grid-template-columns: 1fr 2fr 1fr;
-    /* FIX: give each row explicit sizing so content isn't clipped */
     grid-template-rows: auto auto;
     grid-template-areas:
-        "logo menu    copyright"
-        "logo socials copyright";
+        ".    socials   ."
+        "logo .         copyright";
+    row-gap: 0.5rem;
 }
 
 .logo {
@@ -536,8 +534,6 @@ footer {
 .socials {
     grid-area: socials;
     align-self: start;
-    /* FIX: removed padding: 1rem which was pushing socials out of grid row */
-    padding-top: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -556,14 +552,11 @@ footer {
 
 .copyright {
     grid-area: copyright;
-    /* FIX: margin-top: 2rem was pushing copyright below the grid boundary */
-    margin-top: 0;
     align-self: center;
     justify-self: center;
     text-align: center;
     font-size: 14px;
     color: rgb(0, 0, 0);
-    padding: 0.4rem;
 }
 
 /* =============================================
