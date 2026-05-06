@@ -53,9 +53,19 @@ document.addEventListener("DOMContentLoaded", () => {
     product.slides.forEach((slide, index) => {
         let mediaHTML = "";
         if (slide.type === "youtube") {
+            // Convert Shorts URL to embed URL if needed
+            let videoSrc = slide.src.replace('/shorts/', '/embed/');
+            // Fix invalid ?& to ?
+            videoSrc = videoSrc.replace('?&', '?');
+            // Add parameters to improve embedding
+            if (!videoSrc.includes('?')) {
+                videoSrc += '?rel=0&modestbranding=1&controls=1';
+            } else if (!videoSrc.includes('controls=')) {
+                videoSrc += '&controls=1';
+            }
             mediaHTML = `
                 <iframe
-                    src="${slide.src}"
+                    src="${videoSrc}"
                     title="${slide.title}"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -84,7 +94,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // =============================================
-    //  3. DETECT DEVICE
+    //  3. ALLOW IFRAME INTERACTIONS
+    // =============================================
+
+    // Disable swiper mousewheel when hovering over iframes to allow clicks
+    document.querySelectorAll('.video iframe').forEach(iframe => {
+        iframe.addEventListener('mouseenter', () => {
+            swiper.mousewheel.disable();
+        });
+        iframe.addEventListener('mouseleave', () => {
+            swiper.mousewheel.enable();
+        });
+    });
+
+    // Prevent swiper from capturing wheel events on iframes
+    document.addEventListener('wheel', (e) => {
+        if (e.target.closest('.video iframe')) {
+            e.stopPropagation();
+        }
+    }, true);
+
+    // Prevent swiper from capturing touch events on iframes
+    ['touchstart', 'touchmove', 'touchend'].forEach(eventType => {
+        document.addEventListener(eventType, (e) => {
+            if (e.target.closest('.video iframe')) {
+                e.stopPropagation();
+            }
+        }, true);
+    });
+
+    // =============================================
+    //  4. DETECT DEVICE
     // =============================================
 
     const isMobile = window.innerWidth <= 768;
@@ -156,12 +196,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const page2 = document.querySelector(".page2");
     let touchStartY = 0;
+    let allowFooterScroll = false;
+
+    swiper.on("slideChange", () => {
+        if (!swiper.isEnd) {
+            allowFooterScroll = false;
+        }
+    });
+
+    swiper.on("reachEnd", () => {
+        allowFooterScroll = false;
+    });
 
     window.addEventListener("wheel", (e) => {
         if (isMobile) return;
         const rect = page2.getBoundingClientRect();
         if (Math.abs(rect.top) < 15) {
-            if (swiper.isEnd && e.deltaY > 0) return;
+            if (swiper.isEnd && e.deltaY > 0) {
+                if (allowFooterScroll) return;
+                allowFooterScroll = true;
+                if (e.cancelable) e.preventDefault();
+                return;
+            }
             if (swiper.isBeginning && e.deltaY < 0) return;
             if (e.cancelable) e.preventDefault();
         }
@@ -177,7 +233,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const rect = page2.getBoundingClientRect();
         if (Math.abs(rect.top) < 50) {
             const deltaY = touchStartY - touchMoveY;
-            if (swiper.isEnd && deltaY > 5) return;
+            if (swiper.isEnd && deltaY > 5) {
+                if (allowFooterScroll) return;
+                allowFooterScroll = true;
+                if (e.cancelable) e.preventDefault();
+                return;
+            }
             if (swiper.isBeginning && deltaY < -5) return;
             if (e.cancelable) e.preventDefault();
         }
