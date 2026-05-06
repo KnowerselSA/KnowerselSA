@@ -25,8 +25,8 @@
                     <ul class="nav_right-list">
                         <!-- back link set dynamically -->
                         <li class="list_item" id="list-item">
-                            <a href="#" id="back-link">
-                                <img id="back" src="src/assets/back.png" alt="">
+                            <a href="#" id="back-link" class="arrow-link">
+                                <img id="back" src="src/assets/up-arrow.png" alt="">
                             </a>
                         </li>
                         <li class="list_item" id="list-item"><a href="index.html">Home</a></li>
@@ -179,9 +179,10 @@
                </div>`;
 
         // Inject product section
+        const titleClass = productId === "product_2" ? "title2" : "title1";
         document.getElementById("product-container").innerHTML = `
             <div class="product-intro">
-                <div class="title1">
+                <div class="${titleClass}">
                     <h1>${product.name}</h1>
                 </div>
                 <div class="para">

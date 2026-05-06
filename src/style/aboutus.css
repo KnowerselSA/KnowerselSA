@@ -263,8 +263,8 @@ footer {
 }
 
 .footer-container {
-  height: 40px;
-  padding: 2rem;
+  min-height: 40px;
+  padding: 1rem 2rem;
   color: black;
   background-color: white;
   display: grid;
@@ -273,8 +273,9 @@ footer {
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: auto auto;
   grid-template-areas:
-    "logo menu copyright"
-    "logo socials copyright";
+    ".    socials   ."
+    "logo .         copyright";
+  row-gap: 0.5rem;
 }
 
 .logo {
@@ -318,7 +319,6 @@ footer {
 .socials {
   grid-area: socials;
   align-items: center;
-  padding: 1rem;
 }
 
 .socials-items img {
@@ -335,7 +335,6 @@ footer {
 .copyright {
   /* margin-top: 2rem; */
   color: rgb(0, 0, 0);
-  padding: 1.2rem;
   grid-area: copyright;
   text-align: center;
   font-size: 14px;
@@ -457,55 +456,3 @@ footer {
   width: 100%;
 }
 
-.nav-left-section {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.nav-left-section img {
-  max-height: 45px;
-  width: auto;
-  object-fit: contain;
-}
-
-.nav-right-section ul {
-  display: flex;
-  gap: 25px;
-  list-style: none;
-}
-
-.nav_right-list {
-  display: flex;
-  list-style: none;
-  gap: 25px;
-}
-
-.nav_right-list a {
-  text-decoration: none;
-  color: black;
-  /* font-weight: bold; */
-  font-size: 20px;
-}
-
-.list_item:hover {
-  transform: scale(1.12);
-  transition: all 0.3s ease;
-
-}
-
-.list_item a {
-  text-decoration: none;
-  color: white;
-  font-size: 22px;
-  padding-bottom: 2px;
-
-}
-
-
-.list_item a:hover {
-  border-radius: 2px;
-  border-bottom: 3px solid transparent;
-  border-image: linear-gradient(105deg, #6666FF, #FF4750, #6666FF) 1;
-
-}

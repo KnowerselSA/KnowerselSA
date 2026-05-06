@@ -14,14 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   // Handle form submission
-  contactForm.addEventListener("submit", (e) => {
+  contactForm.addEventListener("submit", async (e) => {
     e.preventDefault()
 
     const formData = new FormData(contactForm)
-    const name = contactForm.querySelector('input[placeholder="Name*"]').value
-    const email = contactForm.querySelector('input[placeholder="Email*"]').value
-    const phone = contactForm.querySelector('input[placeholder="Phone No. (Optional)"]').value
-    const message = contactForm.querySelector("textarea").value
+    const name = formData.get("name") || ""
+    const email = formData.get("email") || ""
 
     // Basic validation
     if (!name.trim() || !email.trim()) {
@@ -36,19 +34,32 @@ document.addEventListener("DOMContentLoaded", () => {
       return
     }
 
-    // Simulate form submission
     const sendButton = contactForm.querySelector(".send-button")
     const originalText = sendButton.innerHTML
-
     sendButton.innerHTML = "Sending..."
     sendButton.disabled = true
 
-    setTimeout(() => {
-      alert("Thank you for your message! We will get back to you soon.")
-      contactForm.reset()
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      })
+      const result = await response.json().catch(() => ({}))
+
+      if (response.ok && result.success !== false) {
+        alert("Thank you for your message! We will get back to you soon.")
+        contactForm.reset()
+      } else {
+        alert(result.message || "Something went wrong. Please try again later.")
+      }
+    } catch (err) {
+      alert("Network error — please check your connection and try again.")
+      console.error("Contact form submission failed:", err)
+    } finally {
       sendButton.innerHTML = originalText
       sendButton.disabled = false
-    }, 2000)
+    }
   })
 
   // Add smooth hover effects to navigation links

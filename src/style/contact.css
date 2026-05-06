@@ -102,6 +102,7 @@ body {
   border-radius: 30px;
   border: 1px solid black;
   background-color: rgba(232, 232, 232, 0.8);
+  font-family: inherit;
   font-size: 18px;
   outline: none;
 }
@@ -174,6 +175,7 @@ body {
 
 /* 🔥 HEADER LOGO */
 .nav-left-section {
+  padding-right: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -181,11 +183,14 @@ body {
 }
 
 .nav-left-section img {
-  height: 40px;
+  max-width: 140px;
+  max-height: 48px;
   width: auto;
+  height: auto;
   object-fit: contain;
   cursor: pointer;
   transition: transform 0.3s ease;
+  display: block;
 }
 
 .nav-left-section img:hover {
@@ -196,7 +201,10 @@ body {
 .nav_right-list {
   display: flex;
   list-style: none;
-  gap: 25px;
+}
+
+.nav_right-list li {
+  padding: 0 1rem;
 }
 
 .nav_right-list a {
@@ -238,19 +246,19 @@ footer {
 }
 
 .footer-container {
-  height: 40px;
-  padding: 50px 40px;
+  min-height: 40px;
+  padding: 1rem 40px;
   color: white;
   background-color: rgb(0, 0, 0);
-  /* padding: 2rem; */
   display: grid;
   align-items: center;
   align-content: center;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: auto auto;
   grid-template-areas:
-    "logo menu copyright"
-    "logo socials copyright";
+    ".    socials   ."
+    "logo .         copyright";
+  row-gap: 0.5rem;
 }
 
 .logo {

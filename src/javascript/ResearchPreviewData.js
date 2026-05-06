@@ -30,14 +30,25 @@ const PRODUCTS = {
         // --- content.html (video swiper) data ---
         sectionHeading: "Research Preview",
         slides: [
-
+            {
+                title: "DORO Video Title 1",
+                description: "Replace this with the description for the first DORO video.",
+                type: "youtube",
+                src: "https://www.youtube.com/embed/VIDEO_ID_1?&mute=0&controls=1",
+            },
+            {
+                title: "DORO Video Title 2",
+                description: "Replace this with the description for the second DORO video.",
+                type: "youtube",
+                src: "https://www.youtube.com/embed/VIDEO_ID_2?&mute=0&controls=1",
+            },
         ],
     },
 
     product_2: {
         pageTitle: "Dualis",
         backLink: "product.html",
-        name: "Dualis",
+        name: "DUALIS",
         description: "A Bimanual Manipulation or Dual Arm Robot - is a robotic system of two robotic arms working in coordination and synchronized motion to do and replicate tasks just like human hands.",
         img: "src/assets/Dualis-Page.png",
         // "para" type — renders as stacked labeled paragraphs instead of bullet lists
