@@ -1,5 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 * {
   font-family: "Quattrocento Sans", sans-serif;
+}
+
+.quattrocento-sans-bold {
+  font-family: "Quattrocento Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Slim Joe Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./fonts/Slim Joe.woff') format('woff');
 }
 
 html {
@@ -7,11 +22,77 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.nav {
+  z-index: 3;
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  width: 100%;
+  height: 65px;
+  align-items: center;
+  align-content: center;
+  transition: all 0.5s ease;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
+
+#nav.scrolled {
+  background: rgba(17, 17, 17, 0.3);
+  backdrop-filter: blur(16px);
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-right-section {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-right-section ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav_right-list li {
+  font-weight: bold;
+  padding: 0rem 1rem;
+}
+
 .list_item a {
-  color: black;
-  font-size: 22px !important;
+  text-decoration: none;
+  color: rgb(0, 0, 0) !important;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold !important;
+  font-size: 22px;
   padding-bottom: 0px;
+}
+
+.list_item a:hover {
+  border-radius: 2px;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(105deg, #6666FF, #FF4750, #6666FF) 1;
+  transition: all 0.3s ease;
 }
 
 .list_item a img {
@@ -36,13 +117,6 @@ html {
 header {
   scroll-snap-align: start;
   /* height: 100vh; */
-}
-
-/* ✅ NAVBAR BLUR ON SCROLL */
-#nav.scrolled {
-  background: rgba(17, 17, 17, 0.3);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }
 
 .product-container {
@@ -155,7 +229,7 @@ header {
 
 .left-points h2 {
 
-  margin-left: 2rem;
+  /* margin-left: 2rem; */
   text-align: right;
 }
 
@@ -273,6 +347,7 @@ header {
   height: 580px;
   border: none;
   border-radius: 10px;
+  pointer-events: auto;
 }
 
 .video-descr {
@@ -327,10 +402,99 @@ header {
 } */
 
 /* Scroll continues normally after the animation */
+footer {
+  margin-top: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(to right, #D2005A, #6666FF) 1;
+}
+
 .footer-container {
-  scroll-snap-align: start;
-  background-color: black;
-  color: white !important;
+  min-height: 40px;
+  padding: 1rem 2rem;
+  color: white;
+  background-color: rgb(0, 0, 0);
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    ".    socials   ."
+    "logo .         copyright";
+  row-gap: 0.5rem;
+}
+
+.footer-container .logo {
+  grid-area: logo;
+  justify-self: start;
+}
+
+.footer-container .logo img {
+  max-width: 140px;
+  max-height: 40px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.menu {
+  grid-area: menu;
+}
+
+.menu ul,
+.socials ul {
+  font-size: 18px;
+  justify-content: center;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+.menu ul {
+  gap: 4rem;
+  justify-content: space-around;
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: rgb(212, 212, 212);
+}
+
+.menu-item:hover {
+  transform: scale(1.12);
+  transition: all 0.2s ease;
+}
+
+.socials ul {
+  gap: 2rem;
+}
+
+.socials {
+  grid-area: socials;
+  align-items: center;
+}
+
+.socials-items img {
+  width: 24px;
+  height: 24px;
+}
+
+.socials-items img:hover {
+  filter: brightness(10);
+  transform: scale(1.2);
+  transition: all 0.2s ease;
+}
+
+.copyright {
+  color: rgb(212, 212, 212);
+  grid-area: copyright;
+  text-align: center;
+  font-size: 14px;
+  justify-self: end;
+  align-self: center;
 }
 
 .nav-left-section {
@@ -354,7 +518,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-self: center;
+  justify-self: flex-start;
 }
 
 .footer-container .logo img {

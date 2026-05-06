@@ -34,9 +34,9 @@ header {
     align-items: center;
     padding: 1rem 16px;
     transition: all 0.5s ease;
-    background: rgba(17, 17, 17, 0.45) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
+    background: rgba(0, 0, 0, 0.464) !important;
+    backdrop-filter: blur(30px) !important;
+    -webkit-backdrop-filter: blur(30px) !important;
 }
 
 /* Base transparent nav container */
@@ -45,6 +45,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0;
+
 }
 
 /* Logo section — vertical centering in navbar */
@@ -73,9 +75,9 @@ header {
 } */
 
 #nav.scrolled {
-    background: rgba(17, 17, 17, 0.35) !important;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(0, 0, 0, 0.464) !important;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
 }
 
 #back {
@@ -263,7 +265,7 @@ header {
     top: 2rem;
     left: 0;
     color: white;
-    font-size: 1.5rem;
+    font-size: 20px;
 }
 
 @media (max-width: 900px) {
@@ -281,7 +283,7 @@ header {
     }
 
     .video {
-        width: min(90vw, 360px);
+        width: min(90vw, 320px);
         height: min(60vh, 520px);
 
         height: min(70vh, 650px);
@@ -394,8 +396,8 @@ header {
 /* FIX: Video dimensions — choose ONE: either width+height or aspect-ratio, not both */
 /* For portrait/Shorts-style: 9:16, slightly less tall to avoid heading overlap */
 .video {
-    width: 340px;
-    height: 520px;
+    width: 260px;
+    height: 440px;
     border: 1px solid rgba(255, 255, 255, 0.82);
     border-radius: 12px;
     overflow: hidden;
