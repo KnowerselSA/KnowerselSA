@@ -60,22 +60,22 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
-    padding: 0 1rem;
+    padding: 0rem 1rem;
 }
 
 .nav-left-section {
-    padding-right: 2rem;
+    padding-right: 1rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
 }
 
 .nav-left-section img {
-    max-width: 140px;
-    max-height: 48px;
     width: auto;
-    height: auto;
+    height: 48px;
+    /* max-width: 140px; */
+    max-height: 48px;
     object-fit: contain;
     display: block;
 }
@@ -359,9 +359,18 @@ footer {
 
 }
 
+/* FOOTER STYLE */
+footer {
+    font-family: Arial, Helvetica, sans-serif;
+
+    border-top: 4px solid transparent;
+    border-image: linear-gradient(to right, #D2005A, #6666FF) 1;
+
+}
+
 .footer-container {
     min-height: 40px;
-    padding: 1rem 2rem;
+    padding: 2rem 0.5rem 0.5rem 0.5rem;
     color: white;
     background-color: rgb(0, 0, 0);
     display: grid;
@@ -438,12 +447,13 @@ footer {
 
 .copyright {
     /* margin-top: 2rem; */
-    color: rgb(212, 212, 212);
+    color: white;
     grid-area: copyright;
     text-align: center;
     font-size: 14px;
     justify-self: end;
     align-self: center;
+    font-family: Quattrocento Sans, sans-serif;
 
 }
 
@@ -491,12 +501,13 @@ footer {
 
     .nav {
         width: 100%;
-        padding: 10px 15px;
+        /* padding: 10px 15px; */
         font-size: 10px;
     }
 
     .nav-container {
         width: 100%;
+        padding: 0rem;
     }
 
     .nav-left-section {
@@ -620,60 +631,48 @@ footer {
     footer {
         width: 100%;
         overflow-x: hidden;
+        box-sizing: border-box;
     }
 
     .footer-container {
         padding: 10px;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto auto auto;
+        height: auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
         grid-template-areas:
-            "logo logo logo"
-            "socials socials socials"
-            "copyright copyright copyright";
+            "logo socials"
+            "copyright copyright";
         justify-content: center;
         align-items: center;
+        justify-items: center;
         gap: 10px;
-        height: auto;
     }
 
     .logo {
         grid-area: logo;
-        justify-self: center;
     }
 
     .footer-container .logo {
         justify-self: center;
-
     }
 
     .socials {
         grid-area: socials;
-        padding: 0 1rem;
-        text-align: center;
         justify-self: center;
-
+        align-self: center;
     }
 
     .socials ul {
-        display: flex !important;
-        justify-content: center !important;
-        gap: 1.5rem;
         padding: 0;
-    }
-
-    .socials-items.active img {
-        filter: brightness(10);
-        transform: scale(1.2);
-        transition: all 0.2s ease;
+        gap: 1.5rem;
+        display: flex;
+        justify-content: center;
     }
 
     .copyright {
-        padding: 0;
         grid-area: copyright;
-        text-align: center;
-        font-size: 14px;
         justify-self: center;
+        text-align: center;
+        padding: 0;
     }
 }

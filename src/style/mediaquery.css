@@ -25,7 +25,11 @@
 /* ==========   MOBILE VIEW 480px  ========= */
 /* ========================================= */
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0rem !important;
+    }
+}
 
 /* mobile menu style as popover below menu button */
 .mobile-menu {
