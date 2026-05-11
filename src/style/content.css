@@ -226,6 +226,7 @@ header {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 1.5rem;
+    pointer-events: none;
 }
 
 .swiper-slide {
@@ -266,6 +267,7 @@ header {
     left: 0;
     color: white;
     font-size: 20px;
+    pointer-events: none;
 }
 
 @media (max-width: 900px) {
