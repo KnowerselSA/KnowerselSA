@@ -32,7 +32,7 @@ header {
     height: 65px;
     display: flex;
     align-items: center;
-    padding: 1rem 16px;
+    /* padding: 1rem 16px 1rem 0; */
     transition: all 0.5s ease;
     background: rgba(0, 0, 0, 0.464) !important;
     backdrop-filter: blur(30px) !important;
@@ -45,24 +45,24 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0;
+    padding: 0rem 1rem;
 
 }
 
 /* Logo section — vertical centering in navbar */
 .nav-left-section {
-    padding-right: 2rem;
+    /* padding-right: 2rem; */
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .nav-left-section img {
-    max-width: 140px;
-    max-height: 48px;
     width: auto;
-    height: auto;
+    height: 48px;
+    /* max-width: 140px; */
+    max-height: 48px;
     object-fit: contain;
     display: block;
 }
@@ -303,7 +303,7 @@ header {
     .swiper {
         height: auto;
         min-height: 88vh;
-        margin-top: 4.5rem;
+        margin-top: 0.5rem;
         padding-bottom: 1rem;
     }
 
@@ -448,7 +448,7 @@ header {
     display: none;
     position: fixed;
     background-color: rgba(128, 128, 128, 0.8);
-    bottom: 2rem;
+    bottom: 9rem;
     right: 2rem;
     width: 40px;
     height: 40px;
@@ -478,7 +478,7 @@ footer {
 
 .footer-container {
     min-height: 40px;
-    padding: 1rem 2rem;
+    padding: 2rem 0.5rem 0.5rem 0.5rem;
     color: black;
     background-color: white;
     display: grid;
@@ -555,7 +555,7 @@ footer {
 .copyright {
     grid-area: copyright;
     align-self: center;
-    justify-self: center;
+    /* justify-self: center; */
     text-align: center;
     font-size: 14px;
     color: rgb(0, 0, 0);
@@ -567,9 +567,9 @@ footer {
 @media (max-width: 768px) {
 
     /* Navbar */
-    .nav {
+    /* .nav {
         padding: 1rem 1.5rem;
-    }
+    } */
 
     .nav_right-list {
         gap: 1rem;
@@ -695,27 +695,57 @@ footer {
     /* Top arrow on mobile */
     .top-arr {
         display: flex !important;
-        bottom: 1.5rem;
+        bottom: 6.5rem;
         right: 1rem;
         width: 38px;
         height: 38px;
     }
 
-    /* FOOTER — stack vertically centered on mobile */
-    .footer-container {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "logo"
-            "socials"
-            "copyright";
-        justify-items: center;
-        text-align: center;
-        padding: 1.5rem 1rem;
-        gap: 0.8rem;
+    /* FOOTER — mobile layout */
+    footer {
+        width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
     }
 
-    .footer-container .logo,
-    .footer-container .copyright {
+    .footer-container {
+        padding: 10px;
+        height: auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "logo socials"
+            "copyright copyright";
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        gap: 10px;
+    }
+
+    .logo {
+        grid-area: logo;
+    }
+
+    .footer-container .logo {
         justify-self: center;
+    }
+
+    .socials {
+        grid-area: socials;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .socials ul {
+        padding: 0;
+        gap: 1.5rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer-container .copyright {
+        grid-area: copyright;
+        justify-self: center;
+        text-align: center;
     }
 }
