@@ -408,6 +408,7 @@ footer {
   font-family: Arial, Helvetica, sans-serif;
   border-top: 4px solid transparent;
   border-image: linear-gradient(to right, #D2005A, #6666FF) 1;
+  scroll-snap-align: start;
 }
 
 .footer-container {
@@ -744,6 +745,7 @@ footer {
 .checkout-cta {
   background-color: white;
   padding: 4rem 5rem;
+  scroll-snap-align: start;
 }
 
 .checkout-link {

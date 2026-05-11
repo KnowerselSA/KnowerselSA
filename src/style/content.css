@@ -525,6 +525,7 @@ footer {
 
 .menu-item:hover,
 .socials-items:hover {
+    filter: brightness(10);
     transform: scale(1.12);
     transition: all 0.2s ease;
 }

@@ -13,6 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
+  // Phone number validation: allow only numbers
+  const phoneInput = document.querySelector('input[name="tel"]')
+  if (phoneInput) {
+    phoneInput.addEventListener("input", function() {
+      this.value = this.value.replace(/[^0-9]/g, '')
+    })
+  }
+
   // Handle form submission
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault()
