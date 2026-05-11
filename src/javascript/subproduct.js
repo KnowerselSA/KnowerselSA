@@ -258,12 +258,20 @@ document.addEventListener("DOMContentLoaded", () => {
         onLeaveBack: resetHeader,
     });
 
-    ScrollTrigger.create({
-        trigger: ".page2",
-        start: "top 50%",
-        onEnter: () => gsap.to("#top-arr", { display: "flex", opacity: 1, duration: 0.3 }),
-        onLeaveBack: () => gsap.to("#top-arr", { opacity: 0, display: "none", duration: 0.3 }),
-    });
+    // ScrollTrigger for top-arr removed. Managed by swiper instead.
+    
+    const updateTopArrow = () => {
+        // Show arrow only when past the middle of the slides
+        if (swiper.activeIndex > swiper.slides.length / 2) {
+            gsap.to("#top-arr", { display: "flex", opacity: 1, duration: 0.3 });
+        } else {
+            gsap.to("#top-arr", { opacity: 0, display: "none", duration: 0.3 });
+        }
+    };
+
+    swiper.on("slideChange", updateTopArrow);
+    // Initialize state
+    gsap.set("#top-arr", { opacity: 0, display: "none" });
 
     document.getElementById("top-arr").addEventListener("click", () => {
         gsap.to(window, {
