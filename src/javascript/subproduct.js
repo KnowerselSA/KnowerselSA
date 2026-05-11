@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         wrapper.innerHTML += `
             <div class="swiper-slide">
                 ${headingHTML}
-                <div class="video">${mediaHTML}</div>
+                <div class="video swiper-no-swiping">${mediaHTML}</div>
                 <div class="video-descr">
                     <h1 class="video-title">${slide.title}</h1>
                     <hr>
@@ -152,6 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         touchReleaseOnEdges: true,
         simulateTouch: true,
+        preventClicks: false,
+        preventClicksPropagation: false,
 
         pagination: {
             el: ".swiper-pagination",
@@ -219,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!swiper.isEnd) allowFooterScroll = false;
         updateScrollLock();
     });
-    
+
     swiper.on("reachEnd", () => {
         allowFooterScroll = false;
     });
@@ -257,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ScrollTrigger for top-arr removed. Managed by swiper instead.
-    
+
     const updateTopArrow = () => {
         // Show arrow only when past the middle of the slides
         if (swiper.activeIndex > swiper.slides.length / 2) {
