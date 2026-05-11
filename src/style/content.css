@@ -307,15 +307,6 @@ header {
         padding-bottom: 1rem;
     }
 
-    .heading-1 {
-        position: relative;
-        top: auto;
-        left: auto;
-        margin: 0.8rem auto 1rem;
-        font-size: 1.45rem;
-        max-width: 100%;
-        padding: 0;
-    }
 
     .swiper-slide {
         flex-direction: column;
@@ -632,20 +623,21 @@ footer {
     /* FIX: Do NOT change swiper-wrapper flex-direction — this breaks Swiper internals */
     .swiper {
         width: 100%;
-        height: 100vh;
+        height: 85vh;
     }
 
     .heading-1 {
-        top: 2rem;
-        font-size: 0.9rem;
+        position: relative;
+        top: 0;
+        font-size: 1rem;
     }
 
     .swiper-slide {
         /* FIX: stack video and description vertically on mobile */
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 1.5rem;
-        padding: 1rem;
+        padding: 5rem 1rem 1rem 1rem;
     }
 
     /* FIX: description first (order:1), video below (order:2) */
