@@ -585,18 +585,19 @@ footer {
   .product-img img {
     width: 80%;
     height: auto;
+    margin-bottom: 3rem;
   }
 
   /* PAGE 2 (ADVANTAGES + APPLICATIONS) */
   .product-desc {
     flex-direction: column;
-    margin: 2rem 3rem;
-    gap: 5rem;
+    margin: 2rem 1rem;
+    gap: 3rem;
     align-items: center;
   }
 
   .product-desc h2 {
-    text-align: left !important;
+    text-align: center !important;
     margin: 0;
     font-size: 24px;
   }
@@ -623,7 +624,7 @@ footer {
   }
 
   .product-desc--stacked {
-    margin: 2rem 1.5rem;
+    margin: 2rem 1rem;
     gap: 2rem;
   }
 
@@ -639,7 +640,7 @@ footer {
   .swiper {
     width: 100vw !important;
     height: 80vh !important;
-    margin: 1rem auto;
+    margin: 0rem auto;
   }
 
   .swiper-wrapper {
@@ -652,7 +653,7 @@ footer {
   }
 
   .swiper-slide {
-    margin: 3rem auto;
+    margin: 0rem auto;
     flex-direction: column;
     height: 70vh !important;
     gap: 1rem;

@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         wrapper.innerHTML += `
             <div class="swiper-slide">
                 ${headingHTML}
-                <div class="video">${mediaHTML}</div>
+                <div class="video swiper-no-swiping">${mediaHTML}</div>
                 <div class="video-descr">
                     <h1 class="video-title">${slide.title}</h1>
                     <hr>
@@ -152,6 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         touchReleaseOnEdges: true,
         simulateTouch: true,
+        preventClicks: false,
+        preventClicksPropagation: false,
 
         pagination: {
             el: ".swiper-pagination",
@@ -194,14 +196,30 @@ document.addEventListener("DOMContentLoaded", () => {
     //  6. SCROLL TRAP (WHEEL + TOUCH)
     // =============================================
 
-    const page2 = document.querySelector(".page2");
-    let touchStartY = 0;
     let allowFooterScroll = false;
+    const page2 = document.querySelector(".page2");
+
+    const updateScrollLock = () => {
+        if (!isMobile) {
+            // Let the wheel event handler manage desktop
+            document.body.style.overflow = "";
+            document.documentElement.style.overflow = "";
+            return;
+        }
+        if (swiper.isEnd) {
+            document.body.style.overflow = "";
+            document.documentElement.style.overflow = "";
+        } else {
+            document.body.style.overflow = "hidden";
+            document.documentElement.style.overflow = "hidden";
+            // Ensure we stay at the top when locked
+            window.scrollTo(0, 0);
+        }
+    };
 
     swiper.on("slideChange", () => {
-        if (!swiper.isEnd) {
-            allowFooterScroll = false;
-        }
+        if (!swiper.isEnd) allowFooterScroll = false;
+        updateScrollLock();
     });
 
     swiper.on("reachEnd", () => {
@@ -223,26 +241,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, { passive: false });
 
-    window.addEventListener("touchstart", (e) => {
-        touchStartY = e.touches[0].clientY;
-    }, { passive: false });
-
-    window.addEventListener("touchmove", (e) => {
-        if (!isMobile) return;
-        const touchMoveY = e.touches[0].clientY;
-        const rect = page2.getBoundingClientRect();
-        if (Math.abs(rect.top) < 50) {
-            const deltaY = touchStartY - touchMoveY;
-            if (swiper.isEnd && deltaY > 5) {
-                if (allowFooterScroll) return;
-                allowFooterScroll = true;
-                if (e.cancelable) e.preventDefault();
-                return;
-            }
-            if (swiper.isBeginning && deltaY < -5) return;
-            if (e.cancelable) e.preventDefault();
-        }
-    }, { passive: false });
+    // Initial lock check
+    updateScrollLock();
 
     // =============================================
     //  7. SCROLL TRIGGERS
@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ScrollTrigger for top-arr removed. Managed by swiper instead.
-    
+
     const updateTopArrow = () => {
         // Show arrow only when past the middle of the slides
         if (swiper.activeIndex > swiper.slides.length / 2) {
