@@ -35,31 +35,38 @@
 .mobile-menu {
     position: fixed !important;
     inset: 0 !important;
-    display: none !important;
+    visibility: hidden !important;
     z-index: 2147483646 !important;
     pointer-events: none !important;
+    transition: visibility 0.3s ease-out !important;
 }
 
 .mobile-menu.open {
-    display: block !important;
+    visibility: visible !important;
     pointer-events: auto !important;
 }
 
 .mobile-menu-dialog {
-    position: absolute !important;
-    top: 46px !important;
-    right: 1rem !important;
-    width: min(85vw, 300px) !important;
-    max-height: calc(100vh - 90px) !important;
-    background: rgba(255, 255, 255, 0.15) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    border-radius: 14px !important;
-    padding: 1rem !important;
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35) !important;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 50vw !important;
+    height: 50vh !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border-radius: 0 0 0 16px !important;
+    padding: 4.5rem 1rem 1rem 1rem !important;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15) !important;
     overflow-y: auto !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    will-change: transform, opacity !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    will-change: transform !important;
+    transform: translateX(100%) !important;
+    transition: transform 0.3s ease-out !important;
+}
+
+.mobile-menu.open .mobile-menu-dialog {
+    transform: translateX(0) !important;
 }
 
 .mobile-menu ul {
@@ -82,7 +89,7 @@
 .mobile-menu ul li a {
     font-family: "Quattrocento Sans", sans-serif;
     text-decoration: none;
-    color: white !important;
+    color: #222 !important;
     font-weight: 700;
     font-size: 1.15rem !important;
     letter-spacing: 0.06rem;
@@ -94,7 +101,7 @@
 .mobile-menu ul li a:hover,
 .mobile-menu ul li a:focus {
     transform: scale(1.05);
-    color: #000 !important;
+    color: #6666FF !important;
     transition: transform 0.25s ease, color 0.25s ease;
 }
 
