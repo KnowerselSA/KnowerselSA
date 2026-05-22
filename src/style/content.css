@@ -10,7 +10,7 @@
 
 body {
     scroll-behavior: smooth;
-    background-color: #000;
+    background-color: #0a0a0a;
 }
 
 /* =============================================
@@ -34,7 +34,7 @@ header {
     align-items: center;
     /* padding: 1rem 16px 1rem 0; */
     transition: all 0.5s ease;
-    background: rgba(0, 0, 0, 0.464) !important;
+    background: #0a0a0a;
     backdrop-filter: blur(30px) !important;
     -webkit-backdrop-filter: blur(30px) !important;
 }
@@ -238,7 +238,7 @@ header {
     align-items: center;
     column-gap: 4rem;
     padding-top: 5rem;
-    background-color: #000;
+    background-color: #0a0a0a;
     text-align: center;
 }
 
@@ -395,7 +395,7 @@ header {
     border: 1px solid rgba(255, 255, 255, 0.82);
     border-radius: 12px;
     overflow: hidden;
-    background: #000;
+    background: #0a0a0a;
     box-shadow: 0px 1px 12px 2px rgba(155, 155, 155, 0.836);
 }
 
@@ -549,11 +549,12 @@ footer {
 
 .copyright {
     grid-area: copyright;
-    align-self: center;
+    align-self: end;
     /* justify-self: center; */
     text-align: center;
     font-size: 14px;
     color: rgb(0, 0, 0);
+    margin-bottom: 5px;
 }
 
 /* =============================================
