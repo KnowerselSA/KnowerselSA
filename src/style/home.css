@@ -85,6 +85,7 @@ body {
     display: flex;
     align-items: center;
     justify-self: start;
+    margin-left: 0.2rem;
 }
 
 .footer-container .logo img {
@@ -372,7 +373,7 @@ footer {
     min-height: 40px;
     padding: 2rem 0.5rem 0.5rem 0.5rem;
     color: white;
-    background-color: rgb(0, 0, 0);
+    background-color: #0a0a0a;
     display: grid;
     align-items: center;
     align-content: center;
@@ -447,12 +448,13 @@ footer {
 
 .copyright {
     /* margin-top: 2rem; */
+    margin-bottom: 5px;
     color: white;
     grid-area: copyright;
     text-align: center;
     font-size: 14px;
     justify-self: end;
-    align-self: center;
+    align-self: end;
     font-family: Quattrocento Sans, sans-serif;
 
 }

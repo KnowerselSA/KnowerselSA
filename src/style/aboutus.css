@@ -65,6 +65,7 @@ body {
   display: flex;
   align-items: center;
   justify-self: start;
+  margin-left: 0.2rem;
 }
 
 .footer-container .logo img {
@@ -338,12 +339,13 @@ footer {
 
 .copyright {
   /* margin-top: 2rem; */
+  margin-bottom: 5px;
   color: rgb(0, 0, 0);
   grid-area: copyright;
   text-align: center;
   font-size: 14px;
   justify-self: end;
-  align-self: center;
+  align-self: end;
 }
 
 /* FOOTER STYLE END */

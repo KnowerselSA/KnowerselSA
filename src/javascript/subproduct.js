@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const links = document.querySelectorAll(".list_item a");
         const menuImg = document.getElementById("menu-img");
 
-        gsap.to(nav, { backgroundColor: "white", duration: 0.3, overwrite: "auto" });
+        gsap.to(nav, { backgroundColor: "#0a0a0a", duration: 0.3, overwrite: "auto" });
         gsap.to(links, { color: "black", duration: 0.3 });
         if (menuImg) {
             menuImg.src = "src/assets/menu2.png";
