@@ -42,6 +42,18 @@ const PRODUCTS = {
                 type: "youtube",
                 src: "https://www.youtube.com/embed/VIDEO_ID_2?&mute=0&controls=1",
             },
+            {
+                title: "DORO Video Title 3",
+                description: "Replace this with the description for the second DORO video.",
+                type: "youtube",
+                src: "https://www.youtube.com/embed/VIDEO_ID_2?&mute=0&controls=1",
+            },
+            {
+                title: "DORO Video Title 4",
+                description: "Replace this with the description for the second DORO video.",
+                type: "youtube",
+                src: "https://www.youtube.com/embed/VIDEO_ID_2?&mute=0&controls=1",
+            },
         ],
     },
 
@@ -75,6 +87,18 @@ const PRODUCTS = {
                 description: "Introductory phase demo of the Robo Arm motion and setup.",
                 type: "youtube",
                 src: "https://www.youtube.com/embed/EqJdYDzWX3M?&mute=0&controls=1",
+            },
+            {
+                title: "Dualis Video Title",
+                description: "Replace this with the description for the second Dualis video.",
+                type: "youtube",
+                src: "https://www.youtube.com/embed/VIDEO_ID_2?&mute=0&controls=1",
+            },
+            {
+                title: "Dualis Video Title",
+                description: "Replace this with the description for the second Dualis video.",
+                type: "youtube",
+                src: "https://www.youtube.com/embed/VIDEO_ID_2?&mute=0&controls=1",
             },
         ],
     },

@@ -51,7 +51,7 @@
     top: 0 !important;
     right: 0 !important;
     width: 50vw !important;
-    height: 50vh !important;
+    height: 100vh !important;
     background: rgba(255, 255, 255, 0.85) !important;
     backdrop-filter: blur(8px) !important;
     -webkit-backdrop-filter: blur(8px) !important;

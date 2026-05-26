@@ -390,6 +390,15 @@ footer {
     justify-self: start;
 }
 
+#logo-img {
+    transition: all 0.2s ease;
+}
+
+#logo-img:hover {
+    transform: scale(1.2);
+
+}
+
 .menu {
     grid-area: menu;
 
@@ -639,15 +648,16 @@ footer {
     .footer-container {
         padding: 10px;
         height: auto;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
         grid-template-areas:
-            "logo socials"
-            "copyright copyright";
+            "socials"
+            "logo"
+            "copyright";
         justify-content: center;
         align-items: center;
         justify-items: center;
-        gap: 10px;
+        /* gap: 10px; */
     }
 
     .logo {
@@ -662,11 +672,12 @@ footer {
         grid-area: socials;
         justify-self: center;
         align-self: center;
+        margin-top: 15px;
     }
 
     .socials ul {
         padding: 0;
-        gap: 1.5rem;
+        /* gap: 1.5rem; */
         display: flex;
         justify-content: center;
     }
