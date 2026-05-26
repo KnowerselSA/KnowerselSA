@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.getElementById("contactForm")
+  const subjectInput = document.getElementById("subject")
   const inputs = document.querySelectorAll(".form-input, .form-textarea")
+  const userName = document.getElementById("name")
 
   // Add focus effects to form inputs
   inputs.forEach((input) => {
@@ -16,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Phone number validation: allow only numbers
   const phoneInput = document.querySelector('input[name="tel"]')
   if (phoneInput) {
-    phoneInput.addEventListener("input", function() {
+    phoneInput.addEventListener("input", function () {
       this.value = this.value.replace(/[^0-9]/g, '')
     })
   }
@@ -28,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = new FormData(contactForm)
     const name = formData.get("name") || ""
     const email = formData.get("email") || ""
+    subjectInput.value = `New message from ${userName.value}`
 
     // Basic validation
     if (!name.trim() || !email.trim()) {
@@ -93,4 +96,11 @@ document.addEventListener("DOMContentLoaded", () => {
   sendButton.addEventListener("mouseup", function () {
     this.style.transform = "scale(1)"
   })
+})
+
+// subject update
+
+contactForm.addEventListener("submit", () => {
+
+
 })

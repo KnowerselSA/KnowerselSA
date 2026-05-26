@@ -178,7 +178,7 @@ body {
 
 /* 🔥 HEADER LOGO */
 .nav-left-section {
-  /* padding-right: 2rem; */
+  padding-right: 1rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -192,12 +192,12 @@ body {
   max-height: 48px;
   object-fit: contain;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: all 0.2s ease;
   display: block;
 }
 
 .nav-left-section img:hover {
-  transform: scale(1.08);
+  transform: scale(1.2);
 }
 
 /* NAV LINKS */
@@ -361,6 +361,15 @@ footer {
     box-sizing: border-box;
   }
 
+  .nav-container {
+    width: 100%;
+    padding: 0rem;
+  }
+
+  .nav-left-section {
+    padding: 5px;
+  }
+
   /* make sure page scrolls */
   html,
   body {
@@ -445,31 +454,36 @@ footer {
   .footer-container {
     padding: 10px;
     height: auto;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
     grid-template-areas:
-      "logo socials"
-      "copyright copyright";
+      "socials"
+      "logo"
+      "copyright";
     justify-content: center;
     align-items: center;
     justify-items: center;
-    gap: 10px;
+    /* gap: 10px; */
   }
 
   .logo {
     grid-area: logo;
   }
 
+  .footer-container .logo {
+    justify-self: center;
+  }
+
   .socials {
-    padding: 1rem;
     grid-area: socials;
     justify-self: center;
     align-self: center;
+    margin-top: 15px;
   }
 
   .socials ul {
     padding: 0;
-    gap: 1.5rem;
+    /* gap: 1.5rem; */
     display: flex;
     justify-content: center;
   }
@@ -479,10 +493,6 @@ footer {
     justify-self: center;
     text-align: center;
     padding: 0;
-  }
-
-  .footer-container .logo {
-    justify-self: center;
   }
 }
 

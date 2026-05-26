@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="icon" type="png/image" href="./src/assets/logos/Browser_tab.png">
+    <link rel="stylesheet" href="src/style/contact.css">
     <!-- media-query style -->
     <link rel="stylesheet" href="src/style/mediaquery.css">
-    <link rel="stylesheet" href="src/style/contact.css">
     <!-- <link rel="stylesheet" href="src/style/home.css"> -->
 </head>
 
@@ -20,7 +20,7 @@
                 <!-- lOGO  -->
                 <div class="nav-left-section">
                     <a href="index.html">
-                        <img src="" alt="logo">
+                        <img id="logo-img" src="" alt="logo">
                     </a>
                 </div>
 
@@ -77,13 +77,15 @@
                 <div class="right-content">
                     <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
                         <input type="hidden" name="access_key" value="1f07bd32-7ff2-4a19-8e3c-a75892d326fe">
-                        <input type="text" placeholder="Name*" name="name" class="form-input box1" required>
+                        <!-- Subject field -->
+                        <input type="hidden" name="subject" id="subject">
+                        <input id="name" type="text" placeholder="Name*" name="name" class="form-input box1" required>
                         <input type="email" placeholder="Email*" name="email" class="form-input email box2" required>
                         <input type="tel" placeholder="Phone No. (Optional)" name="tel" class="form-input box3"
                             pattern="[0-9]*">
                         <textarea placeholder="Message" name="message" class="form-textarea box4" rows="6"
                             required></textarea>
-                        <button type="submit" class="send-button box5">
+                        <button id="send-btn" type="submit" class="send-button box5">
                             <span class="send-txt">Send</span>
                             <span class="arrow">
                                 <img src="./src/assets/about-us/send.png" alt="">
@@ -117,7 +119,7 @@
                                 style="width : 30px ; height:34px" src="./src/assets/social-icons/youtube.png"
                                 alt="youtube"></a>
                     </li>
-                    <li class="socials-items"><a href="https://x.com/KnowerseLSA" target="_blank"><img
+                    <li class="socials-items"><a href="https://x.com/LSA_verse" target="_blank"><img
                                 src="./src/assets/social-icons/twiiter.png" alt="Twitter"></a>
                     </li>
                     <li class="socials-items"><a href="https://www.instagram.com/lsa.verse/" target="_blank"><img
@@ -128,7 +130,7 @@
                 </ul>
             </div>
             <div class="copyright">
-                &copy;2025 LOGO. All Rights Reserved.
+                &copy; 2026 LSA. All Rights Reserved.
             </div>
         </div>
     </footer>
