@@ -53,15 +53,26 @@ document.addEventListener("DOMContentLoaded", () => {
     product.slides.forEach((slide, index) => {
         let mediaHTML = "";
         if (slide.type === "youtube") {
-            // Convert Shorts URL to embed URL if needed
+            // Convert Shorts URL to embed URL if needed, and enable the YouTube JS API for keyboard control
             let videoSrc = slide.src.replace('/shorts/', '/embed/');
-            // Fix invalid ?& to ?
             videoSrc = videoSrc.replace('?&', '?');
-            // Add parameters to improve embedding
-            if (!videoSrc.includes('?')) {
-                videoSrc += '?rel=0&modestbranding=1&controls=1';
-            } else if (!videoSrc.includes('controls=')) {
-                videoSrc += '&controls=1';
+            try {
+                const url = new URL(videoSrc);
+                url.searchParams.set('rel', '0');
+                url.searchParams.set('modestbranding', '1');
+                url.searchParams.set('controls', '1');
+                url.searchParams.set('enablejsapi', '1');
+                url.searchParams.set('origin', window.location.origin);
+                videoSrc = url.toString();
+            } catch (error) {
+                if (!videoSrc.includes('?')) {
+                    videoSrc += '?rel=0&modestbranding=1&controls=1&enablejsapi=1';
+                } else {
+                    if (!videoSrc.includes('rel=')) videoSrc += '&rel=0';
+                    if (!videoSrc.includes('modestbranding=')) videoSrc += '&modestbranding=1';
+                    if (!videoSrc.includes('controls=')) videoSrc += '&controls=1';
+                    if (!videoSrc.includes('enablejsapi=')) videoSrc += '&enablejsapi=1';
+                }
             }
             mediaHTML = `
                 <iframe
@@ -93,6 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>`;
     });
 
+    let swiper;
+
     // =============================================
     //  3. ALLOW IFRAME INTERACTIONS
     // =============================================
@@ -100,10 +113,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Disable swiper mousewheel when hovering over iframes to allow clicks
     document.querySelectorAll('.video iframe').forEach(iframe => {
         iframe.addEventListener('mouseenter', () => {
-            swiper.mousewheel.disable();
+            if (swiper && swiper.mousewheel) swiper.mousewheel.disable();
         });
         iframe.addEventListener('mouseleave', () => {
-            swiper.mousewheel.enable();
+            if (swiper && swiper.mousewheel) swiper.mousewheel.enable();
         });
     });
 
@@ -133,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //  4. SWIPER INITIALIZATION
     // =============================================
 
-    const swiper = new Swiper(".mySwiper", {
+    swiper = new Swiper(".mySwiper", {
         direction: "vertical",
         effect: isMobile ? "slide" : "fade",
         speed: isMobile ? 400 : 200,
@@ -162,6 +175,87 @@ document.addEventListener("DOMContentLoaded", () => {
         },
     });
 
+    const getActiveVideoElement = () => {
+        const activeSlide = document.querySelector('.swiper-slide-active');
+        return activeSlide?.querySelector('video');
+    };
+
+    const getActiveIframeElement = () => {
+        const activeSlide = document.querySelector('.swiper-slide-active');
+        return activeSlide?.querySelector('iframe');
+    };
+
+    const iframePlayerStates = new WeakMap();
+
+    const postYoutubeCommand = (iframe, command) => {
+        if (!iframe?.contentWindow) return;
+        let targetOrigin = '*';
+        try {
+            const url = new URL(iframe.src);
+            targetOrigin = url.origin;
+        } catch (error) {
+        }
+        iframe.contentWindow.postMessage(JSON.stringify({
+            event: 'command',
+            func: command,
+            args: [],
+        }), targetOrigin);
+    };
+
+    window.addEventListener('message', (event) => {
+        if (!event.data) return;
+        let data = event.data;
+        if (typeof data === 'string') {
+            try {
+                data = JSON.parse(data);
+            } catch (err) {
+                return;
+            }
+        }
+        if (data.event !== 'onStateChange') return;
+
+        const iframe = Array.from(document.querySelectorAll('iframe')).find(frame => frame.contentWindow === event.source);
+        if (!iframe) return;
+
+        iframePlayerStates.set(iframe, data.info);
+    });
+
+    const toggleActiveMediaPlayback = () => {
+        const activeVideo = getActiveVideoElement();
+        if (activeVideo) {
+            if (activeVideo.paused) {
+                activeVideo.play();
+            } else {
+                activeVideo.pause();
+            }
+            return;
+        }
+
+        const activeIframe = getActiveIframeElement();
+        if (activeIframe) {
+            const state = iframePlayerStates.get(activeIframe);
+            if (state === 1) {
+                postYoutubeCommand(activeIframe, 'pauseVideo');
+            } else {
+                postYoutubeCommand(activeIframe, 'playVideo');
+            }
+        }
+    };
+
+    const isMediaControlKey = (event) => {
+        const mediaCodes = ['Space', 'MediaPlayPause', 'MediaPlay', 'MediaPause', 'MediaStop'];
+        return mediaCodes.includes(event.code) || mediaCodes.includes(event.key);
+    };
+
+    document.addEventListener('keydown', (event) => {
+        const activeElement = document.activeElement;
+        if (!isMediaControlKey(event)) return;
+        if (activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA' || activeElement.isContentEditable)) return;
+
+        event.preventDefault();
+        toggleActiveMediaPlayback();
+    });
+
     // =============================================
     //  5. HEADER LOGIC
     // =============================================
@@ -174,8 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.to(nav, { backgroundColor: "rgba(17, 17, 17, 0.3)", duration: 0.3, overwrite: "auto" });
         gsap.to(links, { color: "white", duration: 0.3 });
         if (menuImg) {
-            menuImg.src = "src/assets/menu.png";
-            gsap.to(menuImg, { filter: "brightness(0) invert(0)", duration: 0.3 });
+            menuImg.src = "src/assets/menu2.png";
         }
     };
 
@@ -188,7 +281,6 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.to(links, { color: "black", duration: 0.3 });
         if (menuImg) {
             menuImg.src = "src/assets/menu2.png";
-            gsap.to(menuImg, { filter: "brightness(0) invert(1)", duration: 0.3 });
         }
     };
 
@@ -197,6 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // =============================================
 
     let allowFooterScroll = false;
+    let lastSlideIndex = 0;
     const page2 = document.querySelector(".page2");
 
     const updateScrollLock = () => {
@@ -217,13 +310,42 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    swiper.on("slideChange", () => {
-        if (!swiper.isEnd) allowFooterScroll = false;
+    swiper.on("slideChangeTransitionEnd", () => {
+        // Pause and reset all videos in non-active slides
+        const allVideos = document.querySelectorAll('.swiper-slide video');
+        allVideos.forEach(video => {
+            const parentSlide = video.closest('.swiper-slide');
+            if (!parentSlide?.classList.contains('swiper-slide-active')) {
+                video.pause();
+                video.currentTime = 0;
+            }
+        });
+
+        // Pause all iframes in non-active slides
+        const allIframes = document.querySelectorAll('.swiper-slide iframe');
+        allIframes.forEach(iframe => {
+            const parentSlide = iframe.closest('.swiper-slide');
+            if (!parentSlide?.classList.contains('swiper-slide-active')) {
+                postYoutubeCommand(iframe, 'pauseVideo');
+            }
+        });
+
+        const currentIndex = swiper.activeIndex;
+        const isMovingBackward = currentIndex < lastSlideIndex;
+        lastSlideIndex = currentIndex;
+
+        if (!swiper.isEnd) {
+            allowFooterScroll = false;
+            if (isMovingBackward && window.scrollY > 0) {
+                gsap.to(window, { scrollTo: 0, duration: 0.3 });
+            }
+        }
         updateScrollLock();
     });
 
     swiper.on("reachEnd", () => {
         allowFooterScroll = false;
+        lastSlideIndex = swiper.activeIndex;
     });
 
     window.addEventListener("wheel", (e) => {

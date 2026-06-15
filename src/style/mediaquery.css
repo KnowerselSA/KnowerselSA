@@ -130,6 +130,12 @@
 .menu-btn img {
     width: 24px;
     height: 24px;
+    transition: filter 0.25s ease, opacity 0.25s ease;
+    filter: none;
+}
+
+.menu-btn img.menu-icon-black {
+    filter: brightness(1) !important;
 }
 
 /* In case GSAP adds spacer class names */
@@ -157,6 +163,40 @@
     pointer-events: auto;
 }
 
+.mobile-menu-dialog {
+    position: fixed !important;
+    padding-top: 4.5rem !important;
+}
+
+.mobile-menu-close-btn {
+    position: absolute !important;
+    top: 0.9rem !important;
+    right: 0.9rem !important;
+    width: 28px !important;
+    height: 28px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    color: #222 !important;
+    z-index: 2147483647 !important;
+}
+
+.mobile-menu-close-btn svg {
+    width: 24px !important;
+    height: 24px !important;
+    display: block !important;
+}
+
+.mobile-menu-close-btn:hover,
+.mobile-menu-close-btn:focus {
+    background: rgba(34, 34, 34, 0.04) !important;
+}
+
 /* hide desktop nav on mobile if desired */
 #menuBtn {
     display: none !important;
@@ -169,6 +209,10 @@
 
     #menuBtn {
         display: flex !important;
+    }
+
+    .mobile-menu-close-btn {
+        display: inline-flex !important;
     }
 
     /* if you used .menu-btn elsewhere */

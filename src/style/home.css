@@ -628,9 +628,10 @@ footer {
         font-size: 1.7rem;
     }
 
-    .redirect-para a {
-        flex-direction: column;
-        align-items: self-start;
+    .redirect-para p {
+        padding-right: 1rem;
+        /* flex-direction: column; */
+        /* align-items: self-start; */
     }
 
     .redirect-para img {
