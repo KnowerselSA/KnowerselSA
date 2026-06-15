@@ -493,12 +493,12 @@ footer {
   height: 24px;
 }
 
-.socials-items img:hover {
-  filter: brightness(10);
+.socials-items img:hover,
+.socials-items a:hover img {
+  filter: brightness(0) invert(1) saturate(100%);
   transform: scale(1.2);
   transition: all 0.2s ease;
 }
-
 .copyright {
   color: rgb(212, 212, 212);
   grid-area: copyright;
