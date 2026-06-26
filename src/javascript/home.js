@@ -47,6 +47,21 @@ window.addEventListener("scroll", function () {
     menu.appendChild(menuDialog);
   }
 
+  // create a close button in the dialog if not present
+  let closeButton = menuDialog.querySelector(".mobile-menu-close-btn");
+  if (!closeButton) {
+    closeButton = document.createElement("button");
+    closeButton.type = "button";
+    closeButton.className = "mobile-menu-close-btn";
+    closeButton.setAttribute("aria-label", "Close menu");
+    closeButton.innerHTML = `
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    `;
+    menuDialog.appendChild(closeButton);
+  }
+
   // 2) create (or reuse) overlay for dimming and outside-click
   let overlay = document.querySelector(".body-menu-overlay");
   if (!overlay) {
@@ -69,6 +84,7 @@ window.addEventListener("scroll", function () {
 
     menu.classList.add("open");
     overlay.classList.add("visible");
+    menuBtn.style.visibility = "hidden";
     // lock body scroll
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
@@ -78,6 +94,7 @@ window.addEventListener("scroll", function () {
   function closeMenu() {
     menu.classList.remove("open");
     overlay.classList.remove("visible");
+    menuBtn.style.visibility = "visible";
     // restore scroll
     document.documentElement.style.overflow = "";
     document.body.style.overflow = "";
@@ -113,7 +130,8 @@ window.addEventListener("scroll", function () {
     if (isOpen && e.key === "Escape") closeMenu();
   });
 
-  // close when clicking any link inside menu
+  // close when clicking the close button or any link inside menu
+  closeButton.addEventListener("click", () => closeMenu());
   menu.querySelectorAll("a").forEach(a => {
     a.addEventListener("click", () => closeMenu());
   });
@@ -168,6 +186,8 @@ function setLogoImagesByTheme() {
   // header uses TL icons (aboutus white, contact black, product black with white footer, others switch on scroll)
   const currentPath = window.location.pathname.toLowerCase();
   const productMode = currentPath.includes("product.html") || currentPath.includes("product_details.html") || currentPath.includes("product_details") || currentPath.includes("product-");
+  const isHeaderBlur = nav.classList.contains("scrolled");
+  const isAboutOrContent = currentPath.includes("aboutus.html") || currentPath.includes("content.html");
 
   if (currentPath.includes("aboutus.html")) {
     headerLogo.src = logoBase + "TL1.2.png"; // white logo
@@ -178,8 +198,20 @@ function setLogoImagesByTheme() {
   } else if (productMode) {
     headerLogo.src = logoBase + "TL2.1.png"; // product page header black
   } else {
-    const isHeaderBlur = nav.classList.contains("scrolled");
     headerLogo.src = isHeaderBlur ? logoBase + "TL2.1.png" : logoBase + "TL1.2.png";
+  }
+
+  const menuImage = document.getElementById("menu-img") || document.querySelector("#menuBtn img");
+  if (menuImage) {
+    if (isAboutOrContent) {
+      if (isHeaderBlur) {
+        menuImage.classList.add("menu-icon-black");
+      } else {
+        menuImage.classList.remove("menu-icon-black");
+      }
+    } else {
+      menuImage.classList.remove("menu-icon-black");
+    }
   }
 
   // footer uses BL icons

@@ -85,7 +85,7 @@ body {
     display: flex;
     align-items: center;
     justify-self: start;
-    margin-left: 0.2rem;
+    margin-left: 0.4rem;
 }
 
 .footer-container .logo img {
@@ -523,6 +523,7 @@ footer {
 
     .nav-left-section {
         padding: 5px;
+        margin-left: 0.5rem;
     }
 
     .nav-right-section {
@@ -606,7 +607,7 @@ footer {
 
     .para-1,
     .para-2 {
-        margin: 3rem auto;
+        margin: auto;
         overflow: hidden;
         width: 90%;
     }
@@ -628,9 +629,10 @@ footer {
         font-size: 1.7rem;
     }
 
-    .redirect-para a {
-        flex-direction: column;
-        align-items: self-start;
+    .redirect-para p {
+        padding-right: 1rem;
+        /* flex-direction: column; */
+        /* align-items: self-start; */
     }
 
     .redirect-para img {
