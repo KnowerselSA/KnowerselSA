@@ -611,25 +611,38 @@
 
     /* Research/video swiper pages */
     .page2 {
-        min-height: 100svh;
+        min-height: 100vh;
+        overflow-x: hidden !important;
+        padding: 0 1rem 2rem !important;
+    }
+
+    .page-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
     }
 
     .swiper {
+        width: 100% !important;
         height: auto !important;
-        min-height: 92svh;
+        min-height: 88vh !important;
         margin-top: 0 !important;
-        padding: 0 2rem 2rem;
+        padding: 0 !important;
     }
 
     .swiper-wrapper {
         height: auto !important;
+        width: 100% !important;
     }
 
     .swiper-slide {
-        min-height: 92svh !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
         height: auto !important;
         margin-top: 3rem !important;
-        padding-top: 4.5rem !important;
+        padding-top: 3.5rem !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
         align-items: center !important;
@@ -641,15 +654,15 @@
         width: min(72vw, 520px) !important;
         margin: 0 auto 1rem !important;
         left: 50% !important;
-        transform: translateX(-50%);
+        transform: translateX(-50%) !important;
         text-align: center !important;
         font-size: 1.2rem !important;
     }
 
     .video {
         order: 1 !important;
-        width: min(54vw, 360px) !important;
-        max-width: 54vw !important;
+        width: min(90vw, 360px) !important;
+        max-width: 360px !important;
         height: auto !important;
         aspect-ratio: 9 / 16 !important;
         margin: 0 auto !important;
@@ -663,8 +676,8 @@
 
     .video-descr {
         order: 2 !important;
-        width: min(54vw, 360px) !important;
-        max-width: 54vw !important;
+        width: min(90vw, 360px) !important;
+        max-width: 360px !important;
         margin: 0.75rem auto 0 !important;
         padding: 0 !important;
         text-align: left !important;
