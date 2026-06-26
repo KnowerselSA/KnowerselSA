@@ -327,8 +327,8 @@ header {
     .swiper-slide {
         flex-direction: column;
         /* row-gap: 1rem; */
-        margin-top: 3rem;
-        padding-top: 1rem;
+        /* margin-top: 3rem; */
+        /* padding-top: 1rem; */
         align-items: center;
         justify-content: flex-start;
     }
