@@ -658,9 +658,9 @@ footer {
         padding: 5rem 1rem 1rem 1rem;
     }
 
-    /* FIX: description first (order:1), video below (order:2) */
+    /* Mobile order: video first, then title and description below */
     .video-descr {
-        order: 1;
+        order: 2;
         width: 100%;
         text-align: center;
         padding: 0 1rem;
@@ -678,7 +678,7 @@ footer {
     }
 
     .video {
-        order: 2;
+        order: 1;
         width: 70%;
         /* FIX: use aspect-ratio instead of hardcoded height for responsiveness */
         height: auto;
