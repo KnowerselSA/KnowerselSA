@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
             : "";
 
         wrapper.innerHTML += `
-            <div class="swiper-slide">
+            <div class="swiper-slide" style="margin-top : 3rem ;">
                 ${headingHTML}
                 <div class="video swiper-no-swiping">${mediaHTML}</div>
                 <div class="video-descr">
