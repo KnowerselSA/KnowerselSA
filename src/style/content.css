@@ -235,7 +235,7 @@ header {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    font-size: 1rem;
+    font-size: 1.2rem;
     pointer-events: none;
 }
 
@@ -308,6 +308,10 @@ header {
 }
 
 @media (max-width: 768px) {
+    .nav-left-section {
+        margin-left: 0.5rem;
+    }
+
     .page2 {
         padding: 0.5rem 0.5rem 2rem;
     }
@@ -399,8 +403,9 @@ header {
 /* FIX: Video dimensions — choose ONE: either width+height or aspect-ratio, not both */
 /* For portrait/Shorts-style: 9:16, slightly less tall to avoid heading overlap */
 .video {
-    width: 260px;
-    height: 440px;
+    width: 320px;
+    height: 500px;
+    object-fit: cover;
     border: 1px solid rgba(255, 255, 255, 0.82);
     border-radius: 12px;
     overflow: hidden;

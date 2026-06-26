@@ -493,8 +493,9 @@ footer {
   height: 24px;
 }
 
-.socials-items img:hover {
-  filter: brightness(10);
+.socials-items img:hover,
+.socials-items a:hover img {
+  filter: brightness(0) invert(1) saturate(100%);
   transform: scale(1.2);
   transition: all 0.2s ease;
 }
@@ -527,7 +528,7 @@ footer {
 }
 
 .footer-container .logo {
-  margin-left: 0.2rem;
+  margin-left: 0.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -811,6 +812,7 @@ footer {
 
   .nav-left-section {
     padding: 5px;
+    margin-left: 0.5rem;
   }
 
   .checkout-cta {
@@ -823,7 +825,7 @@ footer {
   }
 
   .checkout-link .big-text {
-    font-size: 26px;
+    font-size: 20px;
   }
 
   .footer-container .logo {

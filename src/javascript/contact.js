@@ -27,13 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault()
 
+    const name = userName.value.trim() || ""
+    const email = contactForm.querySelector('input[name="email"]').value.trim() || ""
+    subjectInput.value = `New message from ${name}`
     const formData = new FormData(contactForm)
-    const name = formData.get("name") || ""
-    const email = formData.get("email") || ""
-    subjectInput.value = `New message from ${userName.value}`
 
     // Basic validation
-    if (!name.trim() || !email.trim()) {
+    if (!name || !email) {
       alert("Please fill in all required fields (Name and Email)")
       return
     }
@@ -96,11 +96,4 @@ document.addEventListener("DOMContentLoaded", () => {
   sendButton.addEventListener("mouseup", function () {
     this.style.transform = "scale(1)"
   })
-})
-
-// subject update
-
-contactForm.addEventListener("submit", () => {
-
-
 })
