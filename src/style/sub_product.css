@@ -812,6 +812,7 @@ footer {
 
   .nav-left-section {
     padding: 5px;
+    margin-left: 0.5rem;
   }
 
   .checkout-cta {
@@ -824,7 +825,7 @@ footer {
   }
 
   .checkout-link .big-text {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .footer-container .logo {

@@ -523,6 +523,7 @@ footer {
 
     .nav-left-section {
         padding: 5px;
+        margin-left: 0.5rem;
     }
 
     .nav-right-section {
@@ -606,7 +607,7 @@ footer {
 
     .para-1,
     .para-2 {
-        margin: 3rem auto;
+        margin: auto;
         overflow: hidden;
         width: 90%;
     }
