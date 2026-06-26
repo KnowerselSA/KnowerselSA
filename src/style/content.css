@@ -407,8 +407,8 @@ header {
 /* FIX: Video dimensions — choose ONE: either width+height or aspect-ratio, not both */
 /* For portrait/Shorts-style: 9:16, slightly less tall to avoid heading overlap */
 .video {
-    width: 320px;
-    height: 500px;
+    width: 280px;
+    height: 440px;
     object-fit: cover;
     border: 1px solid rgba(255, 255, 255, 0.82);
     border-radius: 12px;

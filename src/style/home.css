@@ -310,26 +310,27 @@ body {
 
 .redirect-para {
     font-size: 26px;
-    margin: 8rem auto 2rem auto;
-
-}
-
-.redirect-para span {
-    word-spacing: 2px;
+    margin: 3rem 0 2rem 0;
     display: flex;
     flex-direction: column;
-    font-weight: bold;
-    gap: 0rem;
-    font-size: 2.5rem;
+    gap: 0.5rem;
+    align-items: flex-start;
 }
 
-.redirect-para a {
+/* First span is the label (Check Out), second contains the link */
+.redirect-para .span:first-of-type {
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 1.1;
+}
+
+.redirect-para .span:last-of-type a {
     word-spacing: 2px;
-    font-weight: bold;
+    font-weight: 700;
     text-decoration: none;
     color: black;
-    display: flex;
-    gap: 0rem;
+    display: inline-flex;
+    gap: 0.5rem;
     align-items: center;
 }
 
@@ -340,13 +341,14 @@ body {
 
 .redirect-para p {
     margin: 0;
-    padding-right: 2rem;
+    padding: 0;
+    font-size: 1.6rem;
 }
 
 .redirect-para img {
-    width: 34px;
-    height: 34px;
-    align-items: center;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
 }
 
 /* SECOND PAGE STYLE END  */
