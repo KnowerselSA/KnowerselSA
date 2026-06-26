@@ -323,6 +323,7 @@ header {
     .swiper-slide {
         flex-direction: column;
         /* row-gap: 1rem; */
+        margin-top: 3rem;
         padding-top: 1rem;
         align-items: center;
         justify-content: flex-start;
@@ -642,6 +643,9 @@ footer {
     .heading-1 {
         position: relative;
         top: 0;
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
         font-size: 0.8rem;
     }
 
@@ -650,15 +654,15 @@ footer {
         flex-direction: column;
         justify-content: flex-start;
         gap: 1rem;
-        padding: 5rem 1rem 1rem 1rem;
+        padding: 6rem 1rem 1rem 1rem;
     }
 
-    /* FIX: description first (order:1), video below (order:2) */
+    /* Mobile order: video first, then title and description below */
     .video-descr {
-        order: 1;
-        width: 100%;
+        order: 2;
+        width: 70%;
         text-align: center;
-        padding: 0 1rem;
+        padding: 0;
         margin: 0;
     }
 
@@ -669,11 +673,11 @@ footer {
 
     .video-descr p {
         font-size: 14px;
-        margin: 0 0.5rem;
+        margin: 0;
     }
 
     .video {
-        order: 2;
+        order: 1;
         width: 70%;
         /* FIX: use aspect-ratio instead of hardcoded height for responsiveness */
         height: auto;
