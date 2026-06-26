@@ -32,7 +32,7 @@ const PRODUCTS = {
         slides: [
             {
                 title: "DORO Video Title 1",
-                description: "Replace this with the description for the first DORO video.",
+                description: "Replace this with the description for the first DORO video.Replace this with the description for the first DORO video.Replace this with the description for the first DORO video.Replace this with the description for the first DORO video.",
                 type: "youtube",
                 src: "https://www.youtube.com/embed/VIDEO_ID_1?&mute=0&controls=1",
             },
