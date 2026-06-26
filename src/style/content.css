@@ -647,6 +647,9 @@ footer {
     .heading-1 {
         position: relative;
         top: 0;
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
         font-size: 0.8rem;
     }
 
@@ -655,15 +658,15 @@ footer {
         flex-direction: column;
         justify-content: flex-start;
         gap: 1rem;
-        padding: 5rem 1rem 1rem 1rem;
+        padding: 6rem 1rem 1rem 1rem;
     }
 
     /* Mobile order: video first, then title and description below */
     .video-descr {
         order: 2;
-        width: 100%;
+        width: 70%;
         text-align: center;
-        padding: 0 1rem;
+        padding: 0;
         margin: 0;
     }
 
@@ -674,7 +677,7 @@ footer {
 
     .video-descr p {
         font-size: 14px;
-        margin: 0 0.5rem;
+        margin: 0;
     }
 
     .video {
