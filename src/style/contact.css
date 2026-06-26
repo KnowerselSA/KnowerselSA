@@ -273,7 +273,7 @@ footer {
   display: flex;
   align-items: center;
   justify-self: start;
-  margin-left: 0.2rem;
+  margin-left: 0.5rem;
 }
 
 .footer-container .logo img {

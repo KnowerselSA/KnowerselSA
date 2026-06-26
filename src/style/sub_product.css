@@ -499,6 +499,7 @@ footer {
   transform: scale(1.2);
   transition: all 0.2s ease;
 }
+
 .copyright {
   color: rgb(212, 212, 212);
   grid-area: copyright;
@@ -527,7 +528,7 @@ footer {
 }
 
 .footer-container .logo {
-  margin-left: 0.2rem;
+  margin-left: 0.4rem;
   display: flex;
   align-items: center;
   justify-content: center;

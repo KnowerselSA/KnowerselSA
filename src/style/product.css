@@ -78,7 +78,7 @@ body {
 }
 
 .footer-container .logo {
-  margin-left: 0.2rem;
+  margin-left: 0.4rem;
   display: flex;
   align-items: center;
   justify-self: start;
@@ -466,4 +466,3 @@ footer {
     padding: 0;
   }
 }
-
