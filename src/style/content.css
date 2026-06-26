@@ -328,8 +328,8 @@ header {
     .swiper-slide {
         flex-direction: column;
         /* row-gap: 1rem; */
-        margin-top: 3rem;
-        padding-top: 1rem;
+        /* margin-top: 3rem;
+        padding-top: 1rem; */
         /* margin-top: 3rem; */
         /* padding-top: 1rem; */
         align-items: center;
@@ -661,7 +661,7 @@ footer {
         /* FIX: stack video and description vertically on mobile */
         flex-direction: column;
         justify-content: flex-start;
-        gap: 1rem;
+        /* gap: 1rem; */
         gap: 2rem;
         padding: 6rem 1rem 1rem 1rem;
     }
@@ -671,7 +671,7 @@ footer {
         order: 2;
         width: 70%;
         text-align: center;
-        padding: 0;
+        /* padding: 0; */
         margin: 0;
         margin: 0rem auto;
     }
