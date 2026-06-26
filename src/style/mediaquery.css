@@ -217,11 +217,22 @@
 
     /* if you used .menu-btn elsewhere */
 }
+
+/* Hide scroll-to-top on tablet and mobile */
+@media (max-width: 1024px) {
+    .top-arr {
+        display: none !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+}
+
 /* ========================================= */
 /* ==========   IPAD / TABLET VIEW  ========= */
 /* ========================================= */
 
 @media (min-width: 769px) and (max-width: 1024px) {
+
     html,
     body {
         overflow-x: hidden;
