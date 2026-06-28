@@ -360,6 +360,19 @@ header {
   pointer-events: auto;
 }
 
+/* Transparent overlay to capture clicks on YouTube iframes when needed */
+.video {
+  position: relative;
+}
+
+.video .yt-click-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 9999;
+  background: transparent;
+  cursor: pointer;
+}
+
 .video-descr {
   margin-left: 2rem;
   grid-area: desc;

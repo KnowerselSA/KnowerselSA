@@ -120,6 +120,42 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Add a click-overlay for iframes to reliably capture play/pause clicks
+    document.querySelectorAll('.video').forEach(container => {
+        const iframe = container.querySelector('iframe');
+        if (!iframe) return;
+        // ensure container is positioned so overlay can cover it
+        const computedStyle = window.getComputedStyle(container);
+        if (computedStyle.position === 'static') container.style.position = 'relative';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'yt-click-overlay';
+        overlay.setAttribute('aria-hidden', 'true');
+        // capture clicks and toggle YouTube playback via postMessage
+        overlay.addEventListener('click', (ev) => {
+            ev.preventDefault();
+            ev.stopPropagation();
+            const state = iframePlayerStates.get(iframe);
+            if (state === 1) {
+                postYoutubeCommand(iframe, 'pauseVideo');
+            } else {
+                postYoutubeCommand(iframe, 'playVideo');
+            }
+        });
+
+        // also allow double-click to toggle as a fallback
+        overlay.addEventListener('dblclick', (ev) => {
+            ev.preventDefault();
+            ev.stopPropagation();
+            const state = iframePlayerStates.get(iframe);
+            if (state === 1) postYoutubeCommand(iframe, 'pauseVideo');
+            else postYoutubeCommand(iframe, 'playVideo');
+        });
+
+        // insert overlay on top of iframe
+        container.appendChild(overlay);
+    });
+
     // Prevent swiper from capturing wheel events on iframes
     document.addEventListener('wheel', (e) => {
         if (e.target.closest('.video iframe')) {
@@ -195,11 +231,20 @@ document.addEventListener("DOMContentLoaded", () => {
             targetOrigin = url.origin;
         } catch (error) {
         }
-        iframe.contentWindow.postMessage(JSON.stringify({
-            event: 'command',
-            func: command,
-            args: [],
-        }), targetOrigin);
+        const message = JSON.stringify({ event: 'command', func: command, args: [] });
+        try {
+            iframe.contentWindow.postMessage(message, targetOrigin);
+            // Debug log (safe) - remove in production
+            console.debug('postYoutubeCommand ->', { iframeSrc: iframe.src, command, targetOrigin });
+        } catch (err) {
+            try {
+                // Fallback to wildcard origin
+                iframe.contentWindow.postMessage(message, '*');
+                console.debug('postYoutubeCommand fallback ->', { iframeSrc: iframe.src, command });
+            } catch (err2) {
+                console.warn('postYoutubeCommand failed', err2);
+            }
+        }
     };
 
     window.addEventListener('message', (event) => {

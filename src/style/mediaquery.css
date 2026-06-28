@@ -366,7 +366,7 @@
     }
 
     .project-title {
-        font-size: clamp(1.5rem, 5vw, 2.2rem);
+        font-size: clamp(2.5rem, 5vw, 2.2rem);
     }
 
     .form-input,
@@ -517,6 +517,10 @@
     .redirect-para {
         font-size: 1.45rem;
         line-height: 1.55;
+    }
+
+    .redirect-para {
+        margin-top: 0rem;
     }
 
     .redirect-para span {

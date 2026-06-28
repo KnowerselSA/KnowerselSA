@@ -688,7 +688,7 @@ footer {
 
     .video {
         order: 1;
-        width: 70%;
+        width: 70% !important;
         /* FIX: use aspect-ratio instead of hardcoded height for responsiveness */
         height: auto;
         aspect-ratio: 9 / 16;
