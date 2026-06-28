@@ -209,20 +209,40 @@ header {
 .page2 {
     background-color: #000;
     color: white;
-    /* FIX: height is managed by Swiper, not page2 */
     position: relative;
 }
 
-/* FIX: Let Swiper control its own height — do NOT force height on wrapper */
-.swiper {
-    margin-top: 4rem;
+.page-container {
     width: 100%;
+    margin-top: 4rem;
+    position: relative;
     height: 100vh;
+    height: 100svh;
+    overflow: hidden;
 }
 
-/* FIX: REMOVE height and flex overrides — Swiper sets these internally */
-.swiper-wrapper {
-    /* Let Swiper control this completely */
+.slides-wrapper {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.video-slide {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+    padding-top: 5.5rem !important;
+    padding-bottom: 2rem !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #0a0a0a;
 }
 
 .heading-1 {
@@ -280,70 +300,45 @@ header {
     pointer-events: none;
 } */
 
-@media (max-width: 900px) {
-    .swiper-slide {
-        flex-direction: column;
-        /* row-gap: 1.5rem; */
-        padding-top: 4.5rem;
-        justify-content: flex-start;
-    }
-
-    .heading-1 {
-        position: relative;
-        top: 0;
-        /* margin-bottom: 1rem; */
-    }
-
-    .video {
-        width: min(90vw, 320px);
-        height: min(60vh, 520px);
-
-        height: min(70vh, 650px);
-    }
-
-    .video-descr {
-        max-width: min(90vw, 420px);
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .nav-left-section {
         margin-left: 0.5rem;
     }
 
     .page2 {
-        /* padding: 0.5rem 0.5rem 2rem; */
-        margin-top: 3rem;
+        margin-top: 0;
     }
 
-    .swiper {
-        height: auto;
-        min-height: 88vh;
-        margin-top: 0rem;
-        padding-bottom: 1rem;
+    .video-slide {
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        padding-top: 5rem !important;
+        padding-bottom: 1.5rem !important;
+        gap: 0.8rem !important;
     }
 
+    .video-slide:not(:first-child) {
+        padding-top: 8.5rem !important;
+    }
 
-    .swiper-slide {
-        flex-direction: column;
-        /* row-gap: 1rem; */
-        /* margin-top: 3rem;
-        padding-top: 1rem; */
-        /* margin-top: 3rem; */
-        padding-top: 2rem;
-        align-items: center;
-        justify-content: flex-start;
+    .heading-1 {
+        position: relative !important;
+        top: 0 !important;
+        margin-bottom: 0.2rem !important;
+        font-size: 1.1rem !important;
     }
 
     .video {
-        width: min(92vw, 340px);
-        max-width: 92vw;
-        height: auto;
-        aspect-ratio: 9 / 16;
+        width: auto !important;
+        height: 48vh !important;
+        height: 48svh !important;
+        max-height: 480px !important;
+        aspect-ratio: 9 / 16 !important;
+        max-width: 85vw !important;
         border-width: 1px;
         border-radius: 14px;
         box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
     }
 
     .video iframe,
@@ -353,31 +348,30 @@ header {
     }
 
     .video-descr {
-        width: min(92vw, 340px);
-        max-width: 92vw;
-        margin-top: 0.7rem;
-        text-align: left;
-        padding: 0.6rem 0;
-        color: #f8f8f8;
+        width: min(92vw, 340px) !important;
+        max-width: 92vw !important;
+        margin-top: 0.5rem !important;
+        text-align: left !important;
+        padding: 0.4rem 0 !important;
+        color: #f8f8f8 !important;
     }
 
     .video-descr .video-title {
-        font-size: 1.25rem;
-        line-height: 1.25;
-        text-align: center;
-        margin-bottom: 0.4rem;
-        /* margin-top: 1rem */
+        font-size: 1.2rem !important;
+        line-height: 1.25 !important;
+        text-align: center !important;
+        margin-bottom: 0.3rem !important;
     }
 
     .video-descr p {
-        font-size: 0.95rem;
-        color: #d9d9d9;
-        line-height: 1.35;
+        font-size: 0.9rem !important;
+        color: #d9d9d9 !important;
+        line-height: 1.35 !important;
+        text-align: center !important;
     }
 
     .footer-container .logo {
         justify-self: center;
-
     }
 }
 
@@ -385,17 +379,24 @@ header {
 /* Pagination */
 .swiper-pagination-vertical.swiper-pagination-bullets,
 .swiper-vertical>.swiper-pagination-bullets {
+    position: fixed !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
     left: 2rem !important;
     right: auto;
+    z-index: 100 !important;
+    display: flex !important;
+    flex-direction: column !important;
 }
 
 .swiper-pagination-bullet {
     background: #c4c4c4 !important;
     opacity: 1;
-    margin: 1rem !important;
+    margin: 0.6rem !important;
     height: 25px !important;
     width: 5px !important;
     border-radius: 24px !important;
+    cursor: pointer;
 }
 
 .swiper-pagination-bullet-active {
@@ -771,4 +772,9 @@ footer {
         text-align: center;
         padding: 0;
     }
+}
+
+/* Hide Swiper Pagination */
+.swiper-pagination {
+    display: none !important;
 }

@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //  2. BUILD SLIDES DYNAMICALLY
     // =============================================
 
-    const wrapper = document.getElementById("swiper-wrapper");
+    const wrapper = document.getElementById("slides-wrapper");
 
     product.slides.forEach((slide, index) => {
         let mediaHTML = "";
@@ -93,9 +93,9 @@ document.addEventListener("DOMContentLoaded", () => {
             : "";
 
         wrapper.innerHTML += `
-            <div class="swiper-slide" style="margin-top : 3rem ;">
+            <div class="video-slide swiper-slide" style="margin-top: 0;">
                 ${headingHTML}
-                <div class="video swiper-no-swiping">${mediaHTML}</div>
+                <div class="video">${mediaHTML}</div>
                 <div class="video-descr">
                     <h1 class="video-title">${slide.title}</h1>
                     <hr>
@@ -104,21 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>`;
     });
 
-    let swiper;
-
     // =============================================
-    //  3. ALLOW IFRAME INTERACTIONS
+    //  3. ALLOW IFRAME INTERACTIONS & OVERLAYS
     // =============================================
-
-    // Disable swiper mousewheel when hovering over iframes to allow clicks
-    document.querySelectorAll('.video iframe').forEach(iframe => {
-        iframe.addEventListener('mouseenter', () => {
-            if (swiper && swiper.mousewheel) swiper.mousewheel.disable();
-        });
-        iframe.addEventListener('mouseleave', () => {
-            if (swiper && swiper.mousewheel) swiper.mousewheel.enable();
-        });
-    });
 
     // Add a click-overlay for iframes to reliably capture play/pause clicks
     document.querySelectorAll('.video').forEach(container => {
@@ -156,68 +144,90 @@ document.addEventListener("DOMContentLoaded", () => {
         container.appendChild(overlay);
     });
 
-    // Prevent swiper from capturing wheel events on iframes
-    document.addEventListener('wheel', (e) => {
-        if (e.target.closest('.video iframe')) {
-            e.stopPropagation();
+    // =============================================
+    //  4. GSAP PINNED STACKING TIMELINE
+    // =============================================
+
+    const slides = gsap.utils.toArray(".video-slide");
+
+    // Set z-index and initial off-screen positioning of slides
+    slides.forEach((slide, idx) => {
+        slide.style.zIndex = (idx + 1) * 10;
+        if (idx > 0) {
+            gsap.set(slide, { y: "100%" });
         }
-    }, true);
+    });
 
-    // Prevent swiper from capturing touch events on iframes
-    ['touchstart', 'touchmove', 'touchend'].forEach(eventType => {
-        document.addEventListener(eventType, (e) => {
-            if (e.target.closest('.video iframe')) {
-                e.stopPropagation();
+    let currentActiveIndex = 0;
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".page-container",
+            start: "top top",
+            end: () => `+=${Math.max(1, slides.length - 1) * 350}`, // 350px scroll depth per slide (makes it snappy and responsive)
+            scrub: true,
+            pin: slides.length > 1,
+            snap: slides.length > 1 ? {
+                snapTo: 1 / (slides.length - 1),
+                duration: { min: 0.2, max: 0.4 },
+                delay: 0.05,
+                ease: "power1.inOut"
+            } : null,
+            onUpdate: (self) => {
+                const progress = self.progress;
+                const activeIndex = slides.length > 1 
+                    ? Math.max(0, Math.min(Math.round(progress * (slides.length - 1)), slides.length - 1))
+                    : 0;
+
+                if (activeIndex !== currentActiveIndex) {
+                    currentActiveIndex = activeIndex;
+
+                    // Pause all non-active slide media
+                    slides.forEach((slide, idx) => {
+                        if (idx !== activeIndex) {
+                            const video = slide.querySelector("video");
+                            if (video) {
+                                video.pause();
+                                video.currentTime = 0;
+                            }
+                            const iframe = slide.querySelector("iframe");
+                            if (iframe) {
+                                postYoutubeCommand(iframe, "pauseVideo");
+                            }
+                        }
+                    });
+
+                    updateTopArrow(activeIndex);
+                }
             }
-        }, true);
+        }
     });
 
+    // Create the stacking card transitions
+    for (let i = 1; i < slides.length; i++) {
+        tl.to(slides[i], {
+            y: "0%",
+            ease: "none"
+        }, i - 1);
+
+        tl.to(slides[i - 1], {
+            scale: 0.92,
+            opacity: 0.3,
+            ease: "none"
+        }, i - 1);
+    }
+
     // =============================================
-    //  4. DETECT DEVICE
+    //  5. ACTIVE MEDIA & KEYBOARD CONTROLS
     // =============================================
-
-    const isMobile = window.innerWidth <= 768;
-
-    // =============================================
-    //  4. SWIPER INITIALIZATION
-    // =============================================
-
-    swiper = new Swiper(".mySwiper", {
-        direction: "vertical",
-        effect: isMobile ? "slide" : "fade",
-        speed: isMobile ? 400 : 200,
-
-        mousewheel: isMobile ? false : {
-            releaseOnEdges: true,
-            sensitivity: 1,
-            thresholdDelta: 20,
-            enabled: true,
-        },
-
-        keyboard: {
-            enabled: true,
-            onlyInViewport: true,
-        },
-
-        touchReleaseOnEdges: true,
-        simulateTouch: true,
-        preventClicks: false,
-        preventClicksPropagation: false,
-
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-            type: "bullets",
-        },
-    });
 
     const getActiveVideoElement = () => {
-        const activeSlide = document.querySelector('.swiper-slide-active');
+        const activeSlide = slides[currentActiveIndex];
         return activeSlide?.querySelector('video');
     };
 
     const getActiveIframeElement = () => {
-        const activeSlide = document.querySelector('.swiper-slide-active');
+        const activeSlide = slides[currentActiveIndex];
         return activeSlide?.querySelector('iframe');
     };
 
@@ -234,13 +244,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const message = JSON.stringify({ event: 'command', func: command, args: [] });
         try {
             iframe.contentWindow.postMessage(message, targetOrigin);
-            // Debug log (safe) - remove in production
-            console.debug('postYoutubeCommand ->', { iframeSrc: iframe.src, command, targetOrigin });
         } catch (err) {
             try {
-                // Fallback to wildcard origin
                 iframe.contentWindow.postMessage(message, '*');
-                console.debug('postYoutubeCommand fallback ->', { iframeSrc: iframe.src, command });
             } catch (err2) {
                 console.warn('postYoutubeCommand failed', err2);
             }
@@ -301,8 +307,26 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleActiveMediaPlayback();
     });
 
+    const updateTopArrow = (activeIndex) => {
+        if (activeIndex >= slides.length / 2) {
+            gsap.to("#top-arr", { display: "flex", opacity: 1, duration: 0.3 });
+        } else {
+            gsap.to("#top-arr", { opacity: 0, display: "none", duration: 0.3 });
+        }
+    };
+
+    // Initial arrow setup
+    gsap.set("#top-arr", { opacity: 0, display: "none" });
+    document.getElementById("top-arr").addEventListener("click", () => {
+        gsap.to(window, {
+            duration: 0.6,
+            scrollTo: 0,
+            ease: "power2.out",
+        });
+    });
+
     // =============================================
-    //  5. HEADER LOGIC
+    //  7. HEADER LOGIC
     // =============================================
 
     const resetHeader = () => {
@@ -330,89 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // =============================================
-    //  6. SCROLL TRAP (WHEEL + TOUCH)
-    // =============================================
-
-    let allowFooterScroll = false;
-    let lastSlideIndex = 0;
-    const page2 = document.querySelector(".page2");
-
-    const updateScrollLock = () => {
-        if (!isMobile) {
-            // Let the wheel event handler manage desktop
-            document.body.style.overflow = "";
-            document.documentElement.style.overflow = "";
-            return;
-        }
-        if (swiper.isEnd) {
-            document.body.style.overflow = "";
-            document.documentElement.style.overflow = "";
-        } else {
-            document.body.style.overflow = "hidden";
-            document.documentElement.style.overflow = "hidden";
-            // Ensure we stay at the top when locked
-            window.scrollTo(0, 0);
-        }
-    };
-
-    swiper.on("slideChangeTransitionEnd", () => {
-        // Pause and reset all videos in non-active slides
-        const allVideos = document.querySelectorAll('.swiper-slide video');
-        allVideos.forEach(video => {
-            const parentSlide = video.closest('.swiper-slide');
-            if (!parentSlide?.classList.contains('swiper-slide-active')) {
-                video.pause();
-                video.currentTime = 0;
-            }
-        });
-
-        // Pause all iframes in non-active slides
-        const allIframes = document.querySelectorAll('.swiper-slide iframe');
-        allIframes.forEach(iframe => {
-            const parentSlide = iframe.closest('.swiper-slide');
-            if (!parentSlide?.classList.contains('swiper-slide-active')) {
-                postYoutubeCommand(iframe, 'pauseVideo');
-            }
-        });
-
-        const currentIndex = swiper.activeIndex;
-        const isMovingBackward = currentIndex < lastSlideIndex;
-        lastSlideIndex = currentIndex;
-
-        if (!swiper.isEnd) {
-            allowFooterScroll = false;
-            if (isMovingBackward && window.scrollY > 0) {
-                gsap.to(window, { scrollTo: 0, duration: 0.3 });
-            }
-        }
-        updateScrollLock();
-    });
-
-    swiper.on("reachEnd", () => {
-        allowFooterScroll = false;
-        lastSlideIndex = swiper.activeIndex;
-    });
-
-    window.addEventListener("wheel", (e) => {
-        if (isMobile) return;
-        const rect = page2.getBoundingClientRect();
-        if (Math.abs(rect.top) < 15) {
-            if (swiper.isEnd && e.deltaY > 0) {
-                if (allowFooterScroll) return;
-                allowFooterScroll = true;
-                if (e.cancelable) e.preventDefault();
-                return;
-            }
-            if (swiper.isBeginning && e.deltaY < 0) return;
-            if (e.cancelable) e.preventDefault();
-        }
-    }, { passive: false });
-
-    // Initial lock check
-    updateScrollLock();
-
-    // =============================================
-    //  7. SCROLL TRIGGERS
+    //  8. SCROLL TRIGGERS for header color
     // =============================================
 
     ScrollTrigger.create({
@@ -423,32 +365,5 @@ document.addEventListener("DOMContentLoaded", () => {
         onLeave: resetHeader,
         onEnterBack: setHeaderDark,
         onLeaveBack: resetHeader,
-    });
-
-    // ScrollTrigger for top-arr removed. Managed by swiper instead.
-
-    const updateTopArrow = () => {
-        // Show arrow only when past the middle of the slides
-        if (swiper.activeIndex > swiper.slides.length / 2) {
-            gsap.to("#top-arr", { display: "flex", opacity: 1, duration: 0.3 });
-        } else {
-            gsap.to("#top-arr", { opacity: 0, display: "none", duration: 0.3 });
-        }
-    };
-
-    swiper.on("slideChange", updateTopArrow);
-    // Initialize state
-    gsap.set("#top-arr", { opacity: 0, display: "none" });
-
-    document.getElementById("top-arr").addEventListener("click", () => {
-        gsap.to(window, {
-            duration: 0.2,
-            scrollTo: 0,
-            ease: "expo.out",
-            onComplete: () => {
-                swiper.slideTo(0, 0);
-                resetHeader();
-            },
-        });
     });
 });
