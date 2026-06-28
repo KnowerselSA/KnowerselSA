@@ -381,14 +381,7 @@
     /* if you used .menu-btn elsewhere */
 }
 
-/* Hide scroll-to-top on tablet and mobile */
-@media (max-width: 1024px) {
-    .top-arr {
-        display: none !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-    }
-}
+
 
 /* ========================================= */
 /* ==========   IPAD / TABLET VIEW  ========= */
@@ -620,107 +613,7 @@
         max-width: 100% !important;
     }
 
-    /* Research/video swiper pages */
-    .page2 {
-        min-height: 100vh;
-        overflow-x: hidden !important;
-        padding: 0 1rem 2rem !important;
-    }
 
-    .page-container {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 auto !important;
-        padding: 0 !important;
-    }
-
-    .swiper {
-        width: 100% !important;
-        height: auto !important;
-        min-height: 88vh !important;
-        margin-top: 0 !important;
-        padding: 0 !important;
-    }
-
-    .swiper-wrapper {
-        height: auto !important;
-        width: 100% !important;
-    }
-
-    .swiper-slide {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: auto !important;
-        height: auto !important;
-        margin-top: 1.25rem !important;
-        padding-top: 1rem !important;
-        flex-direction: column !important;
-        justify-content: flex-start !important;
-        align-items: center !important;
-        gap: 1.25rem !important;
-        column-gap: 0 !important;
-    }
-
-    .heading-1 {
-        width: min(72vw, 520px) !important;
-        margin: 0 auto 1rem !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        text-align: center !important;
-        font-size: 1.2rem !important;
-    }
-
-    .video {
-        order: 1 !important;
-        /* slightly smaller on mobile/tablet and nudged upward */
-        width: min(78vw, 320px) !important;
-        max-width: 320px !important;
-        height: auto !important;
-        aspect-ratio: 9 / 16 !important;
-        margin: 0 auto !important;
-        transform: translateY(-6%) !important;
-    }
-
-    .video iframe,
-    .video video {
-        width: 100% !important;
-        height: 100% !important;
-    }
-
-    .video-descr {
-        order: 2 !important;
-        width: min(90vw, 360px) !important;
-        max-width: 360px !important;
-        margin: 0.75rem auto 0 !important;
-        padding: 0 !important;
-        text-align: left !important;
-        align-self: center !important;
-    }
-
-    .video-descr h1,
-    .video-descr .video-title {
-        margin: 0 0 0.6rem !important;
-        font-size: 1.45rem !important;
-        line-height: 1.25;
-        text-align: left !important;
-    }
-
-    .video-descr p {
-        margin: 0 !important;
-        font-size: 1rem !important;
-        line-height: 1.45 !important;
-    }
-
-    .swiper-pagination-vertical.swiper-pagination-bullets,
-    .swiper-vertical>.swiper-pagination-bullets {
-        left: 1.25rem !important;
-        right: auto !important;
-    }
-
-    .top-arr {
-        right: 1.5rem !important;
-        bottom: 6rem !important;
-    }
 
     /* About page */
     .page-section {

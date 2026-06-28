@@ -145,77 +145,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // =============================================
-    //  4. GSAP PINNED STACKING TIMELINE
+    //  4. NATURAL SCROLL & PLAYBACK MANAGEMENT
     // =============================================
 
-    const slides = gsap.utils.toArray(".video-slide");
+    const slides = document.querySelectorAll(".video-slide");
+    let currentActiveIndex = -1;
 
-    // Set z-index and initial off-screen positioning of slides
-    slides.forEach((slide, idx) => {
-        slide.style.zIndex = (idx + 1) * 10;
-        if (idx > 0) {
-            gsap.set(slide, { y: "100%" });
-        }
-    });
+    const updateActiveMedia = () => {
+        let minDiff = Infinity;
+        let activeIdx = 0;
+        const viewportCenter = window.innerHeight / 2;
 
-    let currentActiveIndex = 0;
+        slides.forEach((slide, idx) => {
+            const rect = slide.getBoundingClientRect();
+            const slideCenter = rect.top + rect.height / 2;
+            const diff = Math.abs(viewportCenter - slideCenter);
 
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".page-container",
-            start: "top top",
-            end: () => `+=${Math.max(1, slides.length - 1) * 350}`, // 350px scroll depth per slide (makes it snappy and responsive)
-            scrub: true,
-            pin: slides.length > 1,
-            snap: slides.length > 1 ? {
-                snapTo: 1 / (slides.length - 1),
-                duration: { min: 0.2, max: 0.4 },
-                delay: 0.05,
-                ease: "power1.inOut"
-            } : null,
-            onUpdate: (self) => {
-                const progress = self.progress;
-                const activeIndex = slides.length > 1 
-                    ? Math.max(0, Math.min(Math.round(progress * (slides.length - 1)), slides.length - 1))
-                    : 0;
+            if (diff < minDiff) {
+                minDiff = diff;
+                activeIdx = idx;
+            }
+        });
 
-                if (activeIndex !== currentActiveIndex) {
-                    currentActiveIndex = activeIndex;
+        if (activeIdx !== currentActiveIndex) {
+            currentActiveIndex = activeIdx;
 
-                    // Pause all non-active slide media
-                    slides.forEach((slide, idx) => {
-                        if (idx !== activeIndex) {
-                            const video = slide.querySelector("video");
-                            if (video) {
-                                video.pause();
-                                video.currentTime = 0;
-                            }
-                            const iframe = slide.querySelector("iframe");
-                            if (iframe) {
-                                postYoutubeCommand(iframe, "pauseVideo");
-                            }
-                        }
-                    });
+            slides.forEach((slide, idx) => {
+                const video = slide.querySelector("video");
+                const iframe = slide.querySelector("iframe");
 
-                    updateTopArrow(activeIndex);
+                if (idx !== activeIdx) {
+                    // Pause inactive media
+                    if (video) {
+                        video.pause();
+                        video.currentTime = 0;
+                    }
+                    if (iframe) {
+                        postYoutubeCommand(iframe, "pauseVideo");
+                    }
                 }
+            });
+
+            if (typeof updateTopArrow === "function") {
+                updateTopArrow(activeIdx);
             }
         }
-    });
+    };
 
-    // Create the stacking card transitions
-    for (let i = 1; i < slides.length; i++) {
-        tl.to(slides[i], {
-            y: "0%",
-            ease: "none"
-        }, i - 1);
-
-        tl.to(slides[i - 1], {
-            scale: 0.92,
-            opacity: 0.3,
-            ease: "none"
-        }, i - 1);
-    }
+    // Listen to scroll to update media
+    window.addEventListener("scroll", updateActiveMedia);
+    // Also trigger on load
+    setTimeout(updateActiveMedia, 150);
 
     // =============================================
     //  5. ACTIVE MEDIA & KEYBOARD CONTROLS
@@ -366,4 +346,6 @@ document.addEventListener("DOMContentLoaded", () => {
         onEnterBack: setHeaderDark,
         onLeaveBack: resetHeader,
     });
+
+    ScrollTrigger.refresh();
 });

@@ -214,25 +214,21 @@ header {
 
 .page-container {
     width: 100%;
-    margin-top: 4rem;
+    margin-top: 0;
     position: relative;
-    height: 100vh;
-    height: 100svh;
-    overflow: hidden;
 }
 
 .slides-wrapper {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 100%;
     position: relative;
 }
 
 .video-slide {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    height: 100% !important;
+    position: relative !important;
+    height: 100vh !important;
+    height: 100svh !important;
     width: 100% !important;
     margin-top: 0 !important;
     padding-top: 5.5rem !important;
@@ -249,14 +245,21 @@ header {
     width: 100%;
     text-align: center;
     position: absolute;
-    top: 1rem;
+    top: 5rem;
     left: 0;
+    pointer-events: none;
+    z-index: 10;
+    margin-bottom: 2rem;
+}
+
+.heading-1 h1 {
     background: linear-gradient(to right, #ffc000 35%, #ff4750 70%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    font-size: 1.2rem;
-    pointer-events: none;
+    font-size: 2.2rem;
+    display: inline-block;
+    /* margin-bottom: 1rem; */
 }
 
 .swiper-slide {
@@ -273,14 +276,14 @@ header {
 
 .video-descr {
     max-width: 420px;
-    text-align: left;
+    /* text-align: left; */
     color: #f5f5f5;
     margin-top: 0;
 }
 
 .video-descr .video-title {
     font-size: 1.6rem;
-    text-align: left;
+    /* text-align: left; */
     margin-bottom: 0.5rem;
 }
 
@@ -312,9 +315,13 @@ header {
     .video-slide {
         flex-direction: column !important;
         justify-content: flex-start !important;
+        align-items: center !important;
         padding-top: 5rem !important;
         padding-bottom: 1.5rem !important;
-        gap: 0.8rem !important;
+        gap: 1.5rem !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        min-height: 100svh !important;
     }
 
     .video-slide:not(:first-child) {
@@ -324,21 +331,27 @@ header {
     .heading-1 {
         position: relative !important;
         top: 0 !important;
+        margin-top: 4rem !important;
         margin-bottom: 0.2rem !important;
-        font-size: 1.1rem !important;
+        z-index: 10;
+    }
+
+    .heading-1 h1 {
+        font-size: 1.8rem !important;
     }
 
     .video {
         width: auto !important;
-        height: 48vh !important;
-        height: 48svh !important;
+        height: 50vh !important;
+        height: 50svh !important;
         max-height: 480px !important;
         aspect-ratio: 9 / 16 !important;
-        max-width: 85vw !important;
+        max-width: 90vw !important;
         border-width: 1px;
         border-radius: 14px;
         box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
         overflow: hidden;
+        margin: 0 auto !important;
     }
 
     .video iframe,
@@ -348,10 +361,12 @@ header {
     }
 
     .video-descr {
-        width: min(92vw, 340px) !important;
-        max-width: 92vw !important;
+        width: min(90vw, 270px) !important;
+        max-width: 90vw !important;
         margin-top: 0.5rem !important;
-        text-align: left !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        /* text-align: left !important; */
         padding: 0.4rem 0 !important;
         color: #f8f8f8 !important;
     }
@@ -359,7 +374,7 @@ header {
     .video-descr .video-title {
         font-size: 1.2rem !important;
         line-height: 1.25 !important;
-        text-align: center !important;
+        /* text-align: left !important; */
         margin-bottom: 0.3rem !important;
     }
 
@@ -408,9 +423,8 @@ header {
 /* FIX: Video dimensions — choose ONE: either width+height or aspect-ratio, not both */
 /* For portrait/Shorts-style: 9:16, slightly less tall to avoid heading overlap */
 .video {
-    width: 280px;
-    height: 440px;
-    object-fit: cover;
+    height: 500px;
+    aspect-ratio: 9 / 16;
     border: 1px solid rgba(255, 255, 255, 0.82);
     border-radius: 12px;
     overflow: hidden;
@@ -642,59 +656,7 @@ footer {
         width: 100%;
     }
 
-    /* Video swiper on mobile */
-    /* FIX: Do NOT change swiper-wrapper flex-direction — this breaks Swiper internals */
-    .swiper {
-        width: 100%;
-        height: 100vh;
-    }
 
-    .heading-1 {
-        position: relative;
-        top: 0;
-        width: 70%;
-        margin: 0 auto;
-        text-align: center;
-        font-size: 0.8rem;
-    }
-
-    .swiper-slide {
-        /* FIX: stack video and description vertically on mobile */
-        flex-direction: column;
-        justify-content: flex-start;
-        /* gap: 1rem; */
-        gap: 2rem;
-        /* padding: 6rem 1rem 1rem 1rem; */
-    }
-
-    /* Mobile order: video first, then title and description below */
-    .video-descr {
-        order: 2;
-        width: 70%;
-        text-align: center;
-        /* padding: 0; */
-        margin: 0;
-        margin: 0rem auto;
-    }
-
-    .video-descr h1 {
-        font-size: 1.3rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .video-descr p {
-        font-size: 14px;
-        margin: 0;
-    }
-
-    .video {
-        order: 1;
-        width: 70% !important;
-        /* FIX: use aspect-ratio instead of hardcoded height for responsiveness */
-        height: auto;
-        aspect-ratio: 9 / 16;
-        max-height: 60vh;
-    }
 
     /* Pagination bullets */
     .swiper-pagination-vertical.swiper-pagination-bullets,
