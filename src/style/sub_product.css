@@ -20,6 +20,7 @@
 html {
   scroll-snap-type: y proximity;
   scroll-behavior: smooth;
+  min-height: 100vh;
 }
 
 body {
@@ -28,6 +29,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 .nav {
