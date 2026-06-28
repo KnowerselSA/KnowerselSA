@@ -549,7 +549,7 @@ footer {
     }
 
     .background-text {
-        top: 50%;
+        /* top: 50%; */
         width: 100%;
         padding: 0px 10px;
         display: flex;
