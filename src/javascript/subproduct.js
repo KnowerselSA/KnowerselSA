@@ -348,4 +348,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     ScrollTrigger.refresh();
+
+    // =============================================
+    //  9. SCROLL PROGRESS BAR
+    // =============================================
+    const progressBar = document.getElementById("scroll-progress-bar");
+    
+    const updateScrollProgress = () => {
+        if (!progressBar) return;
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (totalHeight <= 0) {
+            progressBar.style.height = "0%";
+            return;
+        }
+        const progress = (window.scrollY / totalHeight) * 100;
+        progressBar.style.height = `${Math.min(100, Math.max(0, progress))}%`;
+    };
+
+    window.addEventListener("scroll", updateScrollProgress);
+    updateScrollProgress();
 });

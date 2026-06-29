@@ -402,6 +402,7 @@ footer {
 
   .img2 {
     width: 90%;
+    transform: scale(1.06) !important;
   }
 
   .projects-section {
@@ -409,8 +410,8 @@ footer {
   }
 
   .projects-heading {
-    margin-bottom: 0rem;
-    font-size: 1.3rem;
+    margin-bottom: 2.2rem !important;
+    font-size: 1.1rem !important;
   }
 
   .project {

@@ -743,3 +743,34 @@ footer {
 .swiper-pagination {
     display: none !important;
 }
+
+/* Scroll Progress Bar */
+.scroll-progress-container {
+    position: fixed;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 50vh;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    z-index: 9999;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.scroll-progress-bar {
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to bottom, #D2005A, #6666FF);
+    border-radius: 10px;
+}
+
+@media (max-width: 1024px) {
+    .scroll-progress-container {
+        display: none !important;
+    }
+}

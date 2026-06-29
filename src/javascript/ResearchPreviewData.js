@@ -54,6 +54,30 @@ const PRODUCTS = {
                 type: "youtube",
                 src: "https://www.youtube.com/embed/VIDEO_ID_2?&mute=0&controls=1",
             },
+            {
+                title: "DORO Video Title 5",
+                description: "Replace this with the description for the second DORO video.",
+                type: "youtube",
+                src: "https://www.youtube.com/embed/VIDEO_ID_2?&mute=0&controls=1",
+            },
+            {
+                title: "DORO Video Title 6",
+                description: "Replace this with the description for the second DORO video.",
+                type: "youtube",
+                src: "https://www.youtube.com/embed/VIDEO_ID_2?&mute=0&controls=1",
+            },
+            {
+                title: "DORO Video Title 7",
+                description: "Replace this with the description for the second DORO video.",
+                type: "youtube",
+                src: "https://www.youtube.com/embed/VIDEO_ID_2?&mute=0&controls=1",
+            },
+            {
+                title: "DORO Video Title 8",
+                description: "Replace this with the description for the second DORO video.",
+                type: "youtube",
+                src: "https://www.youtube.com/embed/VIDEO_ID_2?&mute=0&controls=1",
+            },
         ],
     },
 
