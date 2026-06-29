@@ -363,8 +363,8 @@ header {
     }
 
     .video-descr {
-        width: min(90vw, 270px) !important;
-        max-width: 90vw !important;
+        width: 90vw !important;
+        max-width: 360px !important;
         margin-top: 0.5rem !important;
         margin-left: auto !important;
         margin-right: auto !important;
@@ -374,16 +374,16 @@ header {
     }
 
     .video-descr .video-title {
-        font-size: 1.2rem !important;
+        font-size: 1.4rem !important;
         line-height: 1.25 !important;
         /* text-align: left !important; */
         margin-bottom: 0.3rem !important;
     }
 
     .video-descr p {
-        font-size: 0.9rem !important;
+        font-size: 1.05rem !important;
         color: #d9d9d9 !important;
-        line-height: 1.35 !important;
+        line-height: 1.45 !important;
         text-align: justify !important;
     }
 
@@ -680,7 +680,6 @@ footer {
 
     /* Top arrow on mobile */
     .top-arr {
-        display: flex !important;
         bottom: 10rem;
         right: 1rem;
         width: 38px;

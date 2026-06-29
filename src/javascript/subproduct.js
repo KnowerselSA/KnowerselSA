@@ -288,7 +288,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const updateTopArrow = (activeIndex) => {
-        if (activeIndex >= slides.length / 2) {
+        const threshold = window.innerWidth <= 1024 ? 1 : 2;
+        if (activeIndex >= threshold) {
             gsap.to("#top-arr", { display: "flex", opacity: 1, duration: 0.3 });
         } else {
             gsap.to("#top-arr", { opacity: 0, display: "none", duration: 0.3 });

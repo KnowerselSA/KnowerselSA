@@ -405,6 +405,10 @@ footer {
     transform: scale(1.06) !important;
   }
 
+  .img1 {
+    margin-bottom: 2rem !important;
+  }
+
   .projects-section {
     padding-top: 5rem;
   }

@@ -614,13 +614,17 @@ footer {
   .product-img img {
     max-width: 400px !important;
     height: auto;
-    margin-bottom: 3rem;
+    /* margin-bottom: 3rem; */
+  }
+
+  .img1 {
+    margin-bottom: 2rem !important;
   }
 
   /* PAGE 2 (ADVANTAGES + APPLICATIONS) */
   .product-desc {
     flex-direction: column;
-    margin: 2rem 1rem;
+    margin: 1rem 1rem;
     gap: 3rem;
     align-items: center;
   }
@@ -651,7 +655,7 @@ footer {
   }
 
   .product-desc--stacked {
-    margin: 2rem 1rem;
+    margin: 0rem 1rem;
     gap: 2rem;
   }
 
