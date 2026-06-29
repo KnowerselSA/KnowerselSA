@@ -40,6 +40,7 @@
 
     .project-image {
         height: 220px !important;
+        width: 330px;
     }
 }
 
@@ -112,7 +113,7 @@
         align-items: center !important;
         gap: 1rem;
         text-align: center;
-        padding-top: 3rem !important;
+        padding-top: 1rem !important;
     }
 
     .heading-1,

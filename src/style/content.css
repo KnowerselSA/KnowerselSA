@@ -223,7 +223,7 @@ header {
     flex-direction: column;
     width: 100%;
     position: relative;
-    margin-bottom: 8rem;
+    /* margin-bottom: 8rem; */
 }
 
 .video-slide {
@@ -343,9 +343,9 @@ header {
 
     .video {
         width: auto !important;
-        height: 50vh !important;
-        height: 50svh !important;
-        max-height: 480px !important;
+        height: 60vh !important;
+        height: 60svh !important;
+        max-height: 560px !important;
         aspect-ratio: 9 / 16 !important;
         max-width: 90vw !important;
         border-width: 1px;
@@ -383,7 +383,7 @@ header {
         font-size: 0.9rem !important;
         color: #d9d9d9 !important;
         line-height: 1.35 !important;
-        text-align: center !important;
+        text-align: justify !important;
     }
 
     .footer-container .logo {
