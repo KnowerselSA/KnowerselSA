@@ -363,8 +363,8 @@ header {
     }
 
     .video-descr {
-        width: 90vw !important;
-        max-width: 360px !important;
+        width: 85vw !important;
+        max-width: 320px !important;
         margin-top: 0.5rem !important;
         margin-left: auto !important;
         margin-right: auto !important;
