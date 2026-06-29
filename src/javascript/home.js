@@ -236,3 +236,24 @@ window.addEventListener("scroll", () => {
 
 // Re-run after 300ms to handle dynamic class toggles
 setInterval(setLogoImagesByTheme, 300);
+
+// =============================================
+// MOBILE SCROLL INDICATOR
+// =============================================
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollIndicator = document.getElementById("mobile-scroll-indicator");
+  if (!scrollIndicator) return;
+
+  const handleScrollIndicatorVisibility = () => {
+    if (window.scrollY > 30) {
+      scrollIndicator.style.opacity = "0";
+      scrollIndicator.style.visibility = "hidden";
+    } else {
+      scrollIndicator.style.opacity = "1";
+      scrollIndicator.style.visibility = "visible";
+    }
+  };
+
+  window.addEventListener("scroll", handleScrollIndicatorVisibility);
+  handleScrollIndicatorVisibility();
+});

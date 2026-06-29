@@ -752,4 +752,43 @@
         margin-top: 0 !important;
         margin-bottom: 2rem !important;
     }
+
+    /* Mobile-only scroll indicator */
+    .mobile-scroll-indicator {
+        display: flex !important;
+        position: absolute;
+        bottom: 3.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999 !important;
+        width: 32px;
+        height: 32px;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none; /* Non-clickable */
+        opacity: 1;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .chevron-svg {
+        width: 28px;
+        height: 28px;
+        animation: bounce-chevron 2s infinite;
+    }
+}
+
+@keyframes bounce-chevron {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translateY(8px);
+        opacity: 1;
+    }
+}
+
+/* Hide on desktop by default */
+.mobile-scroll-indicator {
+    display: none;
 }

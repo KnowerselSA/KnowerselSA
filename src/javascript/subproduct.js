@@ -299,11 +299,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initial arrow setup
     gsap.set("#top-arr", { opacity: 0, display: "none" });
     document.getElementById("top-arr").addEventListener("click", () => {
-        gsap.to(window, {
-            duration: 0.6,
-            scrollTo: 0,
-            ease: "power2.out",
-        });
+        if (window.lenis) {
+            window.lenis.scrollTo(0);
+        } else {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
     });
 
     // =============================================
