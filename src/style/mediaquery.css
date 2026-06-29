@@ -728,4 +728,27 @@
         margin: 0 auto !important;
         scale: 1.7;
     }
+
+    /* Reduce upper white space on mobile */
+    .home-para {
+        margin: 0 1rem !important;
+        padding-top: 0 !important;
+        overflow: visible !important;
+    }
+
+    .home-para-container {
+        margin-top: -1.5rem !important;
+        margin-bottom: 1.5rem !important;
+        width: 100% !important;
+    }
+
+    .para-1 {
+        margin-top: 0 !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .para-2 {
+        margin-top: 0 !important;
+        margin-bottom: 2rem !important;
+    }
 }
