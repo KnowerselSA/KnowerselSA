@@ -746,7 +746,7 @@ footer {
 /* Scroll Progress Bar */
 .scroll-progress-container {
     position: fixed;
-    top: 55%;
+    top: 50%;
     left: 200px;
     transform: translateY(-50%);
     width: 6px;
