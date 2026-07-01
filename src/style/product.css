@@ -403,10 +403,11 @@ footer {
   .img2 {
     width: 90%;
     transform: scale(1.06) !important;
+    margin-bottom: 0.5rem !important;
   }
 
   .img1 {
-    margin-bottom: 2rem !important;
+    margin-bottom: 0.5rem !important;
   }
 
   .projects-section {
