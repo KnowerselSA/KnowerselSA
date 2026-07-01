@@ -767,7 +767,7 @@
     .mobile-scroll-indicator {
         display: flex !important;
         position: absolute;
-        bottom: 3.5rem;
+        bottom: 1rem;
         left: 50%;
         transform: translateX(-50%);
         z-index: 9999 !important;
