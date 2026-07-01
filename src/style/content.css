@@ -426,7 +426,7 @@ header {
 /* For portrait/Shorts-style: 9:16, slightly less tall to avoid heading overlap */
 .video {
     margin-top: 6rem;
-    height: min(500px, 58vh);
+    height: min(600px, 68vh);
     aspect-ratio: 9 / 16;
     border: 1px solid rgba(255, 255, 255, 0.82);
     border-radius: 12px;
