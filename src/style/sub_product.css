@@ -190,6 +190,10 @@ header {
   height: 400px;
 }
 
+.img1 {
+  margin-bottom: 1rem;
+}
+
 .product-desc {
   margin: 5rem;
   display: flex;
@@ -614,12 +618,16 @@ footer {
   .product-img img {
     max-width: 400px !important;
     height: auto;
-    margin-bottom: 3.5rem !important;
   }
 
   .img1 {
     margin-bottom: 3.5rem !important;
+    transform: scale(1.05);
   }
+
+  /* .img2 {
+    margin-bottom: 1.5rem !important;
+  } */
 
   /* PAGE 2 (ADVANTAGES + APPLICATIONS) */
   .product-desc {

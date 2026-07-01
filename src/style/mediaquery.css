@@ -40,7 +40,7 @@
 
     .project-image {
         height: 220px !important;
-        width: 330px;
+        width: 308spx;
     }
 }
 
@@ -548,6 +548,16 @@
         height: 320px !important;
     }
 
+    .img1 {
+        width: 90% !important;
+    }
+
+    .img2 {
+        width: 90% !important;
+        transform: scale(1.15) !important;
+        margin-bottom: 2rem !important;
+    }
+
     .project-title {
         font-size: clamp(2.8rem, 6vw, 3.6rem) !important;
     }
@@ -765,7 +775,8 @@
         height: 32px;
         justify-content: center;
         align-items: center;
-        pointer-events: none; /* Non-clickable */
+        pointer-events: none;
+        /* Non-clickable */
         opacity: 1;
         transition: opacity 0.3s ease, visibility 0.3s ease;
     }
@@ -778,10 +789,13 @@
 }
 
 @keyframes bounce-chevron {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
         opacity: 0.4;
     }
+
     50% {
         transform: translateY(8px);
         opacity: 1;
