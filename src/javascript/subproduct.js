@@ -357,16 +357,27 @@ document.addEventListener("DOMContentLoaded", () => {
     //  9. SCROLL PROGRESS BAR
     // =============================================
     const progressBar = document.getElementById("scroll-progress-bar");
+    const progressNumber = document.getElementById("scroll-progress-number");
     
     const updateScrollProgress = () => {
         if (!progressBar) return;
         const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
         if (totalHeight <= 0) {
             progressBar.style.height = "0%";
+            if (progressNumber) {
+                progressNumber.style.top = "0%";
+                progressNumber.textContent = "";
+            }
             return;
         }
         const progress = (window.scrollY / totalHeight) * 100;
         progressBar.style.height = `${Math.min(100, Math.max(0, progress))}%`;
+        
+        if (progressNumber && slides.length > 0) {
+            progressNumber.style.top = `${Math.min(100, Math.max(0, progress))}%`;
+            const currentIdx = currentActiveIndex >= 0 ? currentActiveIndex : 0;
+            progressNumber.textContent = `${currentIdx + 1} / ${slides.length}`;
+        }
     };
 
     window.addEventListener("scroll", updateScrollProgress);

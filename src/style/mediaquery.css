@@ -784,21 +784,6 @@
     .chevron-svg {
         width: 28px;
         height: 28px;
-        animation: bounce-chevron 2s infinite;
-    }
-}
-
-@keyframes bounce-chevron {
-
-    0%,
-    100% {
-        transform: translateY(0);
-        opacity: 0.4;
-    }
-
-    50% {
-        transform: translateY(8px);
-        opacity: 1;
     }
 }
 

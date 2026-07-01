@@ -756,7 +756,7 @@ footer {
     -webkit-backdrop-filter: blur(8px);
     border-radius: 10px;
     z-index: 9999;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -766,6 +766,20 @@ footer {
     height: 0%;
     background: linear-gradient(to bottom, #D2005A, #6666FF);
     border-radius: 10px;
+}
+
+.scroll-progress-number {
+    position: absolute;
+    left: 18px;
+    transform: translateY(-50%);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 10000;
+    transition: top 0.15s ease-out;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
 }
 
 @media (max-width: 1024px) {
